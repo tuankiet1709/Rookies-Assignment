@@ -19,6 +19,9 @@ namespace eCommerce.Backend.Configurations{
             builder.Property(p=>p.Price).IsRequired();
             builder.Property(p=>p.Stock).HasDefaultValue(0);
             builder.Property(p=>p.ViewCount).HasDefaultValue(0);
+            builder.Property(x => x.SeoAlias).IsRequired().HasMaxLength(200);
+            builder.Property(x => x.SeoDescription).HasMaxLength(500);
+            builder.Property(x => x.SeoTitle).HasMaxLength(200);
 
             builder.HasOne(x=>x.Brand).WithMany(x=>x.Products).HasForeignKey(x=>x.BrandId);
             builder.HasOne(x=>x.Brand).WithMany(x=>x.Products).HasForeignKey(x=>x.BrandId);
