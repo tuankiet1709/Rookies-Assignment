@@ -17,5 +17,12 @@ namespace eCommerce.Backend.Models
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
         public bool? IsFeatured { get; set; }
+        public int BrandId {get;set;}
+        public List<ProductCategory> ProductCategories { get; set; }
+        public List<ProductImage> ProductImages { get; set; }
+        public List<Cart> Carts { get; set; }
+        public List<OrderDetail> OrderDetails { get; set; }
+        public List<Rate> ProductRates { get; set; }
+        public Brand Brand {get;set;}
     }
 }

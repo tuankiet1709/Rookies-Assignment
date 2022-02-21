@@ -10,11 +10,14 @@ namespace eCommerce.Backend.Models
         public DateTime ToDate { get; set; }
         public int LimitedOrderPrice { get; set; }
         public bool ApplyAll { get; set; }
-        public int? DiscountPercent { get; set; }
-        public decimal? DiscountAmount { get; set; }
-        public string ProductIds { get; set; }
-        public string ProductCategoryIds { get; set; }
+        public int DiscountPercent { get; set; }
+        public decimal DiscountAmount { get; set; }
+        public int? ProductId { get; set; }
+        public int? ProductCategoryId { get; set; }
         public Status Status { get; set; }
+        public Category Category { get; set; }
+        public Product Product { get; set; }
+
 
     }
 }

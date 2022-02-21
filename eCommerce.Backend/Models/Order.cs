@@ -11,5 +11,6 @@ namespace eCommerce.Backend.Models
         public string ShipEmail { get; set; }
         public string ShipPhoneNumber { get; set; }
         public OrderStatus Status { get; set; }
+        public List<OrderDetail> OrderDetails{get;set;}
     }
 }

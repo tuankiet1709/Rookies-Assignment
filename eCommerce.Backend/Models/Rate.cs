@@ -9,5 +9,6 @@ namespace eCommerce.Backend.Models
         public DateTime RateDate {get;set;}
         public bool IsApproved {get;set;}
         public bool IsDelete {get;set;}
+        public Product Product {get;set;}
     }
 }
