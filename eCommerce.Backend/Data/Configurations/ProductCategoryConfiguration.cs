@@ -11,13 +11,13 @@ namespace eCommerce.Backend.Configurations{
         public void Configure(EntityTypeBuilder<ProductCategory> builder)
         {
             builder.ToTable("ProductCategories");
-            builder.HasKey(pc => new {pc.CategoryId, pc.ProductId});
+            builder.HasKey(pc => new {pc.ProductId, pc.CategoryId});
 
-            builder.HasOne(pc => pc.Products)
+            builder.HasOne(pc => pc.Product)
             .WithMany(p=>p.ProductCategories)
             .HasForeignKey(pc=>pc.ProductId);
 
-            builder.HasOne(pc => pc.Categories)
+            builder.HasOne(pc => pc.Category)
             .WithMany(c=>c.ProductCategories)
             .HasForeignKey(pc=>pc.CategoryId);
         }

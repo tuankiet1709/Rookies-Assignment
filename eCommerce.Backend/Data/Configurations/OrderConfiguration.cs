@@ -12,7 +12,7 @@ namespace eCommerce.Backend.Configurations
             builder.ToTable("Orders");
             builder.HasKey(o => o.Id);
             builder.Property(o => o.Id).UseIdentityColumn();
-            builder.Property(p => p.OrderDate).IsRequired().HasDefaultValueSql("GetDate())");
+            builder.Property(p => p.OrderDate).IsRequired().HasDefaultValueSql("GetDate()");
             builder.Property(o => o.ShipName).IsRequired();
             builder.Property(o => o.ShipAddress).IsRequired();
             builder.Property(o => o.ShipEmail).IsRequired();

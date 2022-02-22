@@ -12,7 +12,7 @@ namespace eCommerce.Backend.Configurations{
             builder.HasKey(c => c.Id);
             builder.Property(c => c.Id).UseIdentityColumn();
             builder.Property(c => c.Name).IsRequired().HasMaxLength(200);
-            builder.Property(p=>p.DateCreated).IsRequired().HasDefaultValueSql("GetDate())");
+            builder.Property(p=>p.DateCreated).IsRequired().HasDefaultValueSql("GetDate()");
             builder.Property(x => x.SeoAlias).IsRequired().HasMaxLength(200);
             builder.Property(x => x.SeoDescription).HasMaxLength(500);
             builder.Property(x => x.SeoTitle).HasMaxLength(200);

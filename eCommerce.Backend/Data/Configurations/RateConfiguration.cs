@@ -14,7 +14,7 @@ namespace eCommerce.Backend.Configurations
             builder.ToTable("Rates");
             builder.HasKey(r => r.RateId);
             builder.Property(r => r.RateId).UseIdentityColumn();
-            builder.Property(r => r.RateDate).IsRequired().HasDefaultValueSql("GetDate())");
+            builder.Property(r => r.RateDate).IsRequired().HasDefaultValueSql("GetDate()");
             builder.Property(r => r.RatePoint).IsRequired();
             builder.Property(r => r.IsApproved).HasDefaultValue(false);
             builder.Property(r => r.IsDelete).HasDefaultValue(false);
