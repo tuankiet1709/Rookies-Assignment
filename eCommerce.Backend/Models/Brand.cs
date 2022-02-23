@@ -8,7 +8,7 @@ namespace eCommerce.Backend.Models
         public string Name { get; set; }
         public string Image { get; set; }
         public DateTime DateCreated { get; set; }
-        public DateTime DateModified { get; set; }
+        public DateTime? DateModified { get; set; }
         public string SeoTitle { get; set; }
         public string SeoDescription { get; set; }
         public string SeoAlias { get; set; }

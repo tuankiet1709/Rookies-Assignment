@@ -1,6 +1,7 @@
 using eCommerce.Backend.Models;
 using Microsoft.EntityFrameworkCore;
 using eCommerce.Backend.Configurations;
+using eCommerce.Backend.Data.SeedData;
 namespace eCommerce.Backend.Data
 {
     public class ApplicationDbContext : DbContext
@@ -39,6 +40,14 @@ namespace eCommerce.Backend.Data
             modelBuilder.ApplyConfiguration(new RateConfiguration());
             modelBuilder.ApplyConfiguration(new SlideConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
+
+            //Seed Data
+            modelBuilder.SeedAppConfigData();
+            modelBuilder.SeedBrandData();
+            modelBuilder.SeedCategoryData();
+            modelBuilder.SeedProductData();
+            modelBuilder.SeedProductCategoryData();
+
         }
     }
 }
