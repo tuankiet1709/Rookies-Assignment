@@ -13,5 +13,8 @@ namespace eCommerce.Backend.Models
         public string Message { get; set; }
         public TransactionStatus Status { get; set; }
         public string Provider { get; set; }
+
+        public Guid UserId{get;set;}
+        public AppUser AppUser{get;set;}
     }
 }

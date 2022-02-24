@@ -18,6 +18,9 @@ namespace eCommerce.Backend.Configurations
             builder.Property(o => o.ShipEmail).HasMaxLength(200).IsRequired();
             builder.Property(o => o.ShipPhoneNumber).IsRequired();
             builder.Property(o => o.Status).HasDefaultValue(OrderStatus.InProgress);
+
+            builder.HasOne(x=>x.AppUser).WithMany(x=>x.Orders).HasForeignKey(x=>x.UserId);
+
         }
     }
 }
