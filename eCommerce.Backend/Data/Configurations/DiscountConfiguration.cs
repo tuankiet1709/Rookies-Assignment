@@ -11,7 +11,7 @@ namespace eCommerce.Backend.Configurations{
             builder.ToTable("Discounts");
             builder.HasKey(d => d.Id);
             builder.Property(d => d.Id).UseIdentityColumn();
-            builder.Property(d => d.Name).IsRequired();
+            builder.Property(d => d.Name).HasMaxLength(200).IsRequired();
             builder.Property(d => d.FromDate).IsRequired();
             builder.Property(d => d.ToDate).IsRequired();
             builder.Property(d => d.LimitedOrderPrice).HasDefaultValue(0);

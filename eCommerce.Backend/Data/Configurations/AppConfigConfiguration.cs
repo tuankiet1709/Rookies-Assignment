@@ -13,7 +13,6 @@ namespace eCommerce.Backend.Configurations{
             builder.ToTable("Appconfigs");
             builder.HasKey(af => af.Key);
             builder.Property(af => af.Value).IsRequired();
-
         }
     }
 }

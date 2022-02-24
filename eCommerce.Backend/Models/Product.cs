@@ -15,7 +15,7 @@ namespace eCommerce.Backend.Models
         public int Stock { get; set; }
         public int ViewCount { get; set; }
         public DateTime DateCreated { get; set; }
-        public DateTime DateModified { get; set; }
+        public DateTime? DateModified { get; set; }
         public bool? IsFeatured { get; set; }
         public int BrandId {get;set;}
         public List<ProductCategory> ProductCategories { get; set; }

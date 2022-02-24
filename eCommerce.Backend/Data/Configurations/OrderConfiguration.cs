@@ -13,9 +13,9 @@ namespace eCommerce.Backend.Configurations
             builder.HasKey(o => o.Id);
             builder.Property(o => o.Id).UseIdentityColumn();
             builder.Property(p => p.OrderDate).IsRequired().HasDefaultValueSql("GetDate()");
-            builder.Property(o => o.ShipName).IsRequired();
-            builder.Property(o => o.ShipAddress).IsRequired();
-            builder.Property(o => o.ShipEmail).IsRequired();
+            builder.Property(o => o.ShipName).HasMaxLength(200).IsRequired();
+            builder.Property(o => o.ShipAddress).HasMaxLength(200).IsRequired();
+            builder.Property(o => o.ShipEmail).HasMaxLength(200).IsRequired();
             builder.Property(o => o.ShipPhoneNumber).IsRequired();
             builder.Property(o => o.Status).HasDefaultValue(OrderStatus.InProgress);
         }
