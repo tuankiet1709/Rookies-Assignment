@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "eCommerce.CustomerSide": {
+    "eCommerce.CustomerSite": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
