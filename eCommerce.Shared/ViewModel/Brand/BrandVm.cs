@@ -1,4 +1,4 @@
-﻿namespace eCommerce.Shared
+﻿namespace eCommerce.Shared.ViewModel.Brand
 {
     public class BrandVm
     {

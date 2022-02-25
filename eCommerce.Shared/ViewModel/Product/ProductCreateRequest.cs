@@ -1,10 +1,8 @@
-using System;
-
-namespace eCommerce.Shared.Dto.Product
+using Microsoft.AspNetCore.Http.Features;
+namespace eCommerce.Shared.ViewModel.Product
 {
-    public class ProductDto
+    public class ProductCreateRequest
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string Details { get; set; }
@@ -15,9 +13,6 @@ namespace eCommerce.Shared.Dto.Product
         public decimal Price { get; set; }
         public decimal DecreasedPrice { get; set; }
         public int Stock { get; set; }
-        public int ViewCount { get; set; }
-        public DateTime DateCreated { get; set; }
-        public DateTime? DateModified { get; set; }
         public bool? IsFeatured { get; set; }
         public int BrandId {get;set;}
     }
