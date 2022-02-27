@@ -22,7 +22,7 @@
             },
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development",
-                "ASPNETCORE_URLS": "http://localhost:5000"
+                "ASPNETCORE_URLS":"https://localhost:44341;http://localhost:19680"
 
             },
             "sourceFileMap": {
@@ -38,9 +38,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/eCommerce.CustomerSide/bin/Debug/net6.0/eCommerce.CustomerSide.dll",
+            "program": "${workspaceFolder}/eCommerce.CustomerSite/bin/Debug/net6.0/eCommerce.CustomerSite.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/eCommerce.CustomerSide",
+            "cwd": "${workspaceFolder}/eCommerce.CustomerSite",
             "stopAtEntry": false,
             // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
             "serverReadyAction": {
@@ -49,7 +49,7 @@
             },
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development",
-                "ASPNETCORE_URLS": "http://localhost:5001"
+                "ASPNETCORE_URLS":"https://localhost:44367;http://localhost:10937"
             },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"
