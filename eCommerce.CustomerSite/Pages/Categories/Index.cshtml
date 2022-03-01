@@ -1,0 +1,73 @@
+﻿@page
+@model eCommerce.CustomerSite.Pages.Categories.IndexModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<h2>Categories</h2>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name: 
+            <input type="text" name="SearchString" value="@Model.Categories.Search" />
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <a asp-page="./Index">Back to full List</a>
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="id"
+                   asp-route-currentFilter="@Model.Categories.Search">
+                    @Html.DisplayNameFor(model => model.Categories.Items.FirstOrDefault().Id)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categories.Items.FirstOrDefault().Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Categories.Items)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> 
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.Categories.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Categories.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.Categories.SortOrder"
+   asp-route-pageIndex="@(Model.Categories.Page - 1)"
+   asp-route-currentFilter="@Model.Categories.Search"
+   class="btn btn-primary @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.Categories.SortOrder"
+   asp-route-pageIndex="@(Model.Categories.Page + 1)"
+   asp-route-currentFilter="@Model.Categories.Search"
+   class="btn btn-primary @nextDisabled">
+    Next
+</a> 

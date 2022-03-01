@@ -62,4 +62,27 @@ public class ProductService : IProductService
 
         return await Task.FromResult(true);
     }
+    public async Task<IEnumerable<ProductDto>> GetProductHome()
+    {
+        var client = _clientFactory.CreateClient(ServiceConstants.BACK_END_NAMED_CLIENT);
+        var response = await client.GetAsync($"{EndpointConstants.GET_PRODUCTS}\\Home");
+        response.EnsureSuccessStatusCode();
+        var product = await response.Content.ReadAsAsync<IEnumerable<ProductDto>>();
+        return product;
+    }
+    public async Task<IEnumerable<ProductDto>> GetFeaturedProducts()
+    {
+        var client = _clientFactory.CreateClient(ServiceConstants.BACK_END_NAMED_CLIENT);
+        var response = await client.GetAsync($"{EndpointConstants.GET_PRODUCTS}\\FeaturedProduct");
+        response.EnsureSuccessStatusCode();
+        var product = await response.Content.ReadAsAsync<IEnumerable<ProductDto>>();
+        return product;
+    }public async Task<IEnumerable<ProductDto>> GetLastestProducts()
+    {
+        var client = _clientFactory.CreateClient(ServiceConstants.BACK_END_NAMED_CLIENT);
+        var response = await client.GetAsync($"{EndpointConstants.GET_PRODUCTS}\\LastestProduct");
+        response.EnsureSuccessStatusCode();
+        var product = await response.Content.ReadAsAsync<IEnumerable<ProductDto>>();
+        return product;
+    }
 }
