@@ -2,41 +2,41 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using eCommerce.CustomerSite.ViewModel;
-using eCommerce.CustomerSite.ViewModel.Product;
+using eCommerce.CustomerSite.ViewModel.Category;
 using eCommerce.Shared.Constants;
-using eCommerce.Shared.Dto.Product;
+using eCommerce.Shared.Dto.Category;
 using eCommerce.Shared.Enum;
 
-namespace eCommerce.CustomerSite.Pages.Products
+namespace eCommerce.CustomerSite.Pages.Categories
 {
     public class IndexModel : PageModel
     {
-        private readonly IProductService _productService;
+        private readonly ICategoryService _categoryservice;
         private readonly IConfiguration _config;
         private readonly IMapper _mapper;
 
         public IndexModel(
-            IProductService productService,
+            ICategoryService CategoryService,
             IConfiguration config,
             IMapper mapper)
         {
-            _productService = productService;
+            _categoryservice = CategoryService;
             _config = config;
             _mapper = mapper;
         }
-        public PagedResponseVM<ProductVm> Products { get; set; }
+        public PagedResponseVM<CategoryVm> Categories { get; set; }
         public int PageIndex { get; set; }        
         public async Task OnGetAsync(string sortOrder,
             string currentFilter, string searchString, int? pageIndex)
         {
-            var productCriteriaDto = new ProductCriteriaDto() {
+            var CategoryCriteriaDto = new CategoryCriteriaDto() {
                 Search = searchString,
                 SortOrder = SortOrderEnum.Accsending,
                 Page = pageIndex ?? 1,
                 Limit = int.Parse(_config[ConfigurationConstants.PAGING_LIMIT])
             };
-            var pagedProducts = await _productService.GetProductAsync(productCriteriaDto);
-            Products = _mapper.Map<PagedResponseVM<ProductVm>>(pagedProducts);
+            var pagedCategories = await _categoryservice.GetCategoryAsync(CategoryCriteriaDto);
+            Categories = _mapper.Map<PagedResponseVM<CategoryVm>>(pagedCategories);
         }
     }
 }

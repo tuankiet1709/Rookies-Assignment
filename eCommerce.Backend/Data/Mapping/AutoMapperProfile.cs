@@ -3,7 +3,7 @@ using eCommerce.Backend.Helpers;
 using eCommerce.Backend.Models;
 using eCommerce.Shared.Dto.Brand;
 using eCommerce.Shared.Dto.Product;
-
+using eCommerce.Shared.Dto.Category;
 
 namespace RookieShop.Backend.Data.Mapping
 {
@@ -18,6 +18,8 @@ namespace RookieShop.Backend.Data.Mapping
                                                         .GetFileUrl(src.Image)
                                             ));  
             CreateMap<Product, ProductDto>();  
+            CreateMap<Category, CategoryDto>();  
+
         }  
     }
 }

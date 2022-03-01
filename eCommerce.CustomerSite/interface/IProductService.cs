@@ -9,4 +9,9 @@ public interface IProductService
     Task<PagedResponseDto<ProductDto>> GetProductAsync(ProductCriteriaDto productCriteriaDto);
     Task<ProductDto> GetProductByIdAsync(int id);
     Task<bool> UpdateProduct(ProductDto product);
+    Task<IEnumerable<ProductDto>> GetProductHome();    
+    Task<IEnumerable<ProductDto>> GetLastestProducts();
+    Task<IEnumerable<ProductDto>> GetFeaturedProducts();
+
+
 }

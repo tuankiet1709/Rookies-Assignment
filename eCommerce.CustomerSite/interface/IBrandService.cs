@@ -7,6 +7,8 @@ using eCommerce.Shared.Dto.Brand;
 public interface IBrandService
 {
     Task<PagedResponseDto<BrandDto>> GetBrandAsync(BrandCriteriaDto brandCriteriaDto);
+    Task<IEnumerable<BrandDto>> GetBrandHome();
     Task<BrandDto> GetBrandByIdAsync(int id);
     Task<bool> UpdateBrand(BrandDto brand);
+
 }

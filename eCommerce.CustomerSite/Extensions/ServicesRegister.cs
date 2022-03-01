@@ -14,8 +14,10 @@ namespace eCommerce.CustomerSite.Extensions.ServiceCollection
     {
         public static void AddServices(this IServiceCollection services)
         {
-            // services.AddTransient<IBrandService, BrandService>();
+            services.AddTransient<IBrandService, BrandService>();
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<ICategoryService, CategoryService>();
+
 
         }
     }

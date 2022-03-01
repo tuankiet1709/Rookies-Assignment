@@ -62,4 +62,12 @@ public class BrandService : IBrandService
 
         return await Task.FromResult(true);
     }
+    public async Task<IEnumerable<BrandDto>> GetBrandHome()
+    {
+        var client = _clientFactory.CreateClient(ServiceConstants.BACK_END_NAMED_CLIENT);
+        var response = await client.GetAsync($"{EndpointConstants.GET_BRANDS}\\Home");
+        response.EnsureSuccessStatusCode();
+        var brands = await response.Content.ReadAsAsync<IEnumerable<BrandDto>>();
+        return brands;
+    }
 }
