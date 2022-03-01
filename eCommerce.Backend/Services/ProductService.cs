@@ -21,56 +21,6 @@ namespace eCommerce.Backend.Services
             _context = context;
             _mapper = mapper;
         }
-
-        public async Task<PagedResponseDto<ProductVm>> GetProductAsync(GetProductAsync productAsync)
-        {
-            //query
-            var query = from p in _context.Products
-                        join pc in _context.ProductCategories on p.Id equals pc.ProductId into ppc
-                        from pc in ppc.DefaultIfEmpty()
-                        join c in _context.Categories on pc.CategoryId equals c.Id into pcc
-                        from c in pcc.DefaultIfEmpty()
-                        join pi in _context.ProductImages on p.Id equals pi.ProductId into ppi
-                        from pi in ppi.DefaultIfEmpty()
-                        // where pi.IsDefault == true
-                        select new { p, pc };
-            //Filter
-            if (!string.IsNullOrEmpty(productAsync.Keyword))
-                query = query.Where(x => x.p.Name.Contains(productAsync.Keyword));
-
-            if (productAsync.CategoryId != null && productAsync.CategoryId != 0)
-            {
-                query = query.Where(p => p.pc.CategoryId == productAsync.CategoryId);
-            }
-            
-
-            int totalRow = await query.CountAsync();
-
-            var data = await query.Skip((productAsync.Page - 1) * productAsync.Limit)
-            .Take(productAsync.Limit)
-            .Select(x => new ProductVm()
-            {
-                Id = x.p.Id,
-                Name = x.p.Name,
-                DateCreated = x.p.DateCreated,
-                Description = x.p.Description,
-                Details = x.p.Details,
-                OriginalPrice = x.p.OriginalPrice,
-                Price = x.p.Price,
-                SeoAlias = x.p.SeoAlias,
-                SeoDescription = x.p.SeoDescription,
-                SeoTitle = x.p.SeoTitle,
-                Stock = x.p.Stock,
-                ViewCount = x.p.ViewCount,
-            }).ToListAsync();
-            //4. Select and projection
-            var pagedResponseDto = new PagedResponseDto<ProductVm>()
-            {
-                TotalPages = totalRow,
-                Items = data
-            };
-            return pagedResponseDto;
-        }
         public async Task<int> Create(ProductCreateRequest request)
         {
             var product = new Product()
@@ -134,8 +84,8 @@ namespace eCommerce.Backend.Services
             product.ViewCount++;
             await _context.SaveChangesAsync();
         }
-        public async Task<ActionResult<PagedResponseDto<ProductDto>>> GetProducts(
-            [FromQuery]ProductCriteriaDto productCriteriaDto)
+        public async Task<PagedResponseDto<ProductDto>> GetProducts(
+            ProductCriteriaDto productCriteriaDto)
         {
             //query
             var query = from p in _context.Products

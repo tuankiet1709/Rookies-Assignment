@@ -14,6 +14,6 @@ public interface IProductService
     Task<bool> UpdatePrice (int productId,decimal price);
     Task<bool> UpdateStock (int productId, int quantity);
     Task IncreaseViewCount(int productId);
-    Task<ActionResult<PagedResponseDto<ProductDto>>> GetProducts(ProductCriteriaDto productCriteriaDto1);
+    Task<PagedResponseDto<ProductDto>> GetProducts(ProductCriteriaDto productCriteriaDto);
 
 }
