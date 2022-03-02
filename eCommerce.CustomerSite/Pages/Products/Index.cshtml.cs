@@ -1,7 +1,7 @@
-
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using eCommerce.CustomerSite.ViewModel;
+using eCommerce.CustomerSite.Models;
 using eCommerce.CustomerSite.ViewModel.Product;
 using eCommerce.Shared.Constants;
 using eCommerce.Shared.Dto.Product;
@@ -9,7 +9,7 @@ using eCommerce.Shared.Enum;
 
 namespace eCommerce.CustomerSite.Pages.Products
 {
-    public class IndexModel : PageModel
+    public class IndexModel : MainLayoutViewModel
     {
         private readonly IProductService _productService;
         private readonly IConfiguration _config;

@@ -1,7 +1,6 @@
 ﻿using eCommerce.Backend.Data;
 using Microsoft.EntityFrameworkCore;
 using eCommerce.Shared.Constants;
-using eCommerce.Backend.Services;
 using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +8,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(option=>
     option.UseSqlServer(builder.Configuration.GetConnectionString(SystemConstants.MainConnectionString)));
 
-builder.Services.AddTransient<IProductService,ProductService>();
 // Add services to the container.
 
 builder.Services.AddControllers();

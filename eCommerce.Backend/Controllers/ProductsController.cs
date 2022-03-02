@@ -15,25 +15,14 @@ namespace eCommerce.Backend.Controllers;
 [Route("api/[controller]")]
 public class ProductsController : ControllerBase
 {
-    private readonly IProductService _ProductService;
     private readonly ApplicationDbContext _context;
     private readonly IMapper _mapper;
-    public ProductsController(IProductService productService,
+    public ProductsController(
             ApplicationDbContext context,
             IMapper mapper)
     {
-        _ProductService = productService;
         _context = context;
         _mapper = mapper;
-    }
-    [HttpGet("paging")]
-    [AllowAnonymous]
-    public async Task<IActionResult> GetProducts1([FromQuery] ProductCriteriaDto request)
-    {
-        var product = await _ProductService.GetProducts(request);
-        if (product == null)
-            return BadRequest("Cannot find product");
-        return Ok(product);
     }
     [HttpGet()]
     [AllowAnonymous]
@@ -74,26 +63,18 @@ public class ProductsController : ControllerBase
     [HttpGet("{id}")]
         // [Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
     [AllowAnonymous]
-    public async Task<ActionResult<ProductVm>> GetProduct(int id)
+    public async Task<ActionResult<ProductDto>> GetProduct(int id)
     {
-        var product = await _context
-                            .Products
-                            .Where(x=>x.Id == id)
-                            .FirstOrDefaultAsync();
+        var product = await _context.Products.Where(x=>x.Id == id).FirstOrDefaultAsync();
 
         if (product == null)
         {
             return NotFound();
         }
 
-        var productVm = new ProductVm
-        {
-            Id = product.Id,
-            Name = product.Name,
-            // ImagePath = _fileStorageService.GetFileUrl(brand.ImageName)
-        };
+        var productDto = _mapper.Map<ProductDto>(product);
 
-        return productVm;
+        return productDto;
     }
     [HttpGet("Home")]
     [AllowAnonymous]
