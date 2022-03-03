@@ -27,10 +27,11 @@ namespace eCommerce.CustomerSite.Pages.Products
         public PagedResponseVM<ProductVm> Products { get; set; }
         public int PageIndex { get; set; }        
         public async Task OnGetAsync(string sortOrder,
-            string currentFilter, string searchString, int? pageIndex)
+            string currentFilter, string searchString, int? pageIndex,int? categoryId)
         {
             var productCriteriaDto = new ProductCriteriaDto() {
                 Search = searchString,
+                CategoryId= categoryId,
                 SortOrder = SortOrderEnum.Accsending,
                 Page = pageIndex ?? 1,
                 Limit = int.Parse(_config[ConfigurationConstants.PAGING_LIMIT])

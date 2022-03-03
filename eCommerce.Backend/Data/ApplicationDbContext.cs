@@ -21,7 +21,7 @@ namespace eCommerce.Backend.Data
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
-        public DbSet<Rate> Rates { get; set; }
+        public DbSet<Rating> Ratings { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
 
@@ -48,7 +48,7 @@ namespace eCommerce.Backend.Data
             modelBuilder.ApplyConfiguration(new ProductCategoryConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new ProductImageConfiguration());
-            modelBuilder.ApplyConfiguration(new RateConfiguration());
+            modelBuilder.ApplyConfiguration(new RatingConfiguration());
             modelBuilder.ApplyConfiguration(new SlideConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
 

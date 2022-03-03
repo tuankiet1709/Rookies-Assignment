@@ -24,7 +24,7 @@ namespace eCommerce.Backend.Data.SeedData
                     Stock=10,
                     ViewCount=0,
                     DateCreated=DateTime.Now,
-                    IsFeatured=false,
+                    IsFeatured=true,
                     BrandId=7
                 },new Product
                 {
@@ -41,7 +41,7 @@ namespace eCommerce.Backend.Data.SeedData
                     Stock=10,
                     ViewCount=0,
                     DateCreated=DateTime.Now,
-                    IsFeatured=false,
+                    IsFeatured=true,
                     BrandId=6
                 },new Product
                 {
@@ -58,7 +58,7 @@ namespace eCommerce.Backend.Data.SeedData
                     Stock=10,
                     ViewCount=0,
                     DateCreated=DateTime.Now,
-                    IsFeatured=false,
+                    IsFeatured=true,
                     BrandId=1
                 },new Product
                 {
@@ -75,7 +75,7 @@ namespace eCommerce.Backend.Data.SeedData
                     Stock=10,
                     ViewCount=0,
                     DateCreated=DateTime.Now,
-                    IsFeatured=false,
+                    IsFeatured=true,
                     BrandId=2
                 },new Product
                 {
@@ -92,7 +92,7 @@ namespace eCommerce.Backend.Data.SeedData
                     Stock=10,
                     ViewCount=0,
                     DateCreated=DateTime.Now,
-                    IsFeatured=false,
+                    IsFeatured=true,
                     BrandId=15
                 },new Product
                 {
@@ -109,7 +109,7 @@ namespace eCommerce.Backend.Data.SeedData
                     Stock=10,
                     ViewCount=0,
                     DateCreated=DateTime.Now,
-                    IsFeatured=false,
+                    IsFeatured=true,
                     BrandId=15
                 },new Product
                 {
@@ -126,7 +126,7 @@ namespace eCommerce.Backend.Data.SeedData
                     Stock=10,
                     ViewCount=0,
                     DateCreated=DateTime.Now,
-                    IsFeatured=false,
+                    IsFeatured=true,
                     BrandId=7
                 },new Product
                 {
@@ -143,7 +143,7 @@ namespace eCommerce.Backend.Data.SeedData
                     Stock=10,
                     ViewCount=0,
                     DateCreated=DateTime.Now,
-                    IsFeatured=false,
+                    IsFeatured=true,
                     BrandId=8
                 },new Product
                 {
@@ -160,7 +160,7 @@ namespace eCommerce.Backend.Data.SeedData
                     Stock=10,
                     ViewCount=0,
                     DateCreated=DateTime.Now,
-                    IsFeatured=false,
+                    IsFeatured=true,
                     BrandId=9
                 }
             );

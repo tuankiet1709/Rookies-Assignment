@@ -1,4 +1,5 @@
 ﻿using eCommerce.CustomerSite.Extensions.ServiceCollection;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 

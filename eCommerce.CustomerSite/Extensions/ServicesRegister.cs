@@ -18,7 +18,6 @@ namespace eCommerce.CustomerSite.Extensions.ServiceCollection
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<ICategoryService, CategoryService>();
 
-
         }
     }
 }

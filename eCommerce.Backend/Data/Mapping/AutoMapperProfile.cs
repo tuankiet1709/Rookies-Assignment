@@ -4,6 +4,8 @@ using eCommerce.Backend.Models;
 using eCommerce.Shared.Dto.Brand;
 using eCommerce.Shared.Dto.Product;
 using eCommerce.Shared.Dto.Category;
+using eCommerce.Shared.Dto.Rating;
+using eCommerce.Shared.ViewModel.Rating;
 
 namespace RookieShop.Backend.Data.Mapping
 {
@@ -19,7 +21,8 @@ namespace RookieShop.Backend.Data.Mapping
                                             ));  
             CreateMap<Product, ProductDto>();  
             CreateMap<Category, CategoryDto>();  
-
+            CreateMap<Rating, RatingDto>();  
+            CreateMap<RatingCreateRequest,Rating>();
         }  
     }
 }

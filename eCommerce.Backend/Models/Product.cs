@@ -22,7 +22,7 @@ namespace eCommerce.Backend.Models
         public List<ProductImage> ProductImages { get; set; }
         public List<Cart> Carts { get; set; }
         public List<OrderDetail> OrderDetails { get; set; }
-        public List<Rate> ProductRates { get; set; }
+        public List<Rating> ProductRatings { get; set; }
         public Brand Brand {get;set;}
     }
 }

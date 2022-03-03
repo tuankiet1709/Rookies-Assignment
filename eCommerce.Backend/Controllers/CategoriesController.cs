@@ -57,13 +57,10 @@ public class CategoriesController : ControllerBase
     public async Task<IEnumerable<CategoryDto>> GetCategoriesHome([FromQuery] CategoryCriteriaDto categoryCriteriaDto)
     {
         //query
-        var query=_context.Categories.AsQueryable();
+        var query= await _context.Categories.ToListAsync();
 
-        var pagedCategories = await query
-                            .AsNoTracking()
-                            .PaginateAsync(categoryCriteriaDto);
 
-        var CategoryDto = _mapper.Map<IEnumerable<CategoryDto>>(pagedCategories.Items);
+        var CategoryDto = _mapper.Map<IEnumerable<CategoryDto>>(query);
         return CategoryDto;
     }
     [HttpGet("{id}")]
