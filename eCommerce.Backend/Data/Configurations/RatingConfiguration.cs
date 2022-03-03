@@ -7,19 +7,21 @@ using System.Text;
 
 namespace eCommerce.Backend.Configurations
 {
-    public class RateConfiguration : IEntityTypeConfiguration<Rate>
+    public class RatingConfiguration : IEntityTypeConfiguration<Rating>
     {
-        public void Configure(EntityTypeBuilder<Rate> builder)
+        public void Configure(EntityTypeBuilder<Rating> builder)
         {
-            builder.ToTable("Rates");
+            builder.ToTable("Ratings");
             builder.HasKey(r => r.RateId);
             builder.Property(r => r.RateId).UseIdentityColumn();
             builder.Property(r => r.RateDate).IsRequired().HasDefaultValueSql("GetDate()");
             builder.Property(r => r.RatePoint).IsRequired();
+            builder.Property(r => r.ReviewerName).IsRequired();
+            builder.Property(r => r.Comment).HasMaxLength(200);
             builder.Property(r => r.IsApproved).HasDefaultValue(false);
             builder.Property(r => r.IsDelete).HasDefaultValue(false);
 
-            builder.HasOne(x=>x.Product).WithMany(x=>x.ProductRates).HasForeignKey(x=>x.ProductId);
+            builder.HasOne(x=>x.Product).WithMany(x=>x.ProductRatings).HasForeignKey(x=>x.ProductId);
 
         }
     }

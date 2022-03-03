@@ -21,7 +21,7 @@
 								{
 									if(item.ParentId==null)
 									{
-										<li class="right-menu"><a href="/Products?CategoryId=@item.Id" >@item.Name</a>
+										<li class="right-menu"><a asp-area="" asp-page="/Products/Index" asp-route-CategoryId="@item.Id">@item.Name</a>
 											<ul class="cat-mega-menu">
 												<li class="right-menu cat-mega-title">
 													<ul>
@@ -29,7 +29,7 @@
 														{
 															if(item.Id==item2.ParentId)
 															{
-																<li><a asp-area="Pages" asp-page="/Products" asp-route-categoryid="@item.Id">@item2.Name</a></li>
+																<li><a asp-area="" asp-page="/Products/Index" asp-route-CategoryId="@item.Id">@item2.Name</a></li>
 															}
 														}
 													</ul>

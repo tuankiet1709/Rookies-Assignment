@@ -3,7 +3,8 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using eCommerce.CustomerSite.Models;
 using eCommerce.CustomerSite.ViewModel.Product;
-using eCommerce.Shared.Dto.Product;
+using eCommerce.Shared.Dto.Rating;
+using eCommerce.CustomerSite.ViewModel.Rating;
 
 namespace eCommerce.CustomerSite.Pages.Products
 {
@@ -25,7 +26,6 @@ namespace eCommerce.CustomerSite.Pages.Products
 
         [BindProperty]
         public ProductVm Product  { get; set; }
-
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)

@@ -78,7 +78,7 @@ public class ProductsController : ControllerBase
     }
     [HttpGet("Home")]
     [AllowAnonymous]
-    public async Task<List<ProductDto>> GetProductsHome([FromQuery] ProductVm ProductVm)
+    public async Task<ActionResult<List<ProductDto>>> GetProductsHome([FromQuery] ProductVm ProductVm)
     {
         //query
         var query= await _context.Products.ToListAsync();
