@@ -2243,6 +2243,46 @@ textarea:focus {
   color: #e3e3e3;
 }
 
+#ratingstar {
+    border: none;
+}
+
+    #ratingstar > input {
+        display: none;
+    }
+    /*ẩn input radio - vì chúng ta đã có label là GUI*/
+    #ratingstar > label:before {
+        margin: 5px;
+        font-size: 1.25em;
+        font-family: FontAwesome;
+        display: inline-block;
+        content: "\f005";
+    }
+    /*1 ngôi sao*/
+    #ratingstar > .half:before {
+        content: "\f089";
+        position: absolute;
+    }
+    /*0.5 ngôi sao*/
+    #ratingstar > label {
+        color: #ddd;
+        float: right;
+    }
+    /*float:right để lật ngược các ngôi sao lại đúng theo thứ tự trong thực tế*/
+    /*thêm màu cho sao đã chọn và các ngôi sao phía trước*/
+    #ratingstar > input:checked ~ label,
+    #ratingstar:not(:checked) > label:hover,
+    #ratingstar:not(:checked) > label:hover ~ label {
+        color: #FFD700;
+    }
+        /* Hover vào các sao phía trước ngôi sao đã chọn*/
+        #ratingstar > input:checked + label:hover,
+        #ratingstar > input:checked ~ label:hover,
+        #ratingstar > label:hover ~ input:checked ~ label,
+        #ratingstar > input:checked ~ label:hover ~ label {
+            color: #FFED85;
+        }
+
 .product_desc {
   margin: 15px 0 0;
 }

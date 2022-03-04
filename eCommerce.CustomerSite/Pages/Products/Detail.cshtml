@@ -73,11 +73,14 @@
                         <span class="product-details-ref">Reference: @Html.DisplayFor(x=>x.Product.Id)</span>
                         <div class="rating-box pt-20">
                             <ul class="rating rating-with-review-item">
-                                <li><i class="fa fa-star-o"></i></li>
-                                <li><i class="fa fa-star-o"></i></li>
-                                <li><i class="fa fa-star-o"></i></li>
-                                <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                @for (int i = 0; i < @Model.point; i++)
+                                {
+                                    <li><i class="fa fa-star" aria-hidden="true" style="color:#FFD700"></i></li>
+                                }
+                                @for (int i = 5 - @Model.point; i > 0; i--)
+                                {
+                                    <li><i class="fa fa-star-o" aria-hidden="true" style="color:#FFD700"></i></li>
+                                }
                                 <li class="review-item"><a href="#">Read Review</a></li>
                                 <li class="review-item"><a href="#">Write Review</a></li>
                             </ul>
@@ -183,29 +186,26 @@
                         <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
                             <div class="product-reviews">
                                 <div class="product-details-comment-block">
-                                    <div class="comment-review">
-                                        <span>Grade</span>
-                                        <ul class="rating">
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                        </ul>
-                                    </div>
-                                    <div class="comment-author-infos pt-25">
-                                        <span>HTML 5</span>
-                                        <em>01-12-18</em>
-                                    </div>
-                                    <div class="comment-details">
-                                        <h4 class="title-block">Demo</h4>
-                                        <p>Plaza</p>
-                                    </div>
                                     <div>
                                         <button type="button" class="btn btn-primary review-links review-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                             Write Your Review!
                                         </button>                                    
                                     </div>
+                                    @foreach (var item in @Model.ProductRatings)
+                                    {
+                                        <div class="comment-author-infos pt-25">
+                                        <span>@item.ReviewerName <span><em>@item.RateDate</em></span></span>
+                                        @for (int i = 0; i < item.RatePoint; i++)
+                                        {
+                                            <i class="fa fa-star" aria-hidden="true" style="color:#FFD700"></i>
+                                        }
+                                        @for (int i = 5 - item.RatePoint; i > 0; i--)
+                                        {
+                                            <i class="fa fa-star-o" aria-hidden="true" style="color:#FFD700"></i>
+                                        }
+                                        <p>@item.Comment</p>
+                                        </div>
+                                    }
                                     
                                     
                                     <!-- Modal -->
@@ -234,26 +234,34 @@
                                                                         <h3 class="feedback-title">Our Feedback</h3>
                                                                         <form method="post" enctype="application/x-www-form-urlencoded">
                                                                             <p class="your-opinion">
-                                                                                <label for="RatePoint">Your Rating</label>
-                                                                                <span>
-                                                                                    <select for="RatePoint" name="RatePoint" class="star-rating">
-                                                                                        <option value="1">1</option>
-                                                                                        <option value="2">2</option>
-                                                                                        <option value="3">3</option>
-                                                                                        <option value="4">4</option>
-                                                                                        <option value="5">5</option>
-                                                                                    </select>
+                                                                                <label asp-for="ProductRating.RatePoint">Your Rating</label>
+                                                                                <span id="ratingstar">
+                                                                                    <input asp-for="ProductRating.RatePoint" type="radio" id="star5" name="ProductRating.RatePoint" value="5" />
+                                                                                    <label class="full" for="star5" title="Awesome - 5 stars"></label>
+
+                                                                                    <input asp-for="ProductRating.RatePoint" type="radio" id="star4" name="ProductRating.RatePoint" value="4" />
+                                                                                    <label class="full" for="star4" title="Pretty good - 4 stars"></label>
+
+                                                                                    <input asp-for="ProductRating.RatePoint" type="radio" id="star3" name="ProductRating.RatePoint" value="3" />
+                                                                                    <label class="full" for="star3" title="Meh - 3 stars"></label>
+
+                                                                                    <input asp-for="ProductRating.RatePoint" type="radio" id="star2" name="ProductRating.RatePoint" value="2" />
+                                                                                    <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+
+                                                                                    <input asp-for="ProductRating.RatePoint" type="radio" id="star1" name="ProductRating.RatePoint" value="1" />
+                                                                                    <label class="full" for="star1" title="Sucks big time - 1 star"></label>
                                                                                 </span>
                                                                             </p>
+                                                                                
                                                                             <p class="feedback-form">
-                                                                                <label for="ProductRating.Comment">Your Review</label>
-                                                                                <textarea id="feedback" for="ProductRating.Comment" name="Comment" cols="45" rows="8" aria-required="true"></textarea>
+                                                                                <label asp-for="ProductRating.Comment">Your Review</label>
+                                                                                <textarea id="feedback" asp-for="ProductRating.Comment" name="ProductRating.Comment" cols="45" rows="8" aria-required="true"></textarea>
                                                                             </p>
-                                                                            <input type="hidden" for="ProductRating.ProductId" name="ProductRating.ProductId" value="@Model.Product.Id"/>
+                                                                            <input type="hidden" asp-for="ProductRating.ProductId" name="ProductRating.ProductId" value="@Model.Product.Id"/>
                                                                             <div class="feedback-input">
                                                                                 <p class="feedback-form-author">
-                                                                                    <label for="ProductRating.ReviewerName">Name<span class="required">*</span></label>
-                                                                                    <input for="ProductRating.ReviewerName" id="author" value="" size="30" aria-required="true" type="text">
+                                                                                    <label asp-for="ProductRating.ReviewerName">Name<span class="required">*</span></label>
+                                                                                    <input asp-for="ProductRating.ReviewerName" id="author" value="" size="30" aria-required="true" type="text">
                                                                                 </p>
                                                                                 <div class="feedback-btn pb-15">
                                                                                     <button type="button" class="btn btn-secondary close" data-bs-dismiss="modal">Close</button>
