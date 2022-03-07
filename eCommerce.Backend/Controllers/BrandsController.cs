@@ -8,6 +8,7 @@ using eCommerce.Backend.Data;
 using eCommerce.Backend.Extension;
 using Microsoft.AspNetCore.Authorization;
 using eCommerce.Shared.ViewModel.Brand;
+using eCommerce.Backend.Services;
 
 namespace eCommerce.Backend.Controllers;
 
@@ -17,11 +18,14 @@ public class BrandsController : ControllerBase
 {
     private readonly ApplicationDbContext _context;
     private readonly IMapper _mapper;
+    private readonly IFileStorageService _fileStorageService;
     public BrandsController(ApplicationDbContext context,
+            IFileStorageService fileStorageService,
             IMapper mapper)
     {
         _context = context;
         _mapper = mapper;
+        _fileStorageService=fileStorageService;
     }
     [HttpGet()]
     [AllowAnonymous]

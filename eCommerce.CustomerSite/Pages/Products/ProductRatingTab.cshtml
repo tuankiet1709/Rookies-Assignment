@@ -1,0 +1,42 @@
+@model eCommerce.CustomerSite.Pages.Products.DetailModel;
+@using eCommerce.CustomerSite.ViewModel.Product;
+
+<div class="product-reviews">
+    <div class="product-details-comment-block">
+        <div>
+            <button type="button" class="btn btn-primary review-links review-btn" data-toggle="ajax-modal" 
+                                                                                data-id="@Model.Product.Id" 
+                                                                                data-name="@Model.Product.Name" 
+                                                                                data-des="@Model.Product.Description" 
+                                                                                data-url="@Url.Page("Detail", "ProductRatingModal")">
+                Write Your Review!
+            </button>                                    
+        </div>
+        @foreach (var item in @Model.ProductRatings)
+        {
+            <div class="comment-author-infos pt-25">
+                <span>@item.ReviewerName <span><em>@item.RateDate</em></span></span>
+                    @for (int i = 0; i < item.RatePoint; i++)
+                    {
+                        <i class="fa fa-star" aria-hidden="true" style="color:#FFD700"></i>
+                    }
+                    @for (int i = 5 - item.RatePoint; i > 0; i--)
+                    {
+                        <i class="fa fa-star-o" aria-hidden="true" style="color:#FFD700"></i>
+                    }
+                <p>@item.Comment</p>
+            </div>
+        }
+        
+        <div id="modal-placeholder"></div>
+
+        
+        <!-- Modal Rating-->
+        
+
+        <!-- Begin Quick View | Modal Area -->
+        
+
+        <!-- Quick View | Modal Area End Here -->
+    </div>
+</div>   

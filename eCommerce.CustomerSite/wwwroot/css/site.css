@@ -333,7 +333,7 @@ button.li-btn:hover {
 }
 a.links, 
 a.links-2, 
-a.review-links {
+button.review-links {
 	background: #fed700 none repeat scroll 0 0;
 	color: #242424;
 	display: inline-block;
@@ -353,14 +353,14 @@ a.links-2:hover {
 	background: #333333 none repeat scroll 0 0;
 	color: #fff;
 }
-a.review-links {
+button.review-links {
 	background: #242424;
 	color: #ffffff;
 	width: 205px;
 	height: 40px;
-	line-height: 40px;
+	line-height: 0px;
 }
-a.review-links:hover {
+button.review-links:hover {
 	background: #fed700;
 }
 /*----------------------------------------*/
@@ -1044,7 +1044,7 @@ textarea:focus {
 .modal-wrapper .close {
   color: #333333;
   font-size: 30px;
-  font-weight: 400;
+  /* font-weight: 400; */
   opacity: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   position: absolute;
@@ -1768,9 +1768,9 @@ textarea:focus {
 .hb-menu nav > ul > li:hover > a::after {
 		color: #ffffff;
 }
-.hb-menu nav > ul > li > a::after {
+.hb-menu nav > ul > li:nth-child(3) > a::after {
 	content: "\f107";
-	position: absolute;
+	/* position: absolute; */
 	top: 8px;
 	right: 15px;
 	font-family: fontawesome;
@@ -1778,7 +1778,7 @@ textarea:focus {
 	transition: all 0.3s ease-in-out;
 	color: #242424;
 }
-.hb-menu nav > ul > li:nth-child(n+5) > a::after {
+.hb-menu nav > ul > li > a::after {
 	content: none;
 }
 .hb-menu nav > ul > li:hover  a::after {
@@ -2309,11 +2309,16 @@ textarea:focus {
 }
 .product_desc .product_desc_info .product_name {
 	color: #0363cd;
-	display: block;
+	/* display: block; */
 	font-size: 14px;
 	font-weight: 500;
 	line-height: 18px;
 	text-transform: capitalize;
+	overflow: hidden; 
+	text-overflow: ellipsis; 
+	display: -webkit-box; 
+	-webkit-line-clamp: 2; 
+	-webkit-box-orient: vertical;
 }
 .product_desc .product_desc_info .product_name:hover {
   text-decoration: underline;
@@ -5251,13 +5256,13 @@ span.required {
 	position: relative;
 }
 .feedback-btn .close, 
-.feedback-btn a {
+.feedback-btn .submit {
 	background: #242424;
 	color: #fff !important;
 	width: 80px;
 	font-size: 14px;
 	height: 30px;
-	line-height: 30px;
+	/* line-height: 30px; */
 	text-align: center;
 	left: 110px;
 	right: auto;
@@ -5266,7 +5271,7 @@ span.required {
 	transition: all 0.3s ease-in-out;
 }
 .feedback-btn .close:hover,
-.feedback-btn a:hover {
+.feedback-btn .submit:hover {
 	background: #fed700;
 }
 /*----------------------------------------*/

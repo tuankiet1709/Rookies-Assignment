@@ -1,0 +1,81 @@
+@model eCommerce.CustomerSite.ViewModel.Rating.RatingVm;
+
+@{
+    var idValid=ViewData["IsValid"];
+}
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h3 class="review-page-title">Write Your Review</h3>
+                    <div class="modal-inner-area row">
+                    <div class="col-lg-6">
+                        <div class="li-review-product">
+                            <img src="https://localhost:44367/images/product/large-size/3.jpg" alt="Li's Product" asp-append-version="true">
+                            <div class="li-review-product-desc">
+                                <p class="li-product-name"></p>
+                                <p>
+                                    <span class="product-des"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="li-review-content">
+                            <!-- Begin Feedback Area -->
+                            <div class="feedback-area">
+                                <div class="feedback">
+                                    <h3 class="feedback-title">Our Feedback</h3>
+                                    <form method="post" asp-page-handler="ProductRatingModal">
+                                        <input name="IsValid" type="hidden" value="@idValid" />
+
+                                        <p class="your-opinion">
+                                            <label asp-for="RatePoint">Your Rating</label>
+                                            <span id="ratingstar">
+                                                <input asp-for="RatePoint" type="radio" id="star5" name="RatePoint" value="5" />
+                                                <label class="full" for="star5" title="Awesome - 5 stars"></label>
+
+                                                <input asp-for="RatePoint" type="radio" id="star4" name="RatePoint" value="4" />
+                                                <label class="full" for="star4" title="Pretty good - 4 stars"></label>
+
+                                                <input asp-for="RatePoint" type="radio" id="star3" name="RatePoint" value="3" />
+                                                <label class="full" for="star3" title="Meh - 3 stars"></label>
+
+                                                <input asp-for="RatePoint" type="radio" id="star2" name="RatePoint" value="2" />
+                                                <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+
+                                                <input asp-for="RatePoint" type="radio" id="star1" name="RatePoint" value="1" />
+                                                <label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                                            </span>
+                                            <span asp-validation-for="RatePoint" class="text-danger"></span>
+                                        </p>
+                                            
+                                        <p class="feedback-form">
+                                            <label asp-for="Comment">Your Review</label>
+                                            <textarea id="feedback" asp-for="Comment" name="Comment" cols="45" rows="8" aria-required="true"></textarea>
+                                        </p>
+                                        <input id="productIdHidden" type="hidden" asp-for="ProductId" name="ProductId"/>
+                                        <div class="feedback-input">
+                                            <p class="feedback-form-author">
+                                                <label asp-for="ReviewerName">Name<span class="required">*</span></label>
+                                                <input asp-for="ReviewerName" id="author" value="" size="30" aria-required="true" type="text">
+                                                <span asp-validation-for="ReviewerName" class="text-danger"></span>
+                                            </p>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- Feedback Area End Here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer feedback-btn pb-15">
+                <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary submit" data-save="modal">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+

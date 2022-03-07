@@ -6,7 +6,9 @@ namespace eCommerce.CustomerSite.ViewModel.Rating
     {
         public int RateId {get;set;}
         public int ProductId {get;set;}
+        [Required]
         public string ReviewerName {get;set;}
+        [Required]
         public int RatePoint {get;set;}
         public string Comment {get;set;}
         public DateTime RateDate {get;set;}

@@ -4,6 +4,11 @@
 
 @{
     ViewData["Title"] = "Products";
+    var prevDisabled = !Model.Products.HasPreviousPage ? "none" : "";
+    var next1Disabled = !Model.Products.HasNext1Page ? "none" : "";
+    var next2Disabled = !Model.Products.HasNext2Page ? "none" : "";
+    var next3Disabled = !Model.Products.HasNext3Page ? "none" : "";
+    var nextDisabled = !Model.Products.HasNextPage ? "none" : "";
 }
 
 <h2>Products</h2>
@@ -658,14 +663,39 @@
                                             </div>
                                             <div class="col-lg-6 col-md-6">
                                                 <ul class="pagination-box">
-                                                    <li><a href="#" class="Previous"><i class="fa fa-chevron-left"></i> Previous</a>
-                                                    </li>
-                                                    <li class="active"><a href="#">1</a></li>
-                                                    <li><a href="#">2</a></li>
-                                                    <li><a href="#">3</a></li>
-                                                    <li>
-                                                      <a href="#" class="Next"> Next <i class="fa fa-chevron-right"></i></a>
-                                                    </li>
+                                                    <a asp-page="./Index"
+                                                        asp-route-sortOrder="@Model.Products.SortOrder"
+                                                        asp-route-pageIndex="@(Model.Products.Page - 1)"
+                                                        asp-route-currentFilter="@Model.Products.Search"
+                                                        class="Previous" style="display: @prevDisabled;">
+                                                            <i class="fa fa-chevron-left"></i> Previous
+                                                    </a>
+                                                    <a asp-page="./Index"
+                                                        asp-route-sortOrder="@Model.Products.SortOrder"
+                                                        asp-route-pageIndex="@(Model.Products.Page)"
+                                                        asp-route-currentFilter="@Model.Products.Search"
+                                                        class="Previous" style="display: @next1Disabled;">
+                                                            @(Model.Products.Page)
+                                                    </a><a asp-page="./Index"
+                                                        asp-route-sortOrder="@Model.Products.SortOrder"
+                                                        asp-route-pageIndex="@(Model.Products.Page + 1)"
+                                                        asp-route-currentFilter="@Model.Products.Search"
+                                                        class="Previous" style="display: @next2Disabled;">
+                                                            @(Model.Products.Page + 1)
+                                                    </a><a asp-page="./Index"
+                                                        asp-route-sortOrder="@Model.Products.SortOrder"
+                                                        asp-route-pageIndex="@(Model.Products.Page + 2)"
+                                                        asp-route-currentFilter="@Model.Products.Search"
+                                                        class="Previous" style="display: @next3Disabled;">
+                                                            @(Model.Products.Page + 2)
+                                                    </a>
+                                                    <a asp-page="./Index"
+                                                        asp-route-sortOrder="@Model.Products.SortOrder"
+                                                        asp-route-pageIndex="@(Model.Products.Page + 3)"
+                                                        asp-route-currentFilter="@Model.Products.Search"
+                                                        class="Next" style="display: @nextDisabled;">
+                                                            <i class="fa fa-chevron-right"></i> Next
+                                                    </a> 
                                                 </ul>
                                             </div>
                                         </div>
@@ -821,67 +851,3 @@
                     </div>
                 </div>
             </div>
-
-<form asp-page="./Index" method="get">
-    <div class="form-actions no-color">
-        <p>
-            Find by name: 
-            <input type="text" name="SearchString" value="@Model.Products.Search" />
-            <input type="submit" value="Search" class="btn btn-primary" /> |
-            <a asp-page="./Index">Back to full List</a>
-        </p>
-    </div>
-</form>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                <a asp-page="./Index" asp-route-sortOrder="id"
-                   asp-route-currentFilter="@Model.Products.Search">
-                    @Html.DisplayNameFor(model => model.Products.Items.FirstOrDefault().Id)
-                </a>
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Products.Items.FirstOrDefault().Name)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Products.Items)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> 
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-
-@{
-    var prevDisabled = !Model.Products.HasPreviousPage ? "disabled" : "";
-    var nextDisabled = !Model.Products.HasNextPage ? "disabled" : "";
-}
-
-<a asp-page="./Index"
-   asp-route-sortOrder="@Model.Products.SortOrder"
-   asp-route-pageIndex="@(Model.Products.Page - 1)"
-   asp-route-currentFilter="@Model.Products.Search"
-   class="btn btn-primary @prevDisabled">
-    Previous
-</a>
-<a asp-page="./Index"
-   asp-route-sortOrder="@Model.Products.SortOrder"
-   asp-route-pageIndex="@(Model.Products.Page + 1)"
-   asp-route-currentFilter="@Model.Products.Search"
-   class="btn btn-primary @nextDisabled">
-    Next
-</a> 

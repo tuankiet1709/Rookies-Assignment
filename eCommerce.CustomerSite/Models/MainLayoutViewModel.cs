@@ -12,6 +12,7 @@ namespace eCommerce.CustomerSite.Models
     {
         public IEnumerable<CategoryDto> Categories { get; set; }
         public IEnumerable<BrandDto> Brands { get; set; }
+        public string Search {get;set;}
 
     }
 }

@@ -19,12 +19,31 @@ namespace eCommerce.CustomerSite.ViewModel
                 return (Page > 1);
             }
         }
-
+        public bool HasNext1Page
+        {
+            get
+            {
+                return (Page + 1 < TotalPages);
+            }
+        }
+        public bool HasNext2Page
+        {
+            get
+            {
+                return (Page + 2 < TotalPages);
+            }
+        }public bool HasNext3Page
+        {
+            get
+            {
+                return (Page + 3 < TotalPages);
+            }
+        }
         public bool HasNextPage
         {
             get
             {
-                return (Page < TotalPages);
+                return (Page + 4 < TotalPages);
             }
         }
     }

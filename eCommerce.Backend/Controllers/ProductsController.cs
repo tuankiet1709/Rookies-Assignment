@@ -8,6 +8,9 @@ using eCommerce.Backend.Data;
 using eCommerce.Backend.Extension;
 using Microsoft.AspNetCore.Authorization;
 using eCommerce.Shared.ViewModel.Product;
+using eCommerce.Backend.Models;
+using eCommerce.Shared.ViewModel.ProductImage;
+using eCommerce.Backend.Services;
 
 namespace eCommerce.Backend.Controllers;
 
@@ -16,12 +19,15 @@ namespace eCommerce.Backend.Controllers;
 public class ProductsController : ControllerBase
 {
     private readonly ApplicationDbContext _context;
+    private readonly IFileStorageService _fileStorageService;
     private readonly IMapper _mapper;
     public ProductsController(
             ApplicationDbContext context,
+            IFileStorageService fileStorageService,
             IMapper mapper)
     {
         _context = context;
+        _fileStorageService=fileStorageService;
         _mapper = mapper;
     }
     [HttpGet()]
@@ -105,6 +111,28 @@ public class ProductsController : ControllerBase
 
         var productDto = _mapper.Map<List<ProductDto>>(query);
         return productDto;
+    }
+    [HttpPost("ProductImage")]
+    [AllowAnonymous]
+    public async Task<int> AddImage(int productId, ProductImageCreateRequest request)
+    {
+        var productImage = new ProductImage()
+        {
+            Caption = request.Caption,
+            DateCreated = DateTime.Now,
+            IsDefault = request.IsDefault,
+            ProductId = productId,
+            SortOrder = request.SortOrder
+        };
+
+        if (request.ImageFile != null)
+        {
+            productImage.ImagePath = await _fileStorageService.SaveFileAsync(request.ImageFile);
+            productImage.FileSize = request.ImageFile.Length;
+        }
+        _context.ProductImages.Add(productImage);
+        await _context.SaveChangesAsync();
+        return productImage.Id;
     }
 }
 

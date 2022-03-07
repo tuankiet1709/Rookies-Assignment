@@ -10,9 +10,9 @@
     @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
     <link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/animate.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/animate.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/font-awesome.min.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/fontawesome-stars.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/fontawesome-stars.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/helper.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/jquery-ui.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/magnific-popup.css" asp-append-version="true" />
@@ -96,7 +96,7 @@
                     <!-- Begin Header Logo Area -->
                     <div class="col-lg-3">
                         <div class="logo pb-sm-30 pb-xs-30">
-                            <a href="index.html">
+                            <a asp-controller="Home" asp-action="Index">
                                 <img src="~/images/menu/logo/1.jpg" alt="">
                             </a>
                         </div>
@@ -105,10 +105,14 @@
                     <!-- Begin Header Middle Right Area -->
                     <div class="col-lg-9 pl-0 ml-sm-15 ml-xs-15">
                         <!-- Begin Header Middle Searchbox Area -->
-                        <form action="#" class="hm-searchbox">
+                        <form asp-area="" asp-page="/Products/Index" method="get" class="hm-searchbox">
+                            <input type="text" name="SearchString" value="@Model.Search" placeholder="Enter your search key ...">
+                            <button class="li-btn" type="submit" value="Search"><i class="fa fa-search"></i></button>
+                        </form>
+                        @* <form action="#" class="hm-searchbox">
                             <input type="text" placeholder="Enter your search key ...">
                             <button class="li-btn" type="submit"><i class="fa fa-search"></i></button>
-                        </form>
+                        </form> *@
                         <!-- Header Middle Searchbox Area End Here -->
                         <!-- Begin Header Middle Right Area -->
                         <div class="header-middle-right">
@@ -230,7 +234,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a href="about-us.html">About Us</a></li>
+                                    <li><a href="contact.html">About Us</a></li>
                                     <li><a href="contact.html">Contact</a></li>
                                     <!-- Begin Header Bottom Menu Information Area -->
                                     <li class="hb-info f-right p-0 d-sm-none d-lg-block">
@@ -492,7 +496,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="~/js/vendor/popper.min.js" asp-append-version="true"></script>
+    <script src="~/js/popper.min.js" asp-append-version="true"></script>
     <script src="~/js/ajax-mail.js" asp-append-version="true"></script>
     <script src="~/js/jquery.meanmenu.min.js" asp-append-version="true"></script>
     <script src="~/js/wow.min.js" asp-append-version="true"></script>
@@ -511,7 +515,10 @@
     <script src="~/js/jquery.nice-select.min.js" asp-append-version="true"></script>
     <script src="~/js/scrollUp.min.js" asp-append-version="true"></script>
     <script src="~/js/main.js" asp-append-version="true"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <environment include="Development">
+        <script src="~/js/site.js" asp-append-version="true" defer></script>
+    </environment>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

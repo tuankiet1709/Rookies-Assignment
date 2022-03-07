@@ -12,6 +12,7 @@ namespace eCommerce.CustomerSite.ViewModel.Product
         public string SeoDescription{get;set;}
         public string SeoTitle{get;set;}
         public decimal OriginalPrice { get; set; }
+        [DisplayFormat(DataFormatString = "{0:C0}")]
         public decimal Price { get; set; }
         public decimal DecreasedPrice { get; set; }
         public int Stock { get; set; }

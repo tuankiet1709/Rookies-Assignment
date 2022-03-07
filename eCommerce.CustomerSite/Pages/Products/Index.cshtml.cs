@@ -25,7 +25,7 @@ namespace eCommerce.CustomerSite.Pages.Products
             _mapper = mapper;
         }
         public PagedResponseVM<ProductVm> Products { get; set; }
-        public int PageIndex { get; set; }        
+        public int PageIndex { get; set; }  
         public async Task OnGetAsync(string sortOrder,
             string currentFilter, string searchString, int? pageIndex,int? categoryId)
         {
@@ -36,6 +36,7 @@ namespace eCommerce.CustomerSite.Pages.Products
                 Page = pageIndex ?? 1,
                 Limit = int.Parse(_config[ConfigurationConstants.PAGING_LIMIT])
             };
+            Search=searchString;
             var pagedProducts = await _productService.GetProductAsync(productCriteriaDto);
             Products = _mapper.Map<PagedResponseVM<ProductVm>>(pagedProducts);
         }
