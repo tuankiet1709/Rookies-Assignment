@@ -22,9 +22,20 @@ public class ProductService : IProductService
     public async Task<PagedResponseDto<ProductDto>> GetProductAsync(ProductCriteriaDto ProductCriteriaDto)
     {
         var client = _clientFactory.CreateClient(ServiceConstants.BACK_END_NAMED_CLIENT);
-        var getProductsEndpoint = string.IsNullOrEmpty(ProductCriteriaDto.Search) ? 
-                                    EndpointConstants.GET_PRODUCTS :
-                                    $"{EndpointConstants.GET_PRODUCTS}?Search={ProductCriteriaDto.Search}";
+        var getProductsEndpoint = "";
+                                    
+        if(!string.IsNullOrEmpty(ProductCriteriaDto.Search)){
+            getProductsEndpoint=$"{EndpointConstants.GET_PRODUCTS}?Search={ProductCriteriaDto.Search}";
+        }
+        else if(ProductCriteriaDto.CategoryId!=null){
+            getProductsEndpoint=$"{EndpointConstants.GET_PRODUCTS}?CategoryId={ProductCriteriaDto.CategoryId}";
+        }
+        else if(!string.IsNullOrEmpty(ProductCriteriaDto.Search)&&ProductCriteriaDto.CategoryId!=null){
+            getProductsEndpoint=$"{EndpointConstants.GET_PRODUCTS}?Search={ProductCriteriaDto.Search}&CategoryId={ProductCriteriaDto.CategoryId}";
+        }
+        else{
+            getProductsEndpoint=EndpointConstants.GET_PRODUCTS;
+        }
         
         var response = await client.GetAsync(getProductsEndpoint);
         response.EnsureSuccessStatusCode();

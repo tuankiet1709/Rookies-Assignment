@@ -8,6 +8,7 @@ using eCommerce.Backend.Data;
 using eCommerce.Backend.Extension;
 using Microsoft.AspNetCore.Authorization;
 using eCommerce.Shared.ViewModel.Category;
+using eCommerce.Backend.Services;
 
 namespace eCommerce.Backend.Controllers;
 
@@ -16,11 +17,15 @@ namespace eCommerce.Backend.Controllers;
 public class CategoriesController : ControllerBase
 {
     private readonly ApplicationDbContext _context;
-    private readonly IMapper _mapper;
+    private readonly IMapper _mapper;        
+    private readonly IFileStorageService _fileStorageService;
+
     public CategoriesController(ApplicationDbContext context,
+            IFileStorageService fileStorageService,
             IMapper mapper)
     {
         _context = context;
+        _fileStorageService=fileStorageService;
         _mapper = mapper;
     }
     [HttpGet()]
@@ -57,13 +62,10 @@ public class CategoriesController : ControllerBase
     public async Task<IEnumerable<CategoryDto>> GetCategoriesHome([FromQuery] CategoryCriteriaDto categoryCriteriaDto)
     {
         //query
-        var query=_context.Categories.AsQueryable();
+        var query= await _context.Categories.ToListAsync();
 
-        var pagedCategories = await query
-                            .AsNoTracking()
-                            .PaginateAsync(categoryCriteriaDto);
 
-        var CategoryDto = _mapper.Map<IEnumerable<CategoryDto>>(pagedCategories.Items);
+        var CategoryDto = _mapper.Map<IEnumerable<CategoryDto>>(query);
         return CategoryDto;
     }
     [HttpGet("{id}")]

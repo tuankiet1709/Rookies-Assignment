@@ -333,7 +333,7 @@ button.li-btn:hover {
 }
 a.links, 
 a.links-2, 
-a.review-links {
+button.review-links {
 	background: #fed700 none repeat scroll 0 0;
 	color: #242424;
 	display: inline-block;
@@ -353,14 +353,14 @@ a.links-2:hover {
 	background: #333333 none repeat scroll 0 0;
 	color: #fff;
 }
-a.review-links {
+button.review-links {
 	background: #242424;
 	color: #ffffff;
 	width: 205px;
 	height: 40px;
-	line-height: 40px;
+	line-height: 0px;
 }
-a.review-links:hover {
+button.review-links:hover {
 	background: #fed700;
 }
 /*----------------------------------------*/
@@ -1044,7 +1044,7 @@ textarea:focus {
 .modal-wrapper .close {
   color: #333333;
   font-size: 30px;
-  font-weight: 400;
+  /* font-weight: 400; */
   opacity: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   position: absolute;
@@ -1768,9 +1768,9 @@ textarea:focus {
 .hb-menu nav > ul > li:hover > a::after {
 		color: #ffffff;
 }
-.hb-menu nav > ul > li > a::after {
+.hb-menu nav > ul > li:nth-child(3) > a::after {
 	content: "\f107";
-	position: absolute;
+	/* position: absolute; */
 	top: 8px;
 	right: 15px;
 	font-family: fontawesome;
@@ -1778,7 +1778,7 @@ textarea:focus {
 	transition: all 0.3s ease-in-out;
 	color: #242424;
 }
-.hb-menu nav > ul > li:nth-child(n+5) > a::after {
+.hb-menu nav > ul > li > a::after {
 	content: none;
 }
 .hb-menu nav > ul > li:hover  a::after {
@@ -2243,6 +2243,46 @@ textarea:focus {
   color: #e3e3e3;
 }
 
+#ratingstar {
+    border: none;
+}
+
+    #ratingstar > input {
+        display: none;
+    }
+    /*ẩn input radio - vì chúng ta đã có label là GUI*/
+    #ratingstar > label:before {
+        margin: 5px;
+        font-size: 1.25em;
+        font-family: FontAwesome;
+        display: inline-block;
+        content: "\f005";
+    }
+    /*1 ngôi sao*/
+    #ratingstar > .half:before {
+        content: "\f089";
+        position: absolute;
+    }
+    /*0.5 ngôi sao*/
+    #ratingstar > label {
+        color: #ddd;
+        float: right;
+    }
+    /*float:right để lật ngược các ngôi sao lại đúng theo thứ tự trong thực tế*/
+    /*thêm màu cho sao đã chọn và các ngôi sao phía trước*/
+    #ratingstar > input:checked ~ label,
+    #ratingstar:not(:checked) > label:hover,
+    #ratingstar:not(:checked) > label:hover ~ label {
+        color: #FFD700;
+    }
+        /* Hover vào các sao phía trước ngôi sao đã chọn*/
+        #ratingstar > input:checked + label:hover,
+        #ratingstar > input:checked ~ label:hover,
+        #ratingstar > label:hover ~ input:checked ~ label,
+        #ratingstar > input:checked ~ label:hover ~ label {
+            color: #FFED85;
+        }
+
 .product_desc {
   margin: 15px 0 0;
 }
@@ -2269,11 +2309,16 @@ textarea:focus {
 }
 .product_desc .product_desc_info .product_name {
 	color: #0363cd;
-	display: block;
+	/* display: block; */
 	font-size: 14px;
 	font-weight: 500;
 	line-height: 18px;
 	text-transform: capitalize;
+	overflow: hidden; 
+	text-overflow: ellipsis; 
+	display: -webkit-box; 
+	-webkit-line-clamp: 2; 
+	-webkit-box-orient: vertical;
 }
 .product_desc .product_desc_info .product_name:hover {
   text-decoration: underline;
@@ -3058,6 +3103,8 @@ text-align: center;
 	font-family: fontawesome;
 }
 .category-heading > h2 > i {
+	/* float: ;
+	text-align: ; */
 	float: right;
 	padding-right: 20px;
 	font-size: 12px;
@@ -3192,12 +3239,12 @@ li.rx-parent a.rx-show::after {
     color: #fed700;
 }
 .cat-mega-menu {
-	width: 540px;
+	/* width: 540px; */
 	padding: 4px 0 10px 0;
 	overflow: hidden;
 }
 li.right-menu .cat-mega-menu > li, li.right-menu .cat-mega-menu-2 > li {
-	width: 33.333%;
+	width: 100%;
 	float: left;
 	padding: 15px 20px 10px 30px;
 	list-style: none;
@@ -5209,13 +5256,13 @@ span.required {
 	position: relative;
 }
 .feedback-btn .close, 
-.feedback-btn a {
+.feedback-btn .submit {
 	background: #242424;
 	color: #fff !important;
 	width: 80px;
 	font-size: 14px;
 	height: 30px;
-	line-height: 30px;
+	/* line-height: 30px; */
 	text-align: center;
 	left: 110px;
 	right: auto;
@@ -5224,7 +5271,7 @@ span.required {
 	transition: all 0.3s ease-in-out;
 }
 .feedback-btn .close:hover,
-.feedback-btn a:hover {
+.feedback-btn .submit:hover {
 	background: #fed700;
 }
 /*----------------------------------------*/

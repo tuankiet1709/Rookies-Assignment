@@ -8,6 +8,9 @@ using eCommerce.Backend.Data;
 using eCommerce.Backend.Extension;
 using Microsoft.AspNetCore.Authorization;
 using eCommerce.Shared.ViewModel.Product;
+using eCommerce.Backend.Models;
+using eCommerce.Shared.ViewModel.ProductImage;
+using eCommerce.Backend.Services;
 
 namespace eCommerce.Backend.Controllers;
 
@@ -15,25 +18,17 @@ namespace eCommerce.Backend.Controllers;
 [Route("api/[controller]")]
 public class ProductsController : ControllerBase
 {
-    private readonly IProductService _ProductService;
     private readonly ApplicationDbContext _context;
+    private readonly IFileStorageService _fileStorageService;
     private readonly IMapper _mapper;
-    public ProductsController(IProductService productService,
+    public ProductsController(
             ApplicationDbContext context,
+            IFileStorageService fileStorageService,
             IMapper mapper)
     {
-        _ProductService = productService;
         _context = context;
+        _fileStorageService=fileStorageService;
         _mapper = mapper;
-    }
-    [HttpGet("paging")]
-    [AllowAnonymous]
-    public async Task<IActionResult> GetProducts1([FromQuery] ProductCriteriaDto request)
-    {
-        var product = await _ProductService.GetProducts(request);
-        if (product == null)
-            return BadRequest("Cannot find product");
-        return Ok(product);
     }
     [HttpGet()]
     [AllowAnonymous]
@@ -74,30 +69,22 @@ public class ProductsController : ControllerBase
     [HttpGet("{id}")]
         // [Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
     [AllowAnonymous]
-    public async Task<ActionResult<ProductVm>> GetProduct(int id)
+    public async Task<ActionResult<ProductDto>> GetProduct(int id)
     {
-        var product = await _context
-                            .Products
-                            .Where(x=>x.Id == id)
-                            .FirstOrDefaultAsync();
+        var product = await _context.Products.Where(x=>x.Id == id).FirstOrDefaultAsync();
 
         if (product == null)
         {
             return NotFound();
         }
 
-        var productVm = new ProductVm
-        {
-            Id = product.Id,
-            Name = product.Name,
-            // ImagePath = _fileStorageService.GetFileUrl(brand.ImageName)
-        };
+        var productDto = _mapper.Map<ProductDto>(product);
 
-        return productVm;
+        return productDto;
     }
     [HttpGet("Home")]
     [AllowAnonymous]
-    public async Task<List<ProductDto>> GetProductsHome([FromQuery] ProductVm ProductVm)
+    public async Task<ActionResult<List<ProductDto>>> GetProductsHome([FromQuery] ProductVm ProductVm)
     {
         //query
         var query= await _context.Products.ToListAsync();
@@ -124,6 +111,28 @@ public class ProductsController : ControllerBase
 
         var productDto = _mapper.Map<List<ProductDto>>(query);
         return productDto;
+    }
+    [HttpPost("ProductImage")]
+    [AllowAnonymous]
+    public async Task<int> AddImage(int productId, ProductImageCreateRequest request)
+    {
+        var productImage = new ProductImage()
+        {
+            Caption = request.Caption,
+            DateCreated = DateTime.Now,
+            IsDefault = request.IsDefault,
+            ProductId = productId,
+            SortOrder = request.SortOrder
+        };
+
+        if (request.ImageFile != null)
+        {
+            productImage.ImagePath = await _fileStorageService.SaveFileAsync(request.ImageFile);
+            productImage.FileSize = request.ImageFile.Length;
+        }
+        _context.ProductImages.Add(productImage);
+        await _context.SaveChangesAsync();
+        return productImage.Id;
     }
 }
 

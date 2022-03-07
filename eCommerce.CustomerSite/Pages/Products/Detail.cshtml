@@ -1,0 +1,196 @@
+@page
+@model eCommerce.CustomerSite.Pages.Products.DetailModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="breadcrumb-content">
+            <ul>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-page="./Products">Products</a></li>
+
+                <li class="active">Details</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Li's Breadcrumb Area End Here -->
+<!-- content-wraper start -->
+<div class="content-wraper">
+    <div class="container">
+        <div class="row single-product-area">
+            <div class="col-lg-5 col-md-6">
+                <!-- Product Details Left -->
+                <div class="product-details-left">
+                    <div class="product-details-images slider-navigation-1">
+                        <div class="lg-image">
+                            <a class="popup-img venobox vbox-item" href="~/images/product/large-size/1.jpg" data-gall="myGallery">
+                                <img src="~/images/product/large-size/1.jpg" alt="product image" asp-append-version="true">
+                            </a>
+                        </div>
+                        @* <div class="lg-image">
+                            <a class="popup-img venobox vbox-item" href="https://localhost:44367/images/product/large-size/2.jpg" data-gall="myGallery">
+                                <img src="https://localhost:44367/images/product/large-size/2.jpg" alt="product image" asp-append-version="true">
+                            </a>
+                        </div>
+                        <div class="lg-image">
+                            <a class="popup-img venobox vbox-item" href="https://localhost:44367/images/product/large-size/3.jpg" data-gall="myGallery">
+                                <img src="https://localhost:44367/images/product/large-size/3.jpg" alt="product image" asp-append-version="true">
+                            </a>
+                        </div>
+                        <div class="lg-image">
+                            <a class="popup-img venobox vbox-item" href="https://localhost:44367/images/product/large-size/4.jpg" data-gall="myGallery">
+                                <img src="https://localhost:44367/images/product/large-size/4.jpg" alt="product image" asp-append-version="true">
+                            </a>
+                        </div>
+                        <div class="lg-image">
+                            <a class="popup-img venobox vbox-item" href="https://localhost:44367/images/product/large-size/5.jpg" data-gall="myGallery">
+                                <img src="https://localhost:44367/images/product/large-size/5.jpg" alt="product image" asp-append-version="true">
+                            </a>
+                        </div>
+                        <div class="lg-image">
+                            <a class="popup-img venobox vbox-item" href="https://localhost:44367/images/product/large-size/6.jpg" data-gall="myGallery">
+                                <img src="https://localhost:44367/images/product/large-size/6.jpg" alt="product image" asp-append-version="true">
+                            </a>
+                        </div> *@
+                    </div>
+                    <div class="product-details-thumbs slider-thumbs-1">                                        
+                        @* <div class="sm-image"><img src="https://localhost:44367/images/product/small-size/1.jpg" alt="product image thumb" asp-append-version="true"></div>
+                        <div class="sm-image"><img src="https://localhost:44367/images/product/small-size/2.jpg" alt="product image thumb" asp-append-version="true"></div>
+                        <div class="sm-image"><img src="https://localhost:44367/images/product/small-size/3.jpg" alt="product image thumb" asp-append-version="true"></div>
+                        <div class="sm-image"><img src="https://localhost:44367/images/product/small-size/4.jpg" alt="product image thumb" asp-append-version="true"></div>
+                        <div class="sm-image"><img src="https://localhost:44367/images/product/small-size/5.jpg" alt="product image thumb" asp-append-version="true"></div>
+                        <div class="sm-image"><img src="https://localhost:44367/images/product/small-size/6.jpg" alt="product image thumb" asp-append-version="true"></div> *@
+                    </div>
+                </div>
+                <!--// Product Details Left -->
+            </div>
+
+            <div class="col-lg-7 col-md-6">
+                <div class="product-details-view-content pt-60">
+                    <div class="product-info">
+                        <h2>@Html.DisplayFor(x=>x.Product.Name)</h2>
+                        <span class="product-details-ref">Reference: @Html.DisplayFor(x=>x.Product.Id)</span>
+                        <div class="rating-box pt-20">
+                            <ul class="rating rating-with-review-item">
+                                @for (int i = 0; i < @Model.point; i++)
+                                {
+                                    <li><i class="fa fa-star" aria-hidden="true" style="color:#FFD700"></i></li>
+                                }
+                                @for (int i = 5 - @Model.point; i > 0; i--)
+                                {
+                                    <li><i class="fa fa-star-o" aria-hidden="true" style="color:#FFD700"></i></li>
+                                }
+                                <li class="review-item"><a href="#">Read Review</a></li>
+                                <li class="review-item"><a href="#">Write Review</a></li>
+                            </ul>
+                        </div>
+                        <div class="price-box pt-20">
+                            <span class="new-price new-price-2">@Html.DisplayFor(x=>x.Product.Price) Vnd</span>
+                        </div>
+                        <div class="product-desc">
+                            <p>
+                                <span>@Html.DisplayFor(x=>x.Product.Details)
+                                </span>
+                            </p>
+                        </div>
+                        <div class="single-add-to-cart">
+                            <form action="#" class="cart-quantity">
+                                <div class="quantity">
+                                    <label>Quantity</label>
+                                    <div class="cart-plus-minus">
+                                        <input class="cart-plus-minus-box" value="1" type="text">
+                                        <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
+                                        <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                                    </div>
+                                </div>
+                                <button class="add-to-cart" type="submit">Add to cart</button>
+                            </form>
+                        </div>
+                        <div class="product-additional-info pt-25">
+                            <a class="wishlist-btn" href="wishlist.html"><i class="fa fa-heart-o"></i>Add to wishlist</a>
+                            <div class="product-social-sharing pt-25">
+                                <ul>
+                                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i>Facebook</a></li>
+                                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i>Twitter</a></li>
+                                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i>Google +</a></li>
+                                    <li class="instagram"><a href="#"><i class="fa fa-instagram"></i>Instagram</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="block-reassurance">
+                            <ul>
+                                <li>
+                                    <div class="reassurance-item">
+                                        <div class="reassurance-icon">
+                                            <i class="fa fa-check-square-o"></i>
+                                        </div>
+                                        <p>Security policy (edit with Customer reassurance module)</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="reassurance-item">
+                                        <div class="reassurance-icon">
+                                            <i class="fa fa-truck"></i>
+                                        </div>
+                                        <p>Delivery policy (edit with Customer reassurance module)</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="reassurance-item">
+                                        <div class="reassurance-icon">
+                                            <i class="fa fa-exchange"></i>
+                                        </div>
+                                        <p> Return policy (edit with Customer reassurance module)</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
+<!-- content-wraper end -->
+<!-- Begin Product Area -->
+<div class="product-area pt-35">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="li-product-tab">
+                    <ul class="nav nav-tabs li-product-menu">
+                        <li class="nav-item">
+                            <a class="nav-link" id="description-tab" data-bs-toggle="tab" data-bs-target="#description"><span>Description</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="product-details-tab" data-bs-toggle="tab" data-bs-target="#product-details"><span>Product Details</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews"><span>Reviews</span></a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="tabContent">
+                        <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                            <div id="description" class="tab-pane active show" role="tabpanel">
+                                <div class="product-description">
+                                    <span>@Html.DisplayFor(x=>x.Product.Description)</span>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="tab-pane fade" id="product-details" role="tabpanel" aria-labelledby="product-details-tab">
+                            <div class="product-details-manufacturer">
+                                    <span>@Html.DisplayFor(x=>x.Product.Details)</span> 
+                            </div>                   
+                        </div>
+                        <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                            @{await Html.RenderPartialAsync("ProductRatingTab", Model);}
+                        </div>               
+                    </div>
+                </div>
+                <!-- Begin Li's Tab Menu Content Area -->
+            </div>
+        </div>
+        
+    </div>
+</div>

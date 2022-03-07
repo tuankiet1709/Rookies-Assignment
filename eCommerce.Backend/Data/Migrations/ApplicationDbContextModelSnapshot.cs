@@ -81,7 +81,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = new Guid("725efe2e-a534-40c4-ab0d-20c947e6c0eb"),
-                            ConcurrencyStamp = "fa0cc195-9f6f-4cf3-9d4b-43c556b375fc",
+                            ConcurrencyStamp = "d379edef-0a85-48c9-9c1d-99d4eddf540b",
                             Description = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -158,8 +158,8 @@ namespace eCommerce.Backend.Data.Migrations
                         {
                             Id = new Guid("cf517a65-75d0-480c-9566-601b1e607d25"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "91d45e1e-f752-462e-859f-43fe16e1cc97",
-                            Dob = new DateTime(2022, 2, 24, 16, 48, 17, 613, DateTimeKind.Local).AddTicks(8840),
+                            ConcurrencyStamp = "c063d31a-c81f-4626-8d4c-3fb21b7d4631",
+                            Dob = new DateTime(2022, 3, 3, 21, 47, 18, 263, DateTimeKind.Local).AddTicks(1170),
                             Email = "tranhatuankiet1709@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Tu",
@@ -167,7 +167,7 @@ namespace eCommerce.Backend.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "tranhatuankiet1709@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAED2y4kGMvjzV4j0QdD8QbV1RsMyYJSjQgs2r6BL+UaJuqr198WgB6XK7qq83auHcmg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDUwHKTufxBPeXT50w5jzz+xI2JfKCuGl5OzWfK6MfubC2cGccz1IsNssqQWcnW1ow==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -232,7 +232,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4070),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6940),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Andora",
@@ -245,7 +245,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4100),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6960),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Apple",
@@ -258,7 +258,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 3,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4100),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6960),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Anker",
@@ -271,7 +271,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 4,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4100),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6960),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Baseus",
@@ -284,7 +284,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 5,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4100),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6970),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Hyper",
@@ -297,7 +297,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 6,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4100),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6970),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Filco",
@@ -310,7 +310,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 7,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4100),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6970),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "JCPAL",
@@ -323,7 +323,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 8,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4110),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6970),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Keychrone",
@@ -336,7 +336,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 9,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4110),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6970),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Lofree",
@@ -349,7 +349,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 10,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4110),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6970),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Logitech",
@@ -362,7 +362,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 11,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4110),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6970),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Mocoll",
@@ -375,7 +375,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 13,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4110),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6980),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Philips",
@@ -388,7 +388,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 14,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4110),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6980),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Tucano",
@@ -401,7 +401,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 15,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4120),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6980),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "WIWU",
@@ -502,7 +502,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4140),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7000),
                             IsShowOnHome = true,
                             Name = "Macbook's Accessories",
                             SeoAlias = "Macbook-accessories",
@@ -514,7 +514,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4140),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7000),
                             IsShowOnHome = true,
                             Name = "Iphone's Accessories",
                             SeoAlias = "Iphone-accessories",
@@ -526,7 +526,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 3,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4140),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7000),
                             IsShowOnHome = true,
                             Name = "Ipad's Accessories",
                             SeoAlias = "Ipad-accessories",
@@ -538,7 +538,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 4,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4150),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7000),
                             IsShowOnHome = true,
                             Name = "Mechanical",
                             SeoAlias = "Mechanical",
@@ -550,7 +550,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 5,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4150),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7010),
                             IsShowOnHome = true,
                             Name = "Macbook sticker",
                             ParentId = 1,
@@ -563,7 +563,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 6,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4150),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7010),
                             IsShowOnHome = true,
                             Name = "Usb-c Hub",
                             ParentId = 1,
@@ -576,7 +576,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 7,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4150),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7010),
                             IsShowOnHome = true,
                             Name = "Iphone Charging Cable",
                             ParentId = 2,
@@ -589,7 +589,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 8,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4150),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7010),
                             IsShowOnHome = true,
                             Name = "Iphone Stand",
                             ParentId = 2,
@@ -602,7 +602,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 9,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4150),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7060),
                             IsShowOnHome = true,
                             Name = "Ipad Case",
                             ParentId = 3,
@@ -615,7 +615,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 10,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4160),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7060),
                             IsShowOnHome = true,
                             Name = "Ipad Tempered Glass",
                             ParentId = 3,
@@ -628,7 +628,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 11,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4160),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7060),
                             IsShowOnHome = true,
                             Name = "Ipad Stand",
                             ParentId = 3,
@@ -641,7 +641,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 12,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4160),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7060),
                             IsShowOnHome = true,
                             Name = "Mechanical Keyboard",
                             ParentId = 4,
@@ -654,7 +654,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 13,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4160),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7060),
                             IsShowOnHome = true,
                             Name = "Mechanical Mouse",
                             ParentId = 4,
@@ -667,7 +667,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 14,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4160),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7060),
                             IsShowOnHome = true,
                             Name = "Macbook Cleaning Kit",
                             ParentId = 1,
@@ -924,11 +924,11 @@ namespace eCommerce.Backend.Data.Migrations
                         {
                             Id = 1,
                             BrandId = 7,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4190),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7090),
                             DecreasedPrice = 0m,
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                            IsFeatured = false,
+                            IsFeatured = true,
                             Name = "JCPAL 5in1 Premium Cleaning Set For Macbook, Laptop, Phone, Camera",
                             OriginalPrice = 180000m,
                             Price = 200000m,
@@ -942,11 +942,11 @@ namespace eCommerce.Backend.Data.Migrations
                         {
                             Id = 2,
                             BrandId = 6,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4190),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7090),
                             DecreasedPrice = 0m,
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                            IsFeatured = false,
+                            IsFeatured = true,
                             Name = "Hyperdrive Dual 4K HDMI 10in1 USB-C Hub/Port (2 monitors) Macbook M1",
                             OriginalPrice = 180000m,
                             Price = 200000m,
@@ -960,11 +960,11 @@ namespace eCommerce.Backend.Data.Migrations
                         {
                             Id = 3,
                             BrandId = 1,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4190),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7100),
                             DecreasedPrice = 0m,
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                            IsFeatured = false,
+                            IsFeatured = true,
                             Name = "Andora 6in1 Macbook Stickers For Macbook Pro 16 inch 2021",
                             OriginalPrice = 600000m,
                             Price = 650000m,
@@ -978,11 +978,11 @@ namespace eCommerce.Backend.Data.Migrations
                         {
                             Id = 4,
                             BrandId = 2,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4190),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7100),
                             DecreasedPrice = 0m,
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                            IsFeatured = false,
+                            IsFeatured = true,
                             Name = "Apple 20W USB Type-C Charger",
                             OriginalPrice = 650000m,
                             Price = 700000m,
@@ -996,11 +996,11 @@ namespace eCommerce.Backend.Data.Migrations
                         {
                             Id = 5,
                             BrandId = 15,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4200),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7100),
                             DecreasedPrice = 0m,
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                            IsFeatured = false,
+                            IsFeatured = true,
                             Name = "Stand/Aluminum Elevator Stand for iPhone, iPad, Phone with Adjustable Tilt Angle WIWU",
                             OriginalPrice = 210000m,
                             Price = 250000m,
@@ -1014,11 +1014,11 @@ namespace eCommerce.Backend.Data.Migrations
                         {
                             Id = 6,
                             BrandId = 15,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4200),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7100),
                             DecreasedPrice = 0m,
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                            IsFeatured = false,
+                            IsFeatured = true,
                             Name = "WIWU Waltz Rotating Keyboard Case / Bluetooth Keyboard With Tracpad 360 Degree Rotating Screen WIWU Waltz Rotating Keyboard For iPad Pro 11 inch 2018-2021, Air 4 and iPad Gen 7/8/9",
                             OriginalPrice = 1100000m,
                             Price = 1300000m,
@@ -1032,11 +1032,11 @@ namespace eCommerce.Backend.Data.Migrations
                         {
                             Id = 7,
                             BrandId = 7,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4200),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7100),
                             DecreasedPrice = 0m,
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                            IsFeatured = false,
+                            IsFeatured = true,
                             Name = "9H Anti-Scratch, Anti-Shock, Anti-Fingerprint Tempered Glass For All iPad JCPAL iClara (iPad Pro 11', Pro 12'9, Air 1/2/3/4, Mini 6, Gen 2/3/4/ 5/6/7/8/9)",
                             OriginalPrice = 300000m,
                             Price = 350000m,
@@ -1050,11 +1050,11 @@ namespace eCommerce.Backend.Data.Migrations
                         {
                             Id = 8,
                             BrandId = 8,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4200),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7110),
                             DecreasedPrice = 0m,
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                            IsFeatured = false,
+                            IsFeatured = true,
                             Name = "KEYCHRON K6 Mechanical Keyboard Aluminum – No LED – HOTSWAP",
                             OriginalPrice = 16000000m,
                             Price = 1890000m,
@@ -1068,11 +1068,11 @@ namespace eCommerce.Backend.Data.Migrations
                         {
                             Id = 9,
                             BrandId = 9,
-                            DateCreated = new DateTime(2022, 2, 24, 16, 48, 17, 609, DateTimeKind.Local).AddTicks(4210),
+                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7110),
                             DecreasedPrice = 0m,
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                            IsFeatured = false,
+                            IsFeatured = true,
                             Name = "LOFREE Maus Blue Pearl Bluetooth Mouse",
                             OriginalPrice = 1200000m,
                             Price = 1500000m,
@@ -1241,7 +1241,7 @@ namespace eCommerce.Backend.Data.Migrations
                     b.ToTable("ProductImages", (string)null);
                 });
 
-            modelBuilder.Entity("eCommerce.Backend.Models.Rate", b =>
+            modelBuilder.Entity("eCommerce.Backend.Models.Rating", b =>
                 {
                     b.Property<int>("RateId")
                         .ValueGeneratedOnAdd()
@@ -1251,7 +1251,8 @@ namespace eCommerce.Backend.Data.Migrations
 
                     b.Property<string>("Comment")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<bool>("IsApproved")
                         .ValueGeneratedOnAdd()
@@ -1274,11 +1275,15 @@ namespace eCommerce.Backend.Data.Migrations
                     b.Property<int>("RatePoint")
                         .HasColumnType("int");
 
+                    b.Property<string>("ReviewerName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("RateId");
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Rates", (string)null);
+                    b.ToTable("Ratings", (string)null);
                 });
 
             modelBuilder.Entity("eCommerce.Backend.Models.Slide", b =>
@@ -1573,10 +1578,10 @@ namespace eCommerce.Backend.Data.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("eCommerce.Backend.Models.Rate", b =>
+            modelBuilder.Entity("eCommerce.Backend.Models.Rating", b =>
                 {
                     b.HasOne("eCommerce.Backend.Models.Product", "Product")
-                        .WithMany("ProductRates")
+                        .WithMany("ProductRatings")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1629,7 +1634,7 @@ namespace eCommerce.Backend.Data.Migrations
 
                     b.Navigation("ProductImages");
 
-                    b.Navigation("ProductRates");
+                    b.Navigation("ProductRatings");
                 });
 #pragma warning restore 612, 618
         }
