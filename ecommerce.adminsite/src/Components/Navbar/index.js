@@ -13,13 +13,16 @@ export default function Layout() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/contact">Contact</Link>
           </li>
           <li>
             <Link to="/dashboard">Dashboard</Link>
           </li>
           <li>
             <Link to="/product">Product</Link>
+          </li>
+          <li>
+            <Link to="/brand">Brand</Link>
           </li>
           <li>
             <Link to="/nothing-here">Nothing Here</Link>

@@ -6,33 +6,31 @@ import { NotificationManager } from 'react-notifications';
 
 import Table, { SortType } from "../../../shared-components/Table";
 import Info from "../Info";
-import { EDIT_PRODUCT_ID } from "../../../Constants/pages";
+import { EDIT_BRAND_ID } from "../../../Constants/pages";
 import ConfirmModal from "../../../shared-components/ConfirmModal";
 import { 
-  Yes,
-  No
-} from "../../../Constants/Product/ProductConstants";
-import { DisableProductRequest } from "../services/request"
+  NormalBrandType,
+  NormalBrandTypeLabel,
+  LuxuryBrandType, 
+  LuxyryBrandTypeLabel 
+} from "../../../Constants/Brand/BrandConstants";
+import { DisableBrandRequest } from "../services/request"
 
 const columns= [
+  { columnName: "id", columnValue: "Id" },
   { columnName: "name", columnValue: "Name" },
-  { columnName: "description", columnValue: "Description" },
-  { columnName: "detail", columnValue: "Detail" },
-  { columnName: "price", columnValue: "Price" },
-  { columnName: "dateCreated", columnValue: "DateCreated" },
-  { columnName: "dateModified", columnValue: "DateModified" }, 
-  { columnName: "isFeatured", columnValue: "IsFeatured" }, 
+  { columnName: "type", columnValue: "Type" }
 ];
 
-const ProductTable = ({
-  products,
+const BrandTable = ({
+  brands,
   handlePage,
   handleSort,
   sortState,
   fetchData,
 }) => {
   const [showDetail, setShowDetail] = useState(false);
-  const [productDetail, setProductDetail] = useState(null);
+  const [brandDetail, setBrandDetail] = useState(null);
   const [disableState, setDisable] = useState({
     isOpen: false,
     id: 0,
@@ -42,16 +40,16 @@ const ProductTable = ({
   });
 
   const handleShowInfo = (id) => {
-    const product = products?.items.find((item) => item.id === id);
+    const brand = brands?.items.find((item) => item.id === id);
 
-    if (product) {
-      setProductDetail(product);
+    if (brand) {
+      setBrandDetail(brand);
       setShowDetail(true);
     }
   };
 
-  const getIsFeatured = (id) => {
-    return id == true ? Yes : No;
+  const getBrandTypeName = (id) => {
+    return id == LuxuryBrandType ? LuxyryBrandTypeLabel : NormalBrandTypeLabel;
   }
 
   const handleShowDisable = async (id) => {
@@ -59,7 +57,7 @@ const ProductTable = ({
       id,
       isOpen: true,
       title: 'Are you sure',
-      message: 'Do you want to disable this Products?',
+      message: 'Do you want to disable this Brand?',
       isDisable: true,
     });
   };
@@ -79,14 +77,14 @@ const ProductTable = ({
       handleCloseDisable();
       await fetchData();
       NotificationManager.success(
-        `Remove Product Successful`,
+        `Remove Brand Successful`,
         `Remove Successful`,
         2000,
     );
     } else {
       setDisable({
         ...disableState,
-        title: 'Can not disable Product',
+        title: 'Can not disable Brand',
         message,
         isDisable: result
       });
@@ -94,7 +92,7 @@ const ProductTable = ({
   };
     
   const handleConfirmDisable = async () => {
-    let isSuccess = await DisableProductRequest(disableState.id);
+    let isSuccess = await DisableBrandRequest(disableState.id);
     if (isSuccess) {
       await handleResult(true, '');
     }
@@ -106,11 +104,11 @@ const ProductTable = ({
 
   const navigate = useNavigate();
   const handleEdit = (id) => {
-    const existProduct = products?.items.find(item => item.id === Number(id));
+    const existBrand = brands?.items.find(item => item.id === Number(id));
     navigate(
-      EDIT_PRODUCT_ID(id),
+      EDIT_BRAND_ID(id),
       {
-        state:{existProduct: existProduct}
+        state: {existBrand: existBrand}
       }
     );
   };
@@ -122,21 +120,16 @@ const ProductTable = ({
         handleSort={handleSort}
         sortState={sortState}
         page={{
-          currentPage: products?.currentPage,
-          totalPage: products?.totalPages,
+          currentPage: brands?.currentPage,
+          totalPage: brands?.totalPages,
           handleChange: handlePage,
         }}
       >
-        {products && products?.items?.map((data, index) => (
+        {brands && brands?.items?.map((data, index) => (
           <tr key={index} className="" onClick={() => handleShowInfo(data.id)}>
             <td>{data.id}</td>
             <td>{data.name}</td>
-            <td>{data.description}</td>
-            <td>{data.detail}</td>
-            <td>{data.price}</td>
-            <td>{data.dateCreated}</td>
-            <td>{data.dateModified}</td>
-            <td>{getIsFeatured(data.isFeatured)}</td>
+            <td>{getBrandTypeName(data.type)}</td>
 
             <td className="d-flex">
               <ButtonIcon onClick={() => handleEdit(data.id)}>
@@ -149,8 +142,8 @@ const ProductTable = ({
           </tr>
         ))}
       </Table>
-      {productDetail && showDetail && (
-        <Info product={productDetail} handleClose={handleCloseDetail} />
+      {brandDetail && showDetail && (
+        <Info brand={brandDetail} handleClose={handleCloseDetail} />
       )}
       <ConfirmModal
         title={disableState.title}
@@ -189,4 +182,4 @@ const ProductTable = ({
   );
 };
 
-export default ProductTable;
+export default BrandTable;

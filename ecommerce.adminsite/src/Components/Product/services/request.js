@@ -1,8 +1,8 @@
 import { AxiosResponse } from "axios";
 import qs from 'qs';
 
-import RequestService from '../../../Services/request';
-import EndPoints from '../../../Constants/endpoint';
+import RequestService from '../../../services/request';
+import EndPoints from '../../../Constants/endpoints';
 
 export function createProductRequest(productForm) {
     const formData = new FormData();

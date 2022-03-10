@@ -1,9 +1,9 @@
 import axios from "axios";
-import { UrlBackend } from "./Constants/oidc-config";
+import { UrlBackEnd } from "./Constants/oidc-config";
 
 //const endpoint = "https://jsonplaceholder.typicode.com";
-const endpoint = UrlBackend;
-const token = localStorage.getItem("token");
+const endpoint = UrlBackEnd;
+const token = "";
 
 // export function get(url) {
 //   console.log(token);

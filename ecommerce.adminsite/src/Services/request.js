@@ -1,8 +1,8 @@
 import axios, {AxiosInstance, AxiosRequestConfig} from "axios";
-import { UrlBackend } from "../Constants/oidc-config";
+import { UrlBackEnd } from "../Constants/oidc-config";
 
 const config = {
-    baseUrl: UrlBackend
+    baseURL: UrlBackEnd
 }
 
 class RequestService{

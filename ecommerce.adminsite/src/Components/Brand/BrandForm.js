@@ -6,16 +6,16 @@ import { NotificationManager } from 'react-notifications';
 
 import TextField from '../../shared-components/FormInputs/TextField';
 import SelectField from '../../shared-components/FormInputs/SelectField';
-import { PRODUCT } from '../../Constants/pages';
-import { isFeaturedProductOptions } from '../../Constants/selectOptions';
-import { createProductRequest, UpdateProductRequest } from "./services/request";
+import { BRAND } from '../../Constants/pages';
+import { NormalBrandType } from "../../Constants/Brand/BrandConstants";
+import { BrandTypeOptions } from "../../Constants/selectOptions";
+import FileUpload from '../../shared-components/FormInputs/FileUpload';
+import { createBrandRequest, UpdateBrandRequest } from "./services/request";
 
 const initialFormValues = {
     name: '',
-    description: '',
-    details: '',
-    price: '',
-    isFeatured: '',
+    type: NormalBrandType,
+    imageFile: undefined
 };
 
 const validationSchema = Yup.object().shape({
@@ -23,25 +23,25 @@ const validationSchema = Yup.object().shape({
     type: Yup.string().required('Required')
 });
 
-const ProductFormContainer = ({ initialProductForm = {
+const BrandFormContainer = ({ initialBrandForm = {
     ...initialFormValues
 } }) => {
     const [loading, setLoading] = useState(false);
 
-    const isUpdate = initialProductForm.id ? true : false;
+    const isUpdate = initialBrandForm.id ? true : false;
 
-    const navigate = useNavigate();
+    const history = useNavigate();
 
     const handleResult = (result, message) => {
         if (result) {
             NotificationManager.success(
-                `${isUpdate ? 'Updated' : 'Created'} Successful Product ${message}`,
+                `${isUpdate ? 'Updated' : 'Created'} Successful Brand ${message}`,
                 `${isUpdate ? 'Update' : 'Create'} Successful`,
                 2000,
             );
 
             setTimeout(() => {
-                navigate(PRODUCT);
+                history.push(BRAND);
             }, 1000);
 
         } else {
@@ -49,18 +49,18 @@ const ProductFormContainer = ({ initialProductForm = {
         }
     }
 
-    const updateProductAsync = async (form) => {
-        console.log('update product async');
-        let data = await UpdateProductRequest(form.formValues);
+    const updateBrandAsync = async (form) => {
+        console.log('update brand async');
+        let data = await UpdateBrandRequest(form.formValues);
         if (data)
         {
             handleResult(true, data.name);
         }
     }
 
-    const createProductAsync = async (form) => {  
-        console.log('create product async');
-        let data = await createProductRequest(form.formValues);
+    const createBrandAsync = async (form) => {  
+        console.log('create brand async');
+        let data = await createBrandRequest(form.formValues);
         if (data)
         {
             handleResult(true, data.name);
@@ -69,7 +69,7 @@ const ProductFormContainer = ({ initialProductForm = {
 
     return (
         <Formik
-            initialValues={initialProductForm}
+            initialValues={initialBrandForm}
             enableReinitialize
             validationSchema={validationSchema}
             onSubmit={(values) => {
@@ -77,10 +77,10 @@ const ProductFormContainer = ({ initialProductForm = {
 
                 setTimeout(() => {
                     if (isUpdate) {
-                        updateProductAsync({ formValues: values });
+                        updateBrandAsync({ formValues: values });
                     }
                     else {
-                        createProductAsync({ formValues: values });
+                        createBrandAsync({ formValues: values });
                     }
 
                     setLoading(false);
@@ -92,34 +92,19 @@ const ProductFormContainer = ({ initialProductForm = {
                     <TextField 
                         name="name" 
                         label="Name" 
-                        placeholder="input product name" 
+                        placeholder="input brand name" 
                         isrequired 
                         disabled={isUpdate ? true : false} />
-                    <TextField 
-                        name="description" 
-                        label="Description" 
-                        placeholder="input product description" 
-                        isrequired 
-                        disabled={isUpdate ? true : false} />
-                    <TextField 
-                        name="detail" 
-                        label="Detail" 
-                        placeholder="input product detail" 
-                        isrequired 
-                        disabled={isUpdate ? true : false} />
-                    <TextField 
-                        name="price" 
-                        label="Price" 
-                        placeholder="input product price" 
-                        isrequired 
-                        disabled={isUpdate ? true : false} />
-                     <SelectField 
-                        name="isFeatured" 
-                        label="IsFeatured" 
-                        options={isFeaturedProductOptions}
-                        isrequired  />
+                    <SelectField 
+                        name="type" 
+                        label="Type" 
+                        options={BrandTypeOptions} 
+                        isrequired />
+                    <FileUpload 
+                        name="imageFile" 
+                        label="Image" 
+                        image={actions.values.imagePath} />
                     
-
                     <div className="d-flex">
                         <div className="ml-auto">
                             <button className="btn btn-danger"
@@ -128,7 +113,7 @@ const ProductFormContainer = ({ initialProductForm = {
                                 Save {(loading) && <img src="/oval.svg" className='w-4 h-4 ml-2 inline-block' />}
                             </button>
 
-                            <Link to={PRODUCT} className="btn btn-outline-secondary ml-2">
+                            <Link to={BRAND} className="btn btn-outline-secondary ml-2">
                                 Cancel
                             </Link>
                         </div>
@@ -139,4 +124,4 @@ const ProductFormContainer = ({ initialProductForm = {
     );
 }
 
-export default ProductFormContainer;
+export default BrandFormContainer;

@@ -4,27 +4,27 @@ import { Search } from "react-feather";
 import ReactMultiSelectCheckboxes from "react-multiselect-checkboxes";
 
 import { Link } from "react-router-dom";
-import ProductTable from "./ProductTable";
+import BrandTable from "./BrandTable";
 
-import { isFeaturedProductOptions } from "../../../Constants/selectOptions";
-import { getProductsRequest } from "../services/request"
+import { FilterBrandTypeOptions } from "../../../Constants/selectOptions";
+import { getBrandsRequest } from "../services/request"
 import { 
   ACCSENDING, 
   DECSENDING, 
-  DEFAULT_PRODUCT_SORT_COLUMN_NAME,
+  DEFAULT_BRAND_SORT_COLUMN_NAME,
   DEFAULT_PAGE_LIMIT
 } from "../../../Constants/paging"
 
-const ListProduct = () => {
+const ListBrand = () => {
   const [query, setQuery] = useState({
     page: 1,
     limit: DEFAULT_PAGE_LIMIT,
-    sortOrder: DECSENDING,
-    sortColumn: DEFAULT_PRODUCT_SORT_COLUMN_NAME
+    sortOrder: 0,
+    sortColumn: DEFAULT_BRAND_SORT_COLUMN_NAME
   });
 
   const [search, setSearch] = useState("");
-  const [products, setProducts] = useState("");
+  const [brands, setBrands] = useState("");
 
   const [selectedType, setSelectedType] = useState([
     { id: 1, label: "All", value: 0 },
@@ -37,7 +37,7 @@ const ListProduct = () => {
         types: [],
       });
 
-      setSelectedType([isFeaturedProductOptions[0]]);
+      setSelectedType([FilterBrandTypeOptions[0]]);
       return;
     }
 
@@ -87,7 +87,7 @@ const ListProduct = () => {
   };
 
   const handleSort = (sortColumn) => {
-    const sortOrder = query.sortOrder === ACCSENDING ? DECSENDING : ACCSENDING;
+    const sortOrder = query.sortOrder === 0 ? 0 : 1;
 
     setQuery({
       ...query,
@@ -97,30 +97,30 @@ const ListProduct = () => {
   };
 
   const fetchDataCallbackAsync = async () =>  {
-    let data = await getProductsRequest(query);
+    let data = await getBrandsRequest(query);
     console.log('fetchDataCallbackAsync');
     console.log(data);
-    setProducts(data);
+    setBrands(data);
   }
 
   useEffect(() => {
     async function fetchDataAsync() {
-      let result = await getProductsRequest(query);
-      setProducts(result.data);
+      let result = await getBrandsRequest(query);
+      setBrands(result.data);
     }
 
     fetchDataAsync();
-  }, [query, products]);
+  }, [query, brands]);
 
   return (
     <>
-      <div className="primaryColor text-title intro-x">Product List</div>
+      <div className="primaryColor text-title intro-x">Brand List</div>
 
       <div>
         <div className="d-flex mb-5 intro-x">
           <div className="d-flex align-items-center w-md mr-5">
           <ReactMultiSelectCheckboxes
-              options={isFeaturedProductOptions}
+              options={FilterBrandTypeOptions}
               hideSearch={true}
               placeholderButtonLabel="Type"
               value={selectedType}
@@ -147,14 +147,14 @@ const ListProduct = () => {
           </div>
 
           <div className="d-flex align-items-center ml-3">
-            <Link to="/product/create" type="button" className="btn btn-danger">
-              Create new Product
+            <Link to="/brand/create" type="button" className="btn btn-danger">
+              Create new Brand
             </Link>
           </div>
         </div>
 
-        <ProductTable
-          products={products}
+        <BrandTable
+          brands={brands}
           handlePage={handlePage}
           handleSort={handleSort}
           sortState={{
@@ -168,4 +168,4 @@ const ListProduct = () => {
   );
 };
 
-export default ListProduct;
+export default ListBrand;

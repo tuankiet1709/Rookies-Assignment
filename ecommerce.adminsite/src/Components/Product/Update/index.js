@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Redirect, useParams, useLocation } from 'react-router';
+import { useLocation } from 'react-router';
 
 import ProductForm from '../ProductForm';
 
