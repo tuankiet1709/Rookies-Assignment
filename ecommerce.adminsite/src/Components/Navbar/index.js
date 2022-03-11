@@ -25,6 +25,9 @@ export default function Layout() {
             <Link to="/brand">Brand</Link>
           </li>
           <li>
+            <Link to="/category">Category</Link>
+          </li>
+          <li>
             <Link to="/nothing-here">Nothing Here</Link>
           </li>
         </ul>

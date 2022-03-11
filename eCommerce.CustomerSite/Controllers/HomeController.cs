@@ -29,7 +29,6 @@ public class HomeController : Controller
     {
         HomeVm homeVm=new HomeVm();
         homeVm.Categories=await _categoryService.GetCategoryHome();
-        homeVm.Products=await _productService.GetProductHome();
         homeVm.Brands=await _brandService.GetBrandHome();        
         homeVm.LatestProducts=await _productService.GetLastestProducts();
         homeVm.FeaturedProducts=await _productService.GetFeaturedProducts();

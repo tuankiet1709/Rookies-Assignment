@@ -6,7 +6,11 @@ const Endpoints = {
     brandId: (id) => `api/brands/${id}`,
 
     product: 'api/products',
-    productId: (id)=>`api/products/${id}`
+    productId: (id)=>`api/products/${id}`,
+
+    category: 'api/categories',
+    categoryOption: 'api/categories/option',
+    categoryId: (id)=>`api/categories/${id}`,
 
 };
 

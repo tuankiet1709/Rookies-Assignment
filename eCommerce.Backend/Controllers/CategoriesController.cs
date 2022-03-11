@@ -9,6 +9,8 @@ using eCommerce.Backend.Extension;
 using Microsoft.AspNetCore.Authorization;
 using eCommerce.Shared.ViewModel.Category;
 using eCommerce.Backend.Services;
+using eCommerce.Backend.Models;
+using eCommerce.Shared.Enum;
 
 namespace eCommerce.Backend.Controllers;
 
@@ -59,14 +61,23 @@ public class CategoriesController : ControllerBase
     }
     [HttpGet("Home")]
     [AllowAnonymous]
-    public async Task<IEnumerable<CategoryDto>> GetCategoriesHome([FromQuery] CategoryCriteriaDto categoryCriteriaDto)
+    public async Task<IEnumerable<CategoryDto>> GetCategoriesHome()
     {
         //query
-        var query= await _context.Categories.ToListAsync();
-
+        var query= await _context.Categories.Where(x=>x.Status==Status.Active).Take(100).ToListAsync();
 
         var CategoryDto = _mapper.Map<IEnumerable<CategoryDto>>(query);
         return CategoryDto;
+    }
+    [HttpGet("Option")]
+    [AllowAnonymous]
+    public async Task<IEnumerable<CategoryOptionDto>> GetCategoriesOption()
+    {
+        //query
+        var query= await _context.Categories.Where(x=>x.Status==Status.Active).Take(100).ToListAsync();
+
+        var CategoryOptionDto = _mapper.Map<IEnumerable<CategoryOptionDto>>(query);
+        return CategoryOptionDto;
     }
     [HttpGet("{id}")]
         // [Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
@@ -87,10 +98,73 @@ public class CategoriesController : ControllerBase
         {
             Id = Category.Id,
             Name = Category.Name,
-            // ImagePath = _fileStorageService.GetFileUrl(brand.ImageName)
+            // ImagePath = _fileStorageService.GetFileUrl(category.ImageName)
         };
 
         return CategoryVm;
+    }
+    [HttpPut("{id}")]
+    [AllowAnonymous]
+    //[Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
+    public async Task<ActionResult> PutCategory([FromRoute] int id, [FromForm] CategoryUpdateRequest categoryUpdateRequest)
+    {
+        var category = await _context.Categories.FindAsync(id);
+
+        if (category == null)
+        {
+            return NotFound();
+        }
+        else {
+            category.Name = categoryUpdateRequest.Name;
+            category.Description = categoryUpdateRequest.Description;
+            category.UpdatedDate=categoryUpdateRequest.UpdatedDate;
+            category.IsShowOnHome = categoryUpdateRequest.IsShowOnHome;
+            category.ParentId = categoryUpdateRequest.ParentId;
+            category.Status = categoryUpdateRequest.Status;
+            category.UpdatedDate=DateTime.Now;
+        }
+        
+        _context.Categories.Update(category);
+        await _context.SaveChangesAsync();
+
+        return Ok(category);
+    }
+
+    [HttpPost]
+    //[Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
+    public async Task<ActionResult<CategoryVm>> PostCategory([FromForm] CategoryCreateRequest categoryCreateRequest)
+    {
+        var category = new Category
+        {
+            Name = categoryCreateRequest.Name,
+            Description = categoryCreateRequest.Description,
+            IsShowOnHome = categoryCreateRequest.IsShowOnHome,
+            ParentId = categoryCreateRequest.ParentId,
+        };
+
+        _context.Categories.Add(category);
+        await _context.SaveChangesAsync();
+
+        return CreatedAtAction("GetCategory", new { id = category.Id }, new CategoryVm { Id = category.Id, Name = category.Name });
+    }
+
+    [HttpDelete("{id}")]
+    [AllowAnonymous]
+    //[Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
+    public async Task<IActionResult> DeleteCategory(int id)
+    {
+        var category = await _context.Categories.FindAsync(id);
+
+        if (category == null)
+        {
+            return NotFound();
+        }
+
+        category.Status = Status.InActive;
+        _context.Categories.Update(category);
+        await _context.SaveChangesAsync();
+
+        return Ok(true);
     }
 }
 

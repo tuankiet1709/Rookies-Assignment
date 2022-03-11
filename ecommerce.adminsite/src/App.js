@@ -4,16 +4,16 @@ import "./App.css";
 import Home from "./components/Home/Home";
 import Layout from "./components/Navbar";
 import Contact from "./components/Contact";
-import { BrowserRouter,Route, Routes, Link,HashRouter } from "react-router-dom";
-import InLineLoader from "./shared-components/InlineLoader.js";
+import { Route, Routes } from "react-router-dom";
 import { PRODUCT } from "./Constants/pages";
 import { BRAND } from "./Constants/pages";
-import { Navbar } from "react-bootstrap";
+import { CATEGORY } from "./Constants/pages";
 
 
 
 const Product = lazy(() => import('./components/Product'));
 const Brand = lazy(() => import('./components/Brand'));
+const Category = lazy(() => import('./components/Category'));
 
 
 export default function App() {
@@ -45,6 +45,14 @@ export default function App() {
             element={
               <React.Suspense fallback={<>...</>}>
                 <Product />
+              </React.Suspense>
+            }
+          />
+          <Route
+            path={CATEGORY}
+            element={
+              <React.Suspense fallback={<>...</>}>
+                <Category />
               </React.Suspense>
             }
           />

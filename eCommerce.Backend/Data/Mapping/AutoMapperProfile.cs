@@ -21,6 +21,7 @@ namespace RookieShop.Backend.Data.Mapping
                                             ));  
             CreateMap<Product, ProductDto>();  
             CreateMap<Category, CategoryDto>();  
+            CreateMap<Category, CategoryOptionDto>();  
             CreateMap<Rating, RatingDto>();  
             CreateMap<RatingCreateRequest,Rating>();
         }  

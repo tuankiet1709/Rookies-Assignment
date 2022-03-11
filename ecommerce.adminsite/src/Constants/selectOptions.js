@@ -1,3 +1,6 @@
+
+import { useEffect, useState } from "react";
+
 import {
     Yes,
     No 
@@ -12,10 +15,32 @@ import {
     AllBrandTypeLabel
 } from "../Constants/Brand/BrandConstants";
 
+import { 
+    CheckIsShowOnHome,
+    CheckIsNotShowOnHome,
+    CheckIsShowOnHomeLabel,
+    CheckIsNotShowOnHomeLabel,
+    CheckActive,
+    CheckInActive,
+    CheckActiveLabel,
+    CheckInActiveLabel
+} from "../Constants/Category/CategoryConstants";
+
 export const isFeaturedProductOptions = [
     { id: 1, label: Yes, value: Yes },
     { id: 2, label: No, value: No },
 ];
+
+export const isShowOnHomeOptions = [
+    { id: 1, label: CheckIsShowOnHomeLabel, value: CheckIsShowOnHome },
+    { id: 0, label: CheckIsNotShowOnHomeLabel, value: CheckIsNotShowOnHome },
+];
+
+export const checkActive = [
+    { id: 1, label: CheckActive, value: CheckActiveLabel },
+    { id: 0, label: CheckInActive, value: CheckInActiveLabel },
+];
+
 
 export const BrandTypeOptions = [
     { id: 1, label: NormalBrandTypeLabel, value: NormalBrandType },

@@ -14,10 +14,7 @@ namespace eCommerce.Backend.Data.SeedData
                     Id = 1,
                     Name = "Andora",
                     Image ="",
-                    DateCreated=DateTime.Now,
-                    SeoAlias="Andora",
-                    SeoDescription="Andora's accessories",
-                    SeoTitle="Andora's accessories",
+                    CreatedDate=DateTime.Now,
                     IsShowOnHome=true,
                     Status=Status.Active
                 },
@@ -26,10 +23,7 @@ namespace eCommerce.Backend.Data.SeedData
                     Id = 2,
                     Name = "Apple",
                     Image ="",
-                    DateCreated=DateTime.Now,
-                    SeoAlias="Apple",
-                    SeoDescription="Apple's accessories",
-                    SeoTitle="Apple's accessories",
+                    CreatedDate=DateTime.Now,
                     IsShowOnHome=true,
                     Status=Status.Active
                 },new Brand
@@ -37,10 +31,7 @@ namespace eCommerce.Backend.Data.SeedData
                     Id = 3,
                     Name = "Anker",
                     Image ="",
-                    DateCreated=DateTime.Now,
-                    SeoAlias="Anker",
-                    SeoDescription="Anker's accessories",
-                    SeoTitle="Anker's accessories",
+                    CreatedDate=DateTime.Now,
                     IsShowOnHome=true,
                     Status=Status.Active
                 },new Brand
@@ -48,10 +39,7 @@ namespace eCommerce.Backend.Data.SeedData
                     Id = 4,
                     Name = "Baseus",
                     Image ="",
-                    DateCreated=DateTime.Now,
-                    SeoAlias="Baseus",
-                    SeoDescription="Baseus's accessories",
-                    SeoTitle="Baseus's accessories",
+                    CreatedDate=DateTime.Now,
                     IsShowOnHome=true,
                     Status=Status.Active
                 },new Brand
@@ -59,10 +47,7 @@ namespace eCommerce.Backend.Data.SeedData
                     Id = 5,
                     Name = "Hyper",
                     Image ="",
-                    DateCreated=DateTime.Now,
-                    SeoAlias="Hyper",
-                    SeoDescription="Hyper's accessories",
-                    SeoTitle="Hyper's accessories",
+                    CreatedDate=DateTime.Now,
                     IsShowOnHome=true,
                     Status=Status.Active
                 },new Brand
@@ -70,10 +55,7 @@ namespace eCommerce.Backend.Data.SeedData
                     Id = 6,
                     Name = "Filco",
                     Image ="",
-                    DateCreated=DateTime.Now,
-                    SeoAlias="Filco",
-                    SeoDescription="Filco's accessories",
-                    SeoTitle="Filco's accessories",
+                    CreatedDate=DateTime.Now,
                     IsShowOnHome=true,
                     Status=Status.Active
                 },new Brand
@@ -81,10 +63,7 @@ namespace eCommerce.Backend.Data.SeedData
                     Id = 7,
                     Name = "JCPAL",
                     Image ="",
-                    DateCreated=DateTime.Now,
-                    SeoAlias="JCPAL",
-                    SeoDescription="JCPAL's accessories",
-                    SeoTitle="JCPAL's accessories",
+                    CreatedDate=DateTime.Now,
                     IsShowOnHome=true,
                     Status=Status.Active
                 },new Brand
@@ -92,10 +71,7 @@ namespace eCommerce.Backend.Data.SeedData
                     Id = 8,
                     Name = "Keychrone",
                     Image ="",
-                    DateCreated=DateTime.Now,
-                    SeoAlias="Keychrone",
-                    SeoDescription="Keychrone's accessories",
-                    SeoTitle="Keychrone's accessories",
+                    CreatedDate=DateTime.Now,
                     IsShowOnHome=true,
                     Status=Status.Active
                 },new Brand
@@ -103,10 +79,7 @@ namespace eCommerce.Backend.Data.SeedData
                     Id = 9,
                     Name = "Lofree",
                     Image ="",
-                    DateCreated=DateTime.Now,
-                    SeoAlias="Lofree",
-                    SeoDescription="Lofree's accessories",
-                    SeoTitle="Lofree's accessories",
+                    CreatedDate=DateTime.Now,
                     IsShowOnHome=true,
                     Status=Status.Active
                 },new Brand
@@ -114,10 +87,7 @@ namespace eCommerce.Backend.Data.SeedData
                     Id = 10,
                     Name = "Logitech",
                     Image ="",
-                    DateCreated=DateTime.Now,
-                    SeoAlias="Logitech",
-                    SeoDescription="Logitech's accessories",
-                    SeoTitle="Logitech's accessories",
+                    CreatedDate=DateTime.Now,
                     IsShowOnHome=true,
                     Status=Status.Active
                 },new Brand
@@ -125,10 +95,7 @@ namespace eCommerce.Backend.Data.SeedData
                     Id = 11,
                     Name = "Mocoll",
                     Image ="",
-                    DateCreated=DateTime.Now,
-                    SeoAlias="Mocoll",
-                    SeoDescription="Mocoll's accessories",
-                    SeoTitle="Mocoll's accessories",
+                    CreatedDate=DateTime.Now,
                     IsShowOnHome=true,
                     Status=Status.Active
                 },new Brand
@@ -136,10 +103,7 @@ namespace eCommerce.Backend.Data.SeedData
                     Id = 13,
                     Name = "Philips",
                     Image ="",
-                    DateCreated=DateTime.Now,
-                    SeoAlias="Philips",
-                    SeoDescription="Philips's accessories",
-                    SeoTitle="Philips's accessories",
+                    CreatedDate=DateTime.Now,
                     IsShowOnHome=true,
                     Status=Status.Active
                 },new Brand
@@ -147,10 +111,7 @@ namespace eCommerce.Backend.Data.SeedData
                     Id = 14,
                     Name = "Tucano",
                     Image ="",
-                    DateCreated=DateTime.Now,
-                    SeoAlias="Tucano",
-                    SeoDescription="Tucano's accessories",
-                    SeoTitle="Tucano's accessories",
+                    CreatedDate=DateTime.Now,
                     IsShowOnHome=true,
                     Status=Status.Active
                 },new Brand
@@ -158,10 +119,7 @@ namespace eCommerce.Backend.Data.SeedData
                     Id = 15,
                     Name = "WIWU",
                     Image ="",
-                    DateCreated=DateTime.Now,
-                    SeoAlias="WIWU",
-                    SeoDescription="WIWU's accessories",
-                    SeoTitle="WIWU's accessories",
+                    CreatedDate=DateTime.Now,
                     IsShowOnHome=true,
                     Status=Status.Active
                 }
