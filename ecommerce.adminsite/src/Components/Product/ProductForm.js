@@ -6,31 +6,59 @@ import { NotificationManager } from 'react-notifications';
 
 import TextField from '../../shared-components/FormInputs/TextField';
 import SelectField from '../../shared-components/FormInputs/SelectField';
+import FileUpload from '../../shared-components/FormInputs/FileUpload';
 import { PRODUCT } from '../../Constants/pages';
 import { isFeaturedProductOptions } from '../../Constants/selectOptions';
 import { createProductRequest, UpdateProductRequest } from "./services/request";
+import { getCategoriesOptionRequest } from '../Category/services/request';
+import { getBrandsOptionRequest } from '../Brand/services/request';
 
 const initialFormValues = {
     name: '',
     description: '',
     details: '',
+    originalPrice: '',
     price: '',
     isFeatured: '',
+    categoryId: '',
+    brandId:'',
+    images:'',
+
 };
 
 const validationSchema = Yup.object().shape({
     name: Yup.string().required('Required'),
-    type: Yup.string().required('Required')
+    description: Yup.string().required('Required'),
+    details: Yup.string().required('Required'),
+    originalPrice: Yup.string().required('Required'),
+    price: Yup.string().required('Required'),
+    isFeatured: Yup.string().required('Required'),
+    categoryId: Yup.string().required('Required'),
+    brandId: Yup.string().required('Required'),
 });
 
 const ProductFormContainer = ({ initialProductForm = {
     ...initialFormValues
 } }) => {
     const [loading, setLoading] = useState(false);
+    const [selectCategoryOption, setSelectCategoryOptions] = useState([]);
+    const [selectBrandOptions, setSelectBrandOptions] = useState([]);
 
     const isUpdate = initialProductForm.id ? true : false;
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        async function fetchDataAsync() {
+          let categoryResult = await getCategoriesOptionRequest("child");
+          let brandResult = await getBrandsOptionRequest();
+          setSelectCategoryOptions(categoryResult.data);
+          setSelectBrandOptions(brandResult.data);
+        }
+        
+        fetchDataAsync();
+      }, []);
+
 
     const handleResult = (result, message) => {
         if (result) {
@@ -93,31 +121,50 @@ const ProductFormContainer = ({ initialProductForm = {
                         name="name" 
                         label="Name" 
                         placeholder="input product name" 
-                        isrequired 
-                        disabled={isUpdate ? true : false} />
+                        isrequired  />
                     <TextField 
                         name="description" 
                         label="Description" 
                         placeholder="input product description" 
-                        isrequired 
-                        disabled={isUpdate ? true : false} />
+                        isrequired  />
                     <TextField 
-                        name="detail" 
-                        label="Detail" 
-                        placeholder="input product detail" 
-                        isrequired 
-                        disabled={isUpdate ? true : false} />
+                        name="details" 
+                        label="Details" 
+                        placeholder="input product details" 
+                        isrequired  />
+                    <TextField 
+                        name="originalPrice" 
+                        label="Original Price" 
+                        placeholder="input product original price" 
+                        isrequired  />
                     <TextField 
                         name="price" 
                         label="Price" 
                         placeholder="input product price" 
-                        isrequired 
-                        disabled={isUpdate ? true : false} />
+                        isrequired  />
                      <SelectField 
                         name="isFeatured" 
                         label="IsFeatured" 
                         options={isFeaturedProductOptions}
                         isrequired  />
+                    <SelectField 
+                        name="categoryId" 
+                        label="CategoryId" 
+                        options={
+                            selectCategoryOption.map((item) => {
+                            return ({id:item.id, label: item.name, value: item.id })
+                          })}/>
+                    <SelectField 
+                        name="brandId" 
+                        label="BrandId" 
+                        options={
+                            selectBrandOptions.map((item) => {
+                            return ({id:item.id, label: item.name, value: item.id })
+                          })}/>
+                    <FileUpload 
+                        name="imageFile" 
+                        label="Image" 
+                        image={actions.values.imagePath} />
                     
 
                     <div className="d-flex">
@@ -128,7 +175,7 @@ const ProductFormContainer = ({ initialProductForm = {
                                 Save {(loading) && <img src="/oval.svg" className='w-4 h-4 ml-2 inline-block' />}
                             </button>
 
-                            <Link to={PRODUCT} className="btn btn-outline-secondary ml-2">
+                            <Link to={ PRODUCT } className="btn btn-outline-secondary ml-2">
                                 Cancel
                             </Link>
                         </div>

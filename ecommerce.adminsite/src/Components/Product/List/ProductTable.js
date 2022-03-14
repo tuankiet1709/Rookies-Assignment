@@ -9,19 +9,28 @@ import Info from "../Info";
 import { EDIT_PRODUCT_ID } from "../../../Constants/pages";
 import ConfirmModal from "../../../shared-components/ConfirmModal";
 import { 
-  Yes,
-  No
+  CheckIsFeatured,
+  CheckIsFeaturedLabel,
+  CheckIsNotFeaturedLabel,
+  CheckIsDeleted,
+  CheckIsDeletedLabel,
+  CheckIsNotDeletedLabel
 } from "../../../Constants/Product/ProductConstants";
 import { DisableProductRequest } from "../services/request"
 
 const columns= [
-  { columnName: "name", columnValue: "Name" },
-  { columnName: "description", columnValue: "Description" },
-  { columnName: "detail", columnValue: "Detail" },
-  { columnName: "price", columnValue: "Price" },
-  { columnName: "dateCreated", columnValue: "DateCreated" },
-  { columnName: "dateModified", columnValue: "DateModified" }, 
-  { columnName: "isFeatured", columnValue: "IsFeatured" }, 
+  { columnName: "id ", columnValue: "Id" },
+  { columnName: "name ", columnValue: "Name" },
+  { columnName: "description ", columnValue: "Description" },
+  { columnName: "details ", columnValue: "Details" },
+  { columnName: "images ", columnValue: "Images" },
+  { columnName: "originalPrice ", columnValue: "OriginalPrice" },
+  { columnName: "price ", columnValue: "Price" },
+  { columnName: "created Date ", columnValue: "CreatedDate" },
+  { columnName: "updated Date ", columnValue: "UpdatedDate" }, 
+  { columnName: "category Id ", columnValue: "CategoryId" }, 
+  { columnName: "isFeatured ", columnValue: "IsFeatured" }, 
+  { columnName: "isDeleted ", columnValue: "IsDeleted" }, 
 ];
 
 const ProductTable = ({
@@ -51,7 +60,16 @@ const ProductTable = ({
   };
 
   const getIsFeatured = (id) => {
-    return id == true ? Yes : No;
+    return id == CheckIsFeatured ? CheckIsFeaturedLabel : CheckIsNotFeaturedLabel;
+  }
+
+  const getIsDeleted = (id) => {
+    return id == CheckIsDeleted ? CheckIsDeletedLabel : CheckIsNotDeletedLabel;
+  }
+
+  const getFormatDateTime=(date)=>{
+    const DATE_OPTIONS = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+    return new Date(date).toLocaleDateString('en-US', DATE_OPTIONS);
   }
 
   const handleShowDisable = async (id) => {
@@ -129,14 +147,17 @@ const ProductTable = ({
       >
         {products && products?.items?.map((data, index) => (
           <tr key={index} className="" onClick={() => handleShowInfo(data.id)}>
-            <td>{data.id}</td>
             <td>{data.name}</td>
             <td>{data.description}</td>
-            <td>{data.detail}</td>
+            <td>{data.details}</td>
+            <td>{data.images}</td>
+            <td>{data.originalPrice}</td>
             <td>{data.price}</td>
-            <td>{data.dateCreated}</td>
-            <td>{data.dateModified}</td>
+            <td>{getFormatDateTime(data.createdDate)}</td>
+            <td>{data.updatedDate==null?data.updatedDate:getFormatDateTime(data.updatedDate)}</td>
+            <td>{data.categoryId}</td>
             <td>{getIsFeatured(data.isFeatured)}</td>
+            <td>{getIsDeleted(data.isDeleted)}</td>
 
             <td className="d-flex">
               <ButtonIcon onClick={() => handleEdit(data.id)}>

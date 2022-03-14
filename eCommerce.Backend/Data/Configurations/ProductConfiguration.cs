@@ -22,6 +22,8 @@ namespace eCommerce.Backend.Configurations{
             builder.Property(p=>p.ViewCount).HasDefaultValue(0);
             builder.Property(x => x.Details).IsRequired().HasMaxLength(200);
             builder.Property(x => x.Description).IsRequired();
+            builder.Property(x => x.isDeleted).HasDefaultValue(false);
+            builder.Property(x=>x.IsFeatured).HasDefaultValue(false);
             builder.Property(x => x.CategoryId).IsRequired();
             builder.Property(x => x.BrandId).IsRequired();
 

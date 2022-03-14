@@ -21,8 +21,8 @@ export function getCategoriesRequest(query) {
     });
 }
 
-export function getCategoriesOptionRequest() {
-    return RequestService.axios.get(EndPoints.categoryOption);
+export function getCategoriesOptionRequest(getParam) {
+    return RequestService.axios.get(EndPoints.categoryOption(getParam));
 }
 
 export function UpdateCategoryRequest(categoryForm) {

@@ -2,14 +2,27 @@ import React from "react";
 import { Modal, } from "react-bootstrap";
 
 import {
-  Yes,
-  No 
+  CheckIsFeatured,
+  CheckIsFeaturedLabel,
+  CheckIsNotFeaturedLabel,
+  CheckIsDeleted,
+  CheckIsDeletedLabel,
+  CheckIsNotDeletedLabel,
 } from "../../../Constants/Product/ProductConstants";
 import { get } from "../../../httpHelper";
 
 const Info = ({ product, handleClose }) => {
   const getIsFeaturedProduct = (id) => {
-    return id == true ? Yes : No;
+    return id == CheckIsFeatured ? CheckIsFeaturedLabel : CheckIsNotFeaturedLabel;
+  }
+
+  const getIsDeleted = (id) => {
+    return id == CheckIsDeleted ? CheckIsDeletedLabel : CheckIsNotDeletedLabel;
+  }
+
+  const getFormatDateTime=(date)=>{
+    const DATE_OPTIONS = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+    return new Date(date).toLocaleDateString('en-US', DATE_OPTIONS);
   }
 
   return (
@@ -28,53 +41,43 @@ const Info = ({ product, handleClose }) => {
         <Modal.Body>
           <div>
             <div className='row -intro-y'>
-              <div className='col-4'>Id:</div>
-              <div>{product.id}</div>
+              <div>Id: <span>{product.id}</span></div>
             </div>
 
             <div className='row -intro-y'>
-              <div className='col-4'>Name:</div>
-              <div>{product.name}</div>
+              <div>Name: <span>{product.name}</span></div>
             </div>
 
             <div className='row -intro-y'>
-              <div className='col-4'>Description:</div>
-              <div>{product.description}</div>
+              <div>Description:<span>{product.description}</span></div>
             </div>
 
             <div className='row -intro-y'>
-              <div className='col-4'>Detail:</div>
-              <div>{product.detail}</div>
+              <div>Details: <span>{product.details}</span></div>
             </div>
 
             <div className='row -intro-y'>
-              <div className='col-4'>OriginPrice:</div>
-              <div>{product.originPrice}</div>
+              <div>Images: <span>{product.images}</span></div>
             </div>
 
             <div className='row -intro-y'>
-              <div className='col-4'>Price:</div>
-              <div>{product.price}</div>
+              <div>Price: <span>{product.price}</span></div>
             </div>
 
             <div className='row -intro-y'>
-              <div className='col-4'>DescreasedPrice:</div>
-              <div>{product.decreasedPrice}</div>
+              <div>Created Date: <span>{getFormatDateTime(product.createdDate)}</span></div>
             </div>
 
             <div className='row -intro-y'>
-              <div className='col-4'>Stock:</div>
-              <div>{product.stock}</div>
+              <div>Updated Date: <span>{product.updatedDate==null?product.updatedDate:getFormatDateTime(product.updatedDate)}</span></div>
             </div>
 
             <div className='row -intro-y'>
-              <div className='col-4'>View Count:</div>
-              <div>{product.viewCount}</div>
+              <div>Is Featured: <span>{getIsFeaturedProduct(product.isFeatured)}</span></div>
             </div>
 
             <div className='row -intro-y'>
-              <div className='col-4'>Is Featured:</div>
-              <div>{getIsFeaturedProduct(product.isFeatured)}</div>
+              <div>Is Deleted: <span>{getIsDeleted(product.isDeleted)}</span></div>
             </div>
 
 

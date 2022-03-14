@@ -32,8 +32,8 @@ const CategoryFormContainer = ({ initialCategoryForm = {
 
     useEffect(() => {
         async function fetchDataAsync() {
-          let result = await getCategoriesOptionRequest();
-          setSelectOptions(result.data)
+          let result = await getCategoriesOptionRequest("parent");
+          setSelectOptions(result.data);
         }
         
         fetchDataAsync();

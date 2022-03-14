@@ -11,7 +11,6 @@ import {
   CheckActiveLabel,
   CheckInActiveLabel,
 } from "../../../Constants/Category/CategoryConstants";
-import { get } from "../../../httpHelper";
 
 const Info = ({ category, handleClose }) => {
   const getIsShowOnHomeCategory = (id) => {

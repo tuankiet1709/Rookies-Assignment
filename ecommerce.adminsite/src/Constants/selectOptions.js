@@ -26,9 +26,16 @@ import {
     CheckInActiveLabel
 } from "../Constants/Category/CategoryConstants";
 
+import { 
+    CheckIsFeatured,
+    CheckIsFeaturedLabel,
+    CheckIsNotFeatured,
+    CheckIsNotFeaturedLabel
+} from "../Constants/Product/ProductConstants";
+
 export const isFeaturedProductOptions = [
-    { id: 1, label: Yes, value: Yes },
-    { id: 2, label: No, value: No },
+    { id: 1, label: CheckIsFeaturedLabel, value: CheckIsFeatured },
+    { id: 0, label: CheckIsNotFeaturedLabel, value: CheckIsNotFeatured },
 ];
 
 export const isShowOnHomeOptions = [
@@ -40,7 +47,6 @@ export const checkActive = [
     { id: 1, label: CheckActive, value: CheckActiveLabel },
     { id: 0, label: CheckInActive, value: CheckInActiveLabel },
 ];
-
 
 export const BrandTypeOptions = [
     { id: 1, label: NormalBrandTypeLabel, value: NormalBrandType },

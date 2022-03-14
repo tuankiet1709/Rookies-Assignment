@@ -1,14 +1,11 @@
-import React, { lazy, Suspense, useEffect } from "react";
-import logo from "./logo.svg";
+import React, { lazy } from "react";
 import "./App.css";
 import Home from "./components/Home/Home";
-import Layout from "./components/Navbar";
-import Contact from "./components/Contact";
+import Navbar from "./components/Navbar";
 import { Route, Routes } from "react-router-dom";
 import { PRODUCT } from "./Constants/pages";
 import { BRAND } from "./Constants/pages";
 import { CATEGORY } from "./Constants/pages";
-
 
 
 const Product = lazy(() => import('./components/Product'));
@@ -18,19 +15,9 @@ const Category = lazy(() => import('./components/Category'));
 
 export default function App() {
   return (
-    <div>
-      <h1>Basic Example</h1>
-
-      <p>
-        This example demonstrates some of the core features of React Router
-        including nested <code>&lt;Route&gt;</code>s,{" "}
-        <code>&lt;Outlet&gt;</code>s, <code>&lt;Link&gt;</code>s, and using a
-        "*" route (aka "splat route") to render a "not found" page when someone
-        visits an unrecognized URL.
-      </p>
-
+    <>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Navbar />}>
           <Route index element={<Home />} />
           <Route
             path={BRAND}
@@ -55,12 +42,12 @@ export default function App() {
                 <Category />
               </React.Suspense>
             }
-          />
-          <Route path="*" element={<h2>404</h2>} />
+            />
+            <Route path="*" element={<h2>404</h2>} />
         </Route>
       </Routes>
 
-          
-    </div>
+
+    </>
   );
 }

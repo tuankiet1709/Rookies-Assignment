@@ -81,7 +81,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = new Guid("725efe2e-a534-40c4-ab0d-20c947e6c0eb"),
-                            ConcurrencyStamp = "d5bd16f3-5800-463b-a4ca-866342b25510",
+                            ConcurrencyStamp = "7db8366a-3b48-4080-b1fb-fd18fd4c1601",
                             Description = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -158,8 +158,8 @@ namespace eCommerce.Backend.Data.Migrations
                         {
                             Id = new Guid("cf517a65-75d0-480c-9566-601b1e607d25"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "150efb28-e6a4-4024-b3f3-e95fe260552c",
-                            Dob = new DateTime(2022, 3, 11, 10, 55, 15, 155, DateTimeKind.Local).AddTicks(3430),
+                            ConcurrencyStamp = "2bbb265e-a5df-42ed-b314-d69628a77939",
+                            Dob = new DateTime(2022, 3, 13, 16, 15, 54, 120, DateTimeKind.Local).AddTicks(2030),
                             Email = "tranhatuankiet1709@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Tu",
@@ -167,7 +167,7 @@ namespace eCommerce.Backend.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "tranhatuankiet1709@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPNd55qaMnuS6debts2UPkB2aW3dm5/sLPWXzssB5izwe3cOoqiDZYxtQkQ5jv1EDw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEATEUIP6Oyd/XvoQoSO6ENHarrmTAl7GVOIMwyktYkRxuXasl9RrvuDYgt1tIe7hYg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -217,7 +217,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2100),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(890),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Andora",
@@ -227,7 +227,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2110),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(910),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Apple",
@@ -237,7 +237,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2110),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(910),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Anker",
@@ -247,7 +247,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2110),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(910),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Baseus",
@@ -257,7 +257,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2120),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(910),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Hyper",
@@ -267,7 +267,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2120),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(920),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Filco",
@@ -277,7 +277,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2120),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(920),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "JCPAL",
@@ -287,7 +287,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2120),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(920),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Keychrone",
@@ -297,7 +297,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2120),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(920),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Lofree",
@@ -307,7 +307,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2120),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(920),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Logitech",
@@ -317,7 +317,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2170),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(920),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Mocoll",
@@ -327,7 +327,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2170),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(920),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Philips",
@@ -337,7 +337,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2170),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(920),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Tucano",
@@ -347,7 +347,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 15,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2170),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(930),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "WIWU",
@@ -434,7 +434,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2200),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(940),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Macbook's Accessories",
@@ -443,7 +443,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2200),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(950),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Iphone's Accessories",
@@ -452,7 +452,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2200),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(950),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Ipad's Accessories",
@@ -461,7 +461,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2200),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(950),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Mechanical",
@@ -470,7 +470,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2200),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(950),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Macbook sticker",
@@ -480,7 +480,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2200),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(950),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Usb-c Hub",
@@ -490,7 +490,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2200),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(960),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Iphone Charging Cable",
@@ -500,7 +500,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2210),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(960),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Iphone Stand",
@@ -510,7 +510,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2210),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(960),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Ipad Case",
@@ -520,7 +520,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2210),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(960),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Ipad Tempered Glass",
@@ -530,7 +530,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2210),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(960),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Ipad Stand",
@@ -540,7 +540,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2210),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(960),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Mechanical Keyboard",
@@ -550,7 +550,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2210),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(960),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Mechanical Mouse",
@@ -560,7 +560,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2210),
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(970),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Macbook Cleaning Kit",
@@ -658,9 +658,6 @@ namespace eCommerce.Backend.Data.Migrations
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GetDate()");
 
-                    b.Property<decimal>("DecreasedPrice")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -674,7 +671,9 @@ namespace eCommerce.Backend.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool?>("IsFeatured")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -700,6 +699,11 @@ namespace eCommerce.Backend.Data.Migrations
                         .HasColumnType("int")
                         .HasDefaultValue(0);
 
+                    b.Property<bool>("isDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
                     b.HasKey("Id");
 
                     b.HasIndex("BrandId");
@@ -714,8 +718,7 @@ namespace eCommerce.Backend.Data.Migrations
                             Id = 1,
                             BrandId = 7,
                             CategoryId = 14,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2230),
-                            DecreasedPrice = 0m,
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(980),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsFeatured = true,
@@ -723,15 +726,15 @@ namespace eCommerce.Backend.Data.Migrations
                             OriginalPrice = 180000m,
                             Price = 200000m,
                             Stock = 10,
-                            ViewCount = 0
+                            ViewCount = 0,
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 2,
                             BrandId = 6,
                             CategoryId = 6,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2240),
-                            DecreasedPrice = 0m,
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(990),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsFeatured = true,
@@ -739,15 +742,15 @@ namespace eCommerce.Backend.Data.Migrations
                             OriginalPrice = 180000m,
                             Price = 200000m,
                             Stock = 10,
-                            ViewCount = 0
+                            ViewCount = 0,
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 3,
                             BrandId = 1,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2240),
-                            DecreasedPrice = 0m,
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(990),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsFeatured = true,
@@ -755,15 +758,15 @@ namespace eCommerce.Backend.Data.Migrations
                             OriginalPrice = 600000m,
                             Price = 650000m,
                             Stock = 10,
-                            ViewCount = 0
+                            ViewCount = 0,
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 4,
                             BrandId = 2,
                             CategoryId = 7,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2240),
-                            DecreasedPrice = 0m,
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(990),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsFeatured = true,
@@ -771,15 +774,15 @@ namespace eCommerce.Backend.Data.Migrations
                             OriginalPrice = 650000m,
                             Price = 700000m,
                             Stock = 10,
-                            ViewCount = 0
+                            ViewCount = 0,
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 5,
                             BrandId = 15,
                             CategoryId = 8,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2240),
-                            DecreasedPrice = 0m,
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(990),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsFeatured = true,
@@ -787,15 +790,15 @@ namespace eCommerce.Backend.Data.Migrations
                             OriginalPrice = 210000m,
                             Price = 250000m,
                             Stock = 10,
-                            ViewCount = 0
+                            ViewCount = 0,
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 6,
                             BrandId = 15,
                             CategoryId = 9,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2240),
-                            DecreasedPrice = 0m,
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(990),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsFeatured = true,
@@ -803,15 +806,15 @@ namespace eCommerce.Backend.Data.Migrations
                             OriginalPrice = 1100000m,
                             Price = 1300000m,
                             Stock = 10,
-                            ViewCount = 0
+                            ViewCount = 0,
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 7,
                             BrandId = 7,
                             CategoryId = 10,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2250),
-                            DecreasedPrice = 0m,
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(1000),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsFeatured = true,
@@ -819,15 +822,15 @@ namespace eCommerce.Backend.Data.Migrations
                             OriginalPrice = 300000m,
                             Price = 350000m,
                             Stock = 10,
-                            ViewCount = 0
+                            ViewCount = 0,
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 8,
                             BrandId = 8,
                             CategoryId = 12,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2250),
-                            DecreasedPrice = 0m,
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(1000),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsFeatured = true,
@@ -835,15 +838,15 @@ namespace eCommerce.Backend.Data.Migrations
                             OriginalPrice = 16000000m,
                             Price = 1890000m,
                             Stock = 10,
-                            ViewCount = 0
+                            ViewCount = 0,
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 9,
                             BrandId = 9,
                             CategoryId = 13,
-                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2250),
-                            DecreasedPrice = 0m,
+                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(1000),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsFeatured = true,
@@ -851,7 +854,8 @@ namespace eCommerce.Backend.Data.Migrations
                             OriginalPrice = 1200000m,
                             Price = 1500000m,
                             Stock = 10,
-                            ViewCount = 0
+                            ViewCount = 0,
+                            isDeleted = false
                         });
                 });
 

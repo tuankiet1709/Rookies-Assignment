@@ -11,15 +11,17 @@ const UpdateProductContainer = () => {
   useEffect(() => {
     if (existProduct) {
       setProduct({
-        id: existProduct.id,
+        id:existProduct.id,
         name: existProduct.name,
         description: existProduct.description,
-        detail: existProduct.detail,
+        details: existProduct.details,
+        originalPrice: existProduct.originalPrice,
         price: existProduct.price,
-        decreasedPrice: existProduct.decreasedPrice,
-        dateModified: existProduct.dateModified,
+        updatedDate: existProduct.updatedDate,
         isFeatured: existProduct.isFeatured,
- 
+        categoryId: existProduct.categoryId,
+        brandId: existProduct.brandId,
+        imageFile:existProduct.images,
       });
     }
   }, [existProduct]);

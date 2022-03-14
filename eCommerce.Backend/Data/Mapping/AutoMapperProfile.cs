@@ -18,8 +18,14 @@ namespace RookieShop.Backend.Data.Mapping
                            opts => opts
                                     .MapFrom(src => ImageHelper
                                                         .GetFileUrl(src.Image)
-                                            ));  
-            CreateMap<Product, ProductDto>();  
+                                                    ));  
+            CreateMap<Brand, BrandOptionDto>();  
+            CreateMap<Product, ProductDto>()
+                .ForMember(src => src.Images,
+                           opts => opts
+                                    .MapFrom(src => ImageHelper
+                                                        .GetFileUrl(src.Images)
+                                                    ));  
             CreateMap<Category, CategoryDto>();  
             CreateMap<Category, CategoryOptionDto>();  
             CreateMap<Rating, RatingDto>();  

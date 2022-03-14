@@ -16,10 +16,11 @@ import {
 } from "../../../Constants/paging"
 
 const ListProduct = () => {
+
   const [query, setQuery] = useState({
     page: 1,
     limit: DEFAULT_PAGE_LIMIT,
-    sortOrder: DECSENDING,
+    sortOrder: ACCSENDING,
     sortColumn: DEFAULT_PRODUCT_SORT_COLUMN_NAME
   });
 
@@ -114,23 +115,8 @@ const ListProduct = () => {
 
   return (
     <>
-      <div className="primaryColor text-title intro-x">Product List</div>
-
       <div>
         <div className="d-flex mb-5 intro-x">
-          <div className="d-flex align-items-center w-md mr-5">
-          <ReactMultiSelectCheckboxes
-              options={isFeaturedProductOptions}
-              hideSearch={true}
-              placeholderButtonLabel="Type"
-              value={selectedType}
-              onChange={handleType}
-            />
-
-            <div className="border p-2">
-              <FunnelFill />
-            </div>
-          </div>
 
           <div className="d-flex align-items-center w-ld ml-auto">
             <div className="input-group">

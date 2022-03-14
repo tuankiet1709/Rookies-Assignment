@@ -9,6 +9,7 @@ using eCommerce.Backend.Extension;
 using Microsoft.AspNetCore.Authorization;
 using eCommerce.Shared.ViewModel.Brand;
 using eCommerce.Backend.Services;
+using eCommerce.Shared.Enum;
 
 namespace eCommerce.Backend.Controllers;
 
@@ -69,6 +70,16 @@ public class BrandsController : ControllerBase
 
         var BrandDto = _mapper.Map<IEnumerable<BrandDto>>(pagedBrands.Items);
         return BrandDto;
+    }
+    [HttpGet("Option")]
+    [AllowAnonymous]
+    public async Task<IEnumerable<BrandOptionDto>> GetBrandsOption()
+    {
+        //query
+        var query= await _context.Brands.Where(x=>x.Status==Status.Active).Take(100).ToListAsync();
+
+        var BrandOptionDto = _mapper.Map<IEnumerable<BrandOptionDto>>(query);
+        return BrandOptionDto;
     }
     [HttpGet("{id}")]
         // [Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]

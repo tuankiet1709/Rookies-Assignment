@@ -28,6 +28,10 @@ namespace eCommerce.Backend.Data.Migrations
                 name: "Transactions");
 
             migrationBuilder.DropColumn(
+                name: "DecreasedPrice",
+                table: "Products");
+
+            migrationBuilder.DropColumn(
                 name: "SeoAlias",
                 table: "Products");
 
@@ -98,6 +102,16 @@ namespace eCommerce.Backend.Data.Migrations
                 table: "Brands",
                 newName: "CreatedDate");
 
+            migrationBuilder.AlterColumn<bool>(
+                name: "IsFeatured",
+                table: "Products",
+                type: "bit",
+                nullable: true,
+                defaultValue: false,
+                oldClrType: typeof(bool),
+                oldType: "bit",
+                oldNullable: true);
+
             migrationBuilder.AlterColumn<string>(
                 name: "Details",
                 table: "Products",
@@ -120,6 +134,13 @@ namespace eCommerce.Backend.Data.Migrations
                 type: "nvarchar(max)",
                 nullable: true);
 
+            migrationBuilder.AddColumn<bool>(
+                name: "isDeleted",
+                table: "Products",
+                type: "bit",
+                nullable: false,
+                defaultValue: false);
+
             migrationBuilder.AlterColumn<bool>(
                 name: "IsShowOnHome",
                 table: "Categories",
@@ -134,273 +155,273 @@ namespace eCommerce.Backend.Data.Migrations
                 keyColumn: "Id",
                 keyValue: new Guid("725efe2e-a534-40c4-ab0d-20c947e6c0eb"),
                 column: "ConcurrencyStamp",
-                value: "d5bd16f3-5800-463b-a4ca-866342b25510");
+                value: "7db8366a-3b48-4080-b1fb-fd18fd4c1601");
 
             migrationBuilder.UpdateData(
                 table: "AppUsers",
                 keyColumn: "Id",
                 keyValue: new Guid("cf517a65-75d0-480c-9566-601b1e607d25"),
                 columns: new[] { "ConcurrencyStamp", "Dob", "PasswordHash" },
-                values: new object[] { "150efb28-e6a4-4024-b3f3-e95fe260552c", new DateTime(2022, 3, 11, 10, 55, 15, 155, DateTimeKind.Local).AddTicks(3430), "AQAAAAEAACcQAAAAEPNd55qaMnuS6debts2UPkB2aW3dm5/sLPWXzssB5izwe3cOoqiDZYxtQkQ5jv1EDw==" });
+                values: new object[] { "2bbb265e-a5df-42ed-b314-d69628a77939", new DateTime(2022, 3, 13, 16, 15, 54, 120, DateTimeKind.Local).AddTicks(2030), "AQAAAAEAACcQAAAAEATEUIP6Oyd/XvoQoSO6ENHarrmTAl7GVOIMwyktYkRxuXasl9RrvuDYgt1tIe7hYg==" });
 
             migrationBuilder.UpdateData(
                 table: "Brands",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedDate",
-                value: new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2100));
+                value: new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(890));
 
             migrationBuilder.UpdateData(
                 table: "Brands",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "CreatedDate",
-                value: new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2110));
+                value: new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(910));
 
             migrationBuilder.UpdateData(
                 table: "Brands",
                 keyColumn: "Id",
                 keyValue: 3,
                 column: "CreatedDate",
-                value: new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2110));
+                value: new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(910));
 
             migrationBuilder.UpdateData(
                 table: "Brands",
                 keyColumn: "Id",
                 keyValue: 4,
                 column: "CreatedDate",
-                value: new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2110));
+                value: new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(910));
 
             migrationBuilder.UpdateData(
                 table: "Brands",
                 keyColumn: "Id",
                 keyValue: 5,
                 column: "CreatedDate",
-                value: new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2120));
+                value: new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(910));
 
             migrationBuilder.UpdateData(
                 table: "Brands",
                 keyColumn: "Id",
                 keyValue: 6,
                 column: "CreatedDate",
-                value: new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2120));
+                value: new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(920));
 
             migrationBuilder.UpdateData(
                 table: "Brands",
                 keyColumn: "Id",
                 keyValue: 7,
                 column: "CreatedDate",
-                value: new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2120));
+                value: new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(920));
 
             migrationBuilder.UpdateData(
                 table: "Brands",
                 keyColumn: "Id",
                 keyValue: 8,
                 column: "CreatedDate",
-                value: new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2120));
+                value: new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(920));
 
             migrationBuilder.UpdateData(
                 table: "Brands",
                 keyColumn: "Id",
                 keyValue: 9,
                 column: "CreatedDate",
-                value: new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2120));
+                value: new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(920));
 
             migrationBuilder.UpdateData(
                 table: "Brands",
                 keyColumn: "Id",
                 keyValue: 10,
                 column: "CreatedDate",
-                value: new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2120));
+                value: new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(920));
 
             migrationBuilder.UpdateData(
                 table: "Brands",
                 keyColumn: "Id",
                 keyValue: 11,
                 column: "CreatedDate",
-                value: new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2170));
+                value: new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(920));
 
             migrationBuilder.UpdateData(
                 table: "Brands",
                 keyColumn: "Id",
                 keyValue: 13,
                 column: "CreatedDate",
-                value: new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2170));
+                value: new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(920));
 
             migrationBuilder.UpdateData(
                 table: "Brands",
                 keyColumn: "Id",
                 keyValue: 14,
                 column: "CreatedDate",
-                value: new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2170));
+                value: new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(920));
 
             migrationBuilder.UpdateData(
                 table: "Brands",
                 keyColumn: "Id",
                 keyValue: 15,
                 column: "CreatedDate",
-                value: new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2170));
+                value: new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(930));
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 1,
                 columns: new[] { "CreatedDate", "Description" },
-                values: new object[] { new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2200), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
+                values: new object[] { new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(940), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 2,
                 columns: new[] { "CreatedDate", "Description" },
-                values: new object[] { new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2200), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
+                values: new object[] { new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(950), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 3,
                 columns: new[] { "CreatedDate", "Description" },
-                values: new object[] { new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2200), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
+                values: new object[] { new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(950), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 4,
                 columns: new[] { "CreatedDate", "Description" },
-                values: new object[] { new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2200), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
+                values: new object[] { new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(950), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 5,
                 columns: new[] { "CreatedDate", "Description" },
-                values: new object[] { new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2200), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
+                values: new object[] { new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(950), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 6,
                 columns: new[] { "CreatedDate", "Description" },
-                values: new object[] { new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2200), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
+                values: new object[] { new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(950), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 7,
                 columns: new[] { "CreatedDate", "Description" },
-                values: new object[] { new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2200), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
+                values: new object[] { new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(960), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 8,
                 columns: new[] { "CreatedDate", "Description" },
-                values: new object[] { new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2210), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
+                values: new object[] { new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(960), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 9,
                 columns: new[] { "CreatedDate", "Description" },
-                values: new object[] { new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2210), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
+                values: new object[] { new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(960), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 10,
                 columns: new[] { "CreatedDate", "Description" },
-                values: new object[] { new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2210), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
+                values: new object[] { new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(960), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 11,
                 columns: new[] { "CreatedDate", "Description" },
-                values: new object[] { new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2210), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
+                values: new object[] { new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(960), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 12,
                 columns: new[] { "CreatedDate", "Description" },
-                values: new object[] { new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2210), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
+                values: new object[] { new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(960), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 13,
                 columns: new[] { "CreatedDate", "Description" },
-                values: new object[] { new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2210), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
+                values: new object[] { new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(960), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 14,
                 columns: new[] { "CreatedDate", "Description" },
-                values: new object[] { new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2210), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
+                values: new object[] { new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(970), "Lorem Ipsum is simply dummy text of the printing and typesetting industry." });
 
             migrationBuilder.UpdateData(
                 table: "Products",
                 keyColumn: "Id",
                 keyValue: 1,
                 columns: new[] { "CategoryId", "CreatedDate" },
-                values: new object[] { 14, new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2230) });
+                values: new object[] { 14, new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(980) });
 
             migrationBuilder.UpdateData(
                 table: "Products",
                 keyColumn: "Id",
                 keyValue: 2,
                 columns: new[] { "CategoryId", "CreatedDate" },
-                values: new object[] { 6, new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2240) });
+                values: new object[] { 6, new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(990) });
 
             migrationBuilder.UpdateData(
                 table: "Products",
                 keyColumn: "Id",
                 keyValue: 3,
                 columns: new[] { "CategoryId", "CreatedDate" },
-                values: new object[] { 5, new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2240) });
+                values: new object[] { 5, new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(990) });
 
             migrationBuilder.UpdateData(
                 table: "Products",
                 keyColumn: "Id",
                 keyValue: 4,
                 columns: new[] { "CategoryId", "CreatedDate" },
-                values: new object[] { 7, new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2240) });
+                values: new object[] { 7, new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(990) });
 
             migrationBuilder.UpdateData(
                 table: "Products",
                 keyColumn: "Id",
                 keyValue: 5,
                 columns: new[] { "CategoryId", "CreatedDate" },
-                values: new object[] { 8, new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2240) });
+                values: new object[] { 8, new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(990) });
 
             migrationBuilder.UpdateData(
                 table: "Products",
                 keyColumn: "Id",
                 keyValue: 6,
                 columns: new[] { "CategoryId", "CreatedDate" },
-                values: new object[] { 9, new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2240) });
+                values: new object[] { 9, new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(990) });
 
             migrationBuilder.UpdateData(
                 table: "Products",
                 keyColumn: "Id",
                 keyValue: 7,
                 columns: new[] { "CategoryId", "CreatedDate" },
-                values: new object[] { 10, new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2250) });
+                values: new object[] { 10, new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(1000) });
 
             migrationBuilder.UpdateData(
                 table: "Products",
                 keyColumn: "Id",
                 keyValue: 8,
                 columns: new[] { "CategoryId", "CreatedDate" },
-                values: new object[] { 12, new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2250) });
+                values: new object[] { 12, new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(1000) });
 
             migrationBuilder.UpdateData(
                 table: "Products",
                 keyColumn: "Id",
                 keyValue: 9,
                 columns: new[] { "CategoryId", "CreatedDate" },
-                values: new object[] { 13, new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2250) });
+                values: new object[] { 13, new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(1000) });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryId",
@@ -432,6 +453,10 @@ namespace eCommerce.Backend.Data.Migrations
 
             migrationBuilder.DropColumn(
                 name: "Images",
+                table: "Products");
+
+            migrationBuilder.DropColumn(
+                name: "isDeleted",
                 table: "Products");
 
             migrationBuilder.RenameColumn(
@@ -469,6 +494,16 @@ namespace eCommerce.Backend.Data.Migrations
                 table: "Brands",
                 newName: "DateCreated");
 
+            migrationBuilder.AlterColumn<bool>(
+                name: "IsFeatured",
+                table: "Products",
+                type: "bit",
+                nullable: true,
+                oldClrType: typeof(bool),
+                oldType: "bit",
+                oldNullable: true,
+                oldDefaultValue: false);
+
             migrationBuilder.AlterColumn<string>(
                 name: "Details",
                 table: "Products",
@@ -477,6 +512,13 @@ namespace eCommerce.Backend.Data.Migrations
                 oldClrType: typeof(string),
                 oldType: "nvarchar(200)",
                 oldMaxLength: 200);
+
+            migrationBuilder.AddColumn<decimal>(
+                name: "DecreasedPrice",
+                table: "Products",
+                type: "decimal(18,2)",
+                nullable: false,
+                defaultValue: 0m);
 
             migrationBuilder.AddColumn<string>(
                 name: "SeoAlias",
