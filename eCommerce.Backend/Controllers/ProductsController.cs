@@ -9,7 +9,7 @@ using eCommerce.Backend.Extension;
 using Microsoft.AspNetCore.Authorization;
 using eCommerce.Shared.ViewModel.Product;
 using eCommerce.Backend.Models;
-using eCommerce.Shared.ViewModel.ProductImage;
+using eCommerce.Shared.ViewModel.Product;
 using eCommerce.Backend.Services;
 
 namespace eCommerce.Backend.Controllers;
@@ -100,27 +100,83 @@ public class ProductsController : ControllerBase
         var productDto = _mapper.Map<List<ProductDto>>(query);
         return productDto;
     }
-    // [HttpPost("ProductImage")]
-    // [AllowAnonymous]
-    // public async Task<int> AddImage(int productId, ProductImageCreateRequest request)
-    // {
-    //     var productImage = new ProductImage()
-    //     {
-    //         Caption = request.Caption,
-    //         DateCreated = DateTime.Now,
-    //         IsDefault = request.IsDefault,
-    //         ProductId = productId,
-    //         SortOrder = request.SortOrder
-    //     };
+    [HttpPost]
+    //[Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
+    public async Task<ActionResult<ProductVm>> PostProduct([FromForm]ProductCreateRequest productCreateRequest)
+    {
+        var product = new Product
+        {
+            Name=productCreateRequest.Name,
+            Description=productCreateRequest.Description,
+            Details=productCreateRequest.Details,
+            Images=string.Empty,
+            OriginalPrice=productCreateRequest.OriginalPrice,
+            Price=productCreateRequest.Price,
+            IsFeatured=productCreateRequest.IsFeatured,
+            BrandId=productCreateRequest.BrandId,
+            CategoryId=productCreateRequest.CategoryId,
+        };
 
-    //     if (request.ImageFile != null)
-    //     {
-    //         productImage.ImagePath = await _fileStorageService.SaveFileAsync(request.ImageFile);
-    //         productImage.FileSize = request.ImageFile.Length;
-    //     }
-    //     _context.ProductImages.Add(productImage);
-    //     await _context.SaveChangesAsync();
-    //     return productImage.Id;
-    // }
+        if (productCreateRequest.ImageFile != null)
+        {
+            product.Images = await _fileStorageService.SaveFileAsync(productCreateRequest.ImageFile);
+        }
+
+        _context.Products.Add(product);
+        await _context.SaveChangesAsync();
+
+        return CreatedAtAction("GetProduct", new { id = product.Id }, new ProductVm { Id = product.Id, Name = product.Name });
+    }
+    [HttpPut("{id}")]
+    [AllowAnonymous]
+    //[Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
+    public async Task<ActionResult> PutProduct([FromRoute] int id, [FromForm] ProductUpdateRequest productUpdateRequest)
+    {
+        var product = await _context.Products.FindAsync(id);
+
+        if (product == null)
+        {
+            return NotFound();
+        }
+        else {
+            product.Name=productUpdateRequest.Name;
+            product.Description=productUpdateRequest.Description;
+            product.Details=productUpdateRequest.Details;
+            product.UpdatedDate=DateTime.Now;
+            product.OriginalPrice=productUpdateRequest.OriginalPrice;
+            product.Price=productUpdateRequest.Price;
+            product.IsFeatured=productUpdateRequest.IsFeatured;
+            product.BrandId=productUpdateRequest.BrandId;
+            product.CategoryId=productUpdateRequest.CategoryId;
+        }
+
+        if (productUpdateRequest.ImageFile != null)
+        {
+            product.Images = await _fileStorageService.SaveFileAsync(productUpdateRequest.ImageFile);
+        }
+        
+        _context.Products.Update(product);
+        await _context.SaveChangesAsync();
+
+        return Ok(product);
+    }
+    [HttpDelete("{id}")]
+    [AllowAnonymous]
+    //[Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
+    public async Task<IActionResult> DeleteProduct(int id)
+    {
+        var product = await _context.Products.FindAsync(id);
+        if (product == null)
+        {
+            return NotFound();
+        }
+
+        //_context.Brands.Remove(brand);
+        product.isDeleted = true;
+        _context.Products.Update(product);
+        await _context.SaveChangesAsync();
+
+        return Ok(true);
+    }
 }
 

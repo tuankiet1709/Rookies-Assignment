@@ -21,6 +21,10 @@ export function getBrandsRequest(query) {
     });
 }
 
+export function getBrandsOptionRequest(getParam) {
+    return RequestService.axios.get(EndPoints.brandOption);
+}
+
 export function UpdateBrandRequest(brandForm) {
     const formData = new FormData();
 

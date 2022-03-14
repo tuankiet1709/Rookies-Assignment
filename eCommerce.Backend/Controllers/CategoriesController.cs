@@ -71,10 +71,28 @@ public class CategoriesController : ControllerBase
     }
     [HttpGet("Option")]
     [AllowAnonymous]
-    public async Task<IEnumerable<CategoryOptionDto>> GetCategoriesOption()
+    public async Task<IEnumerable<CategoryOptionDto>> GetCategoriesOption(string getParam)
     {
         //query
         var query= await _context.Categories.Where(x=>x.Status==Status.Active).Take(100).ToListAsync();
+        
+        //filter
+        if(getParam=="child"){
+            query= query.Where(x=>x.ParentId!=null).ToList();
+        }
+        else if(getParam=="parent"){
+            query= query.Where(x=>x.ParentId==null).ToList();
+        }
+
+        var CategoryOptionDto = _mapper.Map<IEnumerable<CategoryOptionDto>>(query);
+        return CategoryOptionDto;
+    }
+    [HttpGet("HomeOption")]
+    [AllowAnonymous]
+    public async Task<IEnumerable<CategoryOptionDto>> GetCategoriesProductOption()
+    {
+        //query
+        var query= await _context.Categories.Where(x=>x.Status==Status.Active&&x.ParentId!=null).Take(100).ToListAsync();
 
         var CategoryOptionDto = _mapper.Map<IEnumerable<CategoryOptionDto>>(query);
         return CategoryOptionDto;
