@@ -81,7 +81,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = new Guid("725efe2e-a534-40c4-ab0d-20c947e6c0eb"),
-                            ConcurrencyStamp = "d379edef-0a85-48c9-9c1d-99d4eddf540b",
+                            ConcurrencyStamp = "d5bd16f3-5800-463b-a4ca-866342b25510",
                             Description = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -158,8 +158,8 @@ namespace eCommerce.Backend.Data.Migrations
                         {
                             Id = new Guid("cf517a65-75d0-480c-9566-601b1e607d25"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c063d31a-c81f-4626-8d4c-3fb21b7d4631",
-                            Dob = new DateTime(2022, 3, 3, 21, 47, 18, 263, DateTimeKind.Local).AddTicks(1170),
+                            ConcurrencyStamp = "150efb28-e6a4-4024-b3f3-e95fe260552c",
+                            Dob = new DateTime(2022, 3, 11, 10, 55, 15, 155, DateTimeKind.Local).AddTicks(3430),
                             Email = "tranhatuankiet1709@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Tu",
@@ -167,7 +167,7 @@ namespace eCommerce.Backend.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "tranhatuankiet1709@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDUwHKTufxBPeXT50w5jzz+xI2JfKCuGl5OzWfK6MfubC2cGccz1IsNssqQWcnW1ow==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPNd55qaMnuS6debts2UPkB2aW3dm5/sLPWXzssB5izwe3cOoqiDZYxtQkQ5jv1EDw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -183,10 +183,7 @@ namespace eCommerce.Backend.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DateModified")
+                    b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Image")
@@ -201,21 +198,6 @@ namespace eCommerce.Backend.Data.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<string>("SeoAlias")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("SeoDescription")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<string>("SeoTitle")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
                     b.Property<int>("SortOrder")
                         .HasColumnType("int");
 
@@ -223,6 +205,9 @@ namespace eCommerce.Backend.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasDefaultValue(1);
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -232,182 +217,140 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6940),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2100),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Andora",
-                            SeoAlias = "Andora",
-                            SeoDescription = "Andora's accessories",
-                            SeoTitle = "Andora's accessories",
                             SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6960),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2110),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Apple",
-                            SeoAlias = "Apple",
-                            SeoDescription = "Apple's accessories",
-                            SeoTitle = "Apple's accessories",
                             SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 3,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6960),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2110),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Anker",
-                            SeoAlias = "Anker",
-                            SeoDescription = "Anker's accessories",
-                            SeoTitle = "Anker's accessories",
                             SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 4,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6960),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2110),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Baseus",
-                            SeoAlias = "Baseus",
-                            SeoDescription = "Baseus's accessories",
-                            SeoTitle = "Baseus's accessories",
                             SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 5,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6970),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2120),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Hyper",
-                            SeoAlias = "Hyper",
-                            SeoDescription = "Hyper's accessories",
-                            SeoTitle = "Hyper's accessories",
                             SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 6,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6970),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2120),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Filco",
-                            SeoAlias = "Filco",
-                            SeoDescription = "Filco's accessories",
-                            SeoTitle = "Filco's accessories",
                             SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 7,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6970),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2120),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "JCPAL",
-                            SeoAlias = "JCPAL",
-                            SeoDescription = "JCPAL's accessories",
-                            SeoTitle = "JCPAL's accessories",
                             SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 8,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6970),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2120),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Keychrone",
-                            SeoAlias = "Keychrone",
-                            SeoDescription = "Keychrone's accessories",
-                            SeoTitle = "Keychrone's accessories",
                             SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 9,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6970),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2120),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Lofree",
-                            SeoAlias = "Lofree",
-                            SeoDescription = "Lofree's accessories",
-                            SeoTitle = "Lofree's accessories",
                             SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 10,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6970),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2120),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Logitech",
-                            SeoAlias = "Logitech",
-                            SeoDescription = "Logitech's accessories",
-                            SeoTitle = "Logitech's accessories",
                             SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 11,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6970),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2170),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Mocoll",
-                            SeoAlias = "Mocoll",
-                            SeoDescription = "Mocoll's accessories",
-                            SeoTitle = "Mocoll's accessories",
                             SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 13,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6980),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2170),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Philips",
-                            SeoAlias = "Philips",
-                            SeoDescription = "Philips's accessories",
-                            SeoTitle = "Philips's accessories",
                             SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 14,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6980),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2170),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Tucano",
-                            SeoAlias = "Tucano",
-                            SeoDescription = "Tucano's accessories",
-                            SeoTitle = "Tucano's accessories",
                             SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 15,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(6980),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2170),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "WIWU",
-                            SeoAlias = "WIWU",
-                            SeoDescription = "WIWU's accessories",
-                            SeoTitle = "WIWU's accessories",
                             SortOrder = 0,
                             Status = 1
                         });
@@ -452,16 +395,20 @@ namespace eCommerce.Backend.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<DateTime>("DateCreated")
+                    b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GetDate()");
 
-                    b.Property<DateTime?>("DateModified")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<bool>("IsShowOnHome")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -471,28 +418,13 @@ namespace eCommerce.Backend.Data.Migrations
                     b.Property<int?>("ParentId")
                         .HasColumnType("int");
 
-                    b.Property<string>("SeoAlias")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("SeoDescription")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<string>("SeoTitle")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<int>("SortOrder")
-                        .HasColumnType("int");
-
                     b.Property<int>("Status")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasDefaultValue(1);
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -502,276 +434,139 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7000),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2200),
+                            Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Macbook's Accessories",
-                            SeoAlias = "Macbook-accessories",
-                            SeoDescription = "The accessories products for Macbook",
-                            SeoTitle = "The accessories products for Macbook",
-                            SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7000),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2200),
+                            Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Iphone's Accessories",
-                            SeoAlias = "Iphone-accessories",
-                            SeoDescription = "The accessories product for Iphone",
-                            SeoTitle = "The accessories product for Iphone",
-                            SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 3,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7000),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2200),
+                            Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Ipad's Accessories",
-                            SeoAlias = "Ipad-accessories",
-                            SeoDescription = "The accessories product for Ipad",
-                            SeoTitle = "The accessories product for Ipad",
-                            SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 4,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7000),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2200),
+                            Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Mechanical",
-                            SeoAlias = "Mechanical",
-                            SeoDescription = "The Mechanical products for Apple devices",
-                            SeoTitle = "The Mechanical products for Apple devices",
-                            SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 5,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7010),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2200),
+                            Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Macbook sticker",
                             ParentId = 1,
-                            SeoAlias = "macbook-sticker",
-                            SeoDescription = "Sticker for Macbook",
-                            SeoTitle = "Macbook sticker",
-                            SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 6,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7010),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2200),
+                            Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Usb-c Hub",
                             ParentId = 1,
-                            SeoAlias = "usb-c-hub",
-                            SeoDescription = "Usb-c Hub",
-                            SeoTitle = "Usb-c Hub",
-                            SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 7,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7010),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2200),
+                            Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Iphone Charging Cable",
                             ParentId = 2,
-                            SeoAlias = "iphone-charging-cable",
-                            SeoDescription = "The charging cable for Iphone",
-                            SeoTitle = "Iphone Charging Cable",
-                            SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 8,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7010),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2210),
+                            Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Iphone Stand",
                             ParentId = 2,
-                            SeoAlias = "iphone-stand",
-                            SeoDescription = "Stand for Iphone",
-                            SeoTitle = "Iphone Stand",
-                            SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 9,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7060),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2210),
+                            Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Ipad Case",
                             ParentId = 3,
-                            SeoAlias = "ipad-case",
-                            SeoDescription = "Case for Ipad",
-                            SeoTitle = "Ipad Case",
-                            SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 10,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7060),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2210),
+                            Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Ipad Tempered Glass",
                             ParentId = 3,
-                            SeoAlias = "ipad-tempered-glass",
-                            SeoDescription = "Tempered glass for Ipad",
-                            SeoTitle = "Ipad Tempered Glass",
-                            SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 11,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7060),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2210),
+                            Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Ipad Stand",
                             ParentId = 3,
-                            SeoAlias = "ipad-stand",
-                            SeoDescription = "Stand for Ipad",
-                            SeoTitle = "Ipad Stand",
-                            SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 12,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7060),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2210),
+                            Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Mechanical Keyboard",
                             ParentId = 4,
-                            SeoAlias = "mechanical-keyboard",
-                            SeoDescription = "Mechanical Keyboard",
-                            SeoTitle = "Mechanical Keyboard",
-                            SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 13,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7060),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2210),
+                            Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Mechanical Mouse",
                             ParentId = 4,
-                            SeoAlias = "mechanical-mouse",
-                            SeoDescription = "Mechanical Mouse",
-                            SeoTitle = "Mechanical Mouse",
-                            SortOrder = 0,
                             Status = 1
                         },
                         new
                         {
                             Id = 14,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7060),
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2210),
+                            Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Macbook Cleaning Kit",
                             ParentId = 1,
-                            SeoAlias = "macbook-cleaning-kit",
-                            SeoDescription = "Macbook Cleaning Kit",
-                            SeoTitle = "Macbook Cleaning Kit",
-                            SortOrder = 0,
                             Status = 1
                         });
-                });
-
-            modelBuilder.Entity("eCommerce.Backend.Models.Contact", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("Message")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<int>("Status")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasDefaultValue(1);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Contacts", (string)null);
-                });
-
-            modelBuilder.Entity("eCommerce.Backend.Models.Discount", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<bool>("ApplyAll")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(true);
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("DiscountAmount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("DiscountPercent")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("FromDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("LimitedOrderPrice")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasDefaultValue(0);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<int?>("ProductCategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Status")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasDefaultValue(0);
-
-                    b.Property<DateTime>("ToDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("Discounts", (string)null);
                 });
 
             modelBuilder.Entity("eCommerce.Backend.Models.Order", b =>
@@ -855,13 +650,13 @@ namespace eCommerce.Backend.Data.Migrations
                     b.Property<int>("BrandId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DateCreated")
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GetDate()");
-
-                    b.Property<DateTime?>("DateModified")
-                        .HasColumnType("datetime2");
 
                     b.Property<decimal>("DecreasedPrice")
                         .HasColumnType("decimal(18,2)");
@@ -872,6 +667,10 @@ namespace eCommerce.Backend.Data.Migrations
 
                     b.Property<string>("Details")
                         .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("Images")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool?>("IsFeatured")
@@ -888,25 +687,13 @@ namespace eCommerce.Backend.Data.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("SeoAlias")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("SeoDescription")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<string>("SeoTitle")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
                     b.Property<int>("Stock")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasDefaultValue(0);
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("ViewCount")
                         .ValueGeneratedOnAdd()
@@ -917,6 +704,8 @@ namespace eCommerce.Backend.Data.Migrations
 
                     b.HasIndex("BrandId");
 
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("Products", (string)null);
 
                     b.HasData(
@@ -924,7 +713,8 @@ namespace eCommerce.Backend.Data.Migrations
                         {
                             Id = 1,
                             BrandId = 7,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7090),
+                            CategoryId = 14,
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2230),
                             DecreasedPrice = 0m,
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
@@ -932,9 +722,6 @@ namespace eCommerce.Backend.Data.Migrations
                             Name = "JCPAL 5in1 Premium Cleaning Set For Macbook, Laptop, Phone, Camera",
                             OriginalPrice = 180000m,
                             Price = 200000m,
-                            SeoAlias = "jcpal-5in1-premium-cleaning-set-for-macbook-laptop-phone-camera",
-                            SeoDescription = "JCPAL 5in1 Premium Cleaning Set For Macbook, Laptop, Phone, Camera",
-                            SeoTitle = "JCPAL 5in1 Premium Cleaning Set For Macbook, Laptop, Phone, Camera",
                             Stock = 10,
                             ViewCount = 0
                         },
@@ -942,7 +729,8 @@ namespace eCommerce.Backend.Data.Migrations
                         {
                             Id = 2,
                             BrandId = 6,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7090),
+                            CategoryId = 6,
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2240),
                             DecreasedPrice = 0m,
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
@@ -950,9 +738,6 @@ namespace eCommerce.Backend.Data.Migrations
                             Name = "Hyperdrive Dual 4K HDMI 10in1 USB-C Hub/Port (2 monitors) Macbook M1",
                             OriginalPrice = 180000m,
                             Price = 200000m,
-                            SeoAlias = "hyperdrive-dual-4k-hdmi-10in1-usbc-hubport-2-monitors-macbook-m1",
-                            SeoDescription = "Hyperdrive Dual 4K HDMI 10in1 USB-C Hub/Port (2 monitors) Macbook M1",
-                            SeoTitle = "Hyperdrive Dual 4K HDMI 10in1 USB-C Hub/Port (2 monitors) Macbook M1",
                             Stock = 10,
                             ViewCount = 0
                         },
@@ -960,7 +745,8 @@ namespace eCommerce.Backend.Data.Migrations
                         {
                             Id = 3,
                             BrandId = 1,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7100),
+                            CategoryId = 5,
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2240),
                             DecreasedPrice = 0m,
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
@@ -968,9 +754,6 @@ namespace eCommerce.Backend.Data.Migrations
                             Name = "Andora 6in1 Macbook Stickers For Macbook Pro 16 inch 2021",
                             OriginalPrice = 600000m,
                             Price = 650000m,
-                            SeoAlias = "andora-6in1-macbook-stickers-for-macbook-pro-16-inch-2021",
-                            SeoDescription = "Andora 6in1 Macbook Stickers For Macbook Pro 16 inch 2021",
-                            SeoTitle = "Andora 6in1 Macbook Stickers For Macbook Pro 16 inch 2021",
                             Stock = 10,
                             ViewCount = 0
                         },
@@ -978,7 +761,8 @@ namespace eCommerce.Backend.Data.Migrations
                         {
                             Id = 4,
                             BrandId = 2,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7100),
+                            CategoryId = 7,
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2240),
                             DecreasedPrice = 0m,
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
@@ -986,9 +770,6 @@ namespace eCommerce.Backend.Data.Migrations
                             Name = "Apple 20W USB Type-C Charger",
                             OriginalPrice = 650000m,
                             Price = 700000m,
-                            SeoAlias = "apple-20w-usb-typec-charger",
-                            SeoDescription = "Apple 20W USB Type-C Charger",
-                            SeoTitle = "Apple 20W USB Type-C Charger",
                             Stock = 10,
                             ViewCount = 0
                         },
@@ -996,7 +777,8 @@ namespace eCommerce.Backend.Data.Migrations
                         {
                             Id = 5,
                             BrandId = 15,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7100),
+                            CategoryId = 8,
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2240),
                             DecreasedPrice = 0m,
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
@@ -1004,9 +786,6 @@ namespace eCommerce.Backend.Data.Migrations
                             Name = "Stand/Aluminum Elevator Stand for iPhone, iPad, Phone with Adjustable Tilt Angle WIWU",
                             OriginalPrice = 210000m,
                             Price = 250000m,
-                            SeoAlias = "standaluminum-elevator-stand-for-iphone-ipad-phone-with-adjustable-tilt-angle-wiwu",
-                            SeoDescription = "Stand/Aluminum Elevator Stand for iPhone, iPad, Phone with Adjustable Tilt Angle WIWU",
-                            SeoTitle = "Stand/Aluminum Elevator Stand for iPhone, iPad, Phone with Adjustable Tilt Angle WIWU",
                             Stock = 10,
                             ViewCount = 0
                         },
@@ -1014,7 +793,8 @@ namespace eCommerce.Backend.Data.Migrations
                         {
                             Id = 6,
                             BrandId = 15,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7100),
+                            CategoryId = 9,
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2240),
                             DecreasedPrice = 0m,
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
@@ -1022,9 +802,6 @@ namespace eCommerce.Backend.Data.Migrations
                             Name = "WIWU Waltz Rotating Keyboard Case / Bluetooth Keyboard With Tracpad 360 Degree Rotating Screen WIWU Waltz Rotating Keyboard For iPad Pro 11 inch 2018-2021, Air 4 and iPad Gen 7/8/9",
                             OriginalPrice = 1100000m,
                             Price = 1300000m,
-                            SeoAlias = "hwiwu-waltz-rotating-keyboard-case--bluetooth-keyboard-with-tracpad-360-degree-rotating-screen-wiwu-waltz-rotating-keyboard-for-ipad-pro-11-inch-20182021-air-4-and-ipad-gen-789",
-                            SeoDescription = "WIWU Waltz Rotating Keyboard Case / Bluetooth Keyboard With Tracpad 360 Degree Rotating Screen WIWU Waltz Rotating Keyboard For iPad Pro 11 inch 2018-2021, Air 4 and iPad Gen 7/8/9",
-                            SeoTitle = "WIWU Waltz Rotating Keyboard Case / Bluetooth Keyboard With Tracpad 360 Degree Rotating Screen WIWU Waltz Rotating Keyboard For iPad Pro 11 inch 2018-2021, Air 4 and iPad Gen 7/8/9",
                             Stock = 10,
                             ViewCount = 0
                         },
@@ -1032,7 +809,8 @@ namespace eCommerce.Backend.Data.Migrations
                         {
                             Id = 7,
                             BrandId = 7,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7100),
+                            CategoryId = 10,
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2250),
                             DecreasedPrice = 0m,
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
@@ -1040,9 +818,6 @@ namespace eCommerce.Backend.Data.Migrations
                             Name = "9H Anti-Scratch, Anti-Shock, Anti-Fingerprint Tempered Glass For All iPad JCPAL iClara (iPad Pro 11', Pro 12'9, Air 1/2/3/4, Mini 6, Gen 2/3/4/ 5/6/7/8/9)",
                             OriginalPrice = 300000m,
                             Price = 350000m,
-                            SeoAlias = "9h-antiscratch-antishock-antifingerprint-tempered-glass-for-all-ipad-jcpal-iclara-ipad-pro-11-pro-129-air-1234-mini-6-gen-234-56789",
-                            SeoDescription = "9H Anti-Scratch, Anti-Shock, Anti-Fingerprint Tempered Glass For All iPad JCPAL iClara (iPad Pro 11', Pro 12'9, Air 1/2/3/4, Mini 6, Gen 2/3/4/ 5/6/7/8/9)",
-                            SeoTitle = "9H Anti-Scratch, Anti-Shock, Anti-Fingerprint Tempered Glass For All iPad JCPAL iClara (iPad Pro 11', Pro 12'9, Air 1/2/3/4, Mini 6, Gen 2/3/4/ 5/6/7/8/9)",
                             Stock = 10,
                             ViewCount = 0
                         },
@@ -1050,7 +825,8 @@ namespace eCommerce.Backend.Data.Migrations
                         {
                             Id = 8,
                             BrandId = 8,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7110),
+                            CategoryId = 12,
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2250),
                             DecreasedPrice = 0m,
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
@@ -1058,9 +834,6 @@ namespace eCommerce.Backend.Data.Migrations
                             Name = "KEYCHRON K6 Mechanical Keyboard Aluminum – No LED – HOTSWAP",
                             OriginalPrice = 16000000m,
                             Price = 1890000m,
-                            SeoAlias = "keychron-k6-mechanical-keyboard-aluminum-–-no-led-–-hotswap",
-                            SeoDescription = "KEYCHRON K6 Mechanical Keyboard Aluminum – No LED – HOTSWAP",
-                            SeoTitle = "KEYCHRON K6 Mechanical Keyboard Aluminum – No LED – HOTSWAP",
                             Stock = 10,
                             ViewCount = 0
                         },
@@ -1068,7 +841,8 @@ namespace eCommerce.Backend.Data.Migrations
                         {
                             Id = 9,
                             BrandId = 9,
-                            DateCreated = new DateTime(2022, 3, 3, 21, 47, 18, 258, DateTimeKind.Local).AddTicks(7110),
+                            CategoryId = 13,
+                            CreatedDate = new DateTime(2022, 3, 11, 10, 55, 15, 151, DateTimeKind.Local).AddTicks(2250),
                             DecreasedPrice = 0m,
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
@@ -1076,169 +850,9 @@ namespace eCommerce.Backend.Data.Migrations
                             Name = "LOFREE Maus Blue Pearl Bluetooth Mouse",
                             OriginalPrice = 1200000m,
                             Price = 1500000m,
-                            SeoAlias = "lofree-maus-blue-pearl-bluetooth-mouse",
-                            SeoDescription = "LOFREE Maus Blue Pearl Bluetooth Mouse",
-                            SeoTitle = "LOFREE Maus Blue Pearl Bluetooth Mouse",
                             Stock = 10,
                             ViewCount = 0
                         });
-                });
-
-            modelBuilder.Entity("eCommerce.Backend.Models.ProductCategory", b =>
-                {
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProductId", "CategoryId");
-
-                    b.HasIndex("CategoryId");
-
-                    b.ToTable("ProductCategories", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            ProductId = 1,
-                            CategoryId = 14
-                        },
-                        new
-                        {
-                            ProductId = 1,
-                            CategoryId = 1
-                        },
-                        new
-                        {
-                            ProductId = 2,
-                            CategoryId = 6
-                        },
-                        new
-                        {
-                            ProductId = 2,
-                            CategoryId = 1
-                        },
-                        new
-                        {
-                            ProductId = 3,
-                            CategoryId = 1
-                        },
-                        new
-                        {
-                            ProductId = 3,
-                            CategoryId = 5
-                        },
-                        new
-                        {
-                            ProductId = 4,
-                            CategoryId = 2
-                        },
-                        new
-                        {
-                            ProductId = 4,
-                            CategoryId = 7
-                        },
-                        new
-                        {
-                            ProductId = 5,
-                            CategoryId = 2
-                        },
-                        new
-                        {
-                            ProductId = 5,
-                            CategoryId = 3
-                        },
-                        new
-                        {
-                            ProductId = 5,
-                            CategoryId = 8
-                        },
-                        new
-                        {
-                            ProductId = 5,
-                            CategoryId = 11
-                        },
-                        new
-                        {
-                            ProductId = 6,
-                            CategoryId = 3
-                        },
-                        new
-                        {
-                            ProductId = 6,
-                            CategoryId = 9
-                        },
-                        new
-                        {
-                            ProductId = 7,
-                            CategoryId = 3
-                        },
-                        new
-                        {
-                            ProductId = 7,
-                            CategoryId = 10
-                        },
-                        new
-                        {
-                            ProductId = 8,
-                            CategoryId = 4
-                        },
-                        new
-                        {
-                            ProductId = 8,
-                            CategoryId = 12
-                        },
-                        new
-                        {
-                            ProductId = 9,
-                            CategoryId = 4
-                        },
-                        new
-                        {
-                            ProductId = 9,
-                            CategoryId = 13
-                        });
-                });
-
-            modelBuilder.Entity("eCommerce.Backend.Models.ProductImage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Caption")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DateCreated")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValueSql("GetDate()");
-
-                    b.Property<long>("FileSize")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("ImagePath")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDefault")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SortOrder")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ProductImages", (string)null);
                 });
 
             modelBuilder.Entity("eCommerce.Backend.Models.Rating", b =>
@@ -1284,87 +898,6 @@ namespace eCommerce.Backend.Data.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("Ratings", (string)null);
-                });
-
-            modelBuilder.Entity("eCommerce.Backend.Models.Slide", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("SortOrder")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Url")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Slides", (string)null);
-                });
-
-            modelBuilder.Entity("eCommerce.Backend.Models.Transaction", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("ExternalTransactionId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Fee")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Message")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Provider")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Result")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("TransactionDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Transactions", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -1490,23 +1023,6 @@ namespace eCommerce.Backend.Data.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("eCommerce.Backend.Models.Discount", b =>
-                {
-                    b.HasOne("eCommerce.Backend.Models.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("eCommerce.Backend.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId");
-
-                    b.Navigation("Category");
-
-                    b.Navigation("Product");
-                });
-
             modelBuilder.Entity("eCommerce.Backend.Models.Order", b =>
                 {
                     b.HasOne("eCommerce.Backend.Models.AppUser", "AppUser")
@@ -1545,37 +1061,15 @@ namespace eCommerce.Backend.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Brand");
-                });
-
-            modelBuilder.Entity("eCommerce.Backend.Models.ProductCategory", b =>
-                {
                     b.HasOne("eCommerce.Backend.Models.Category", "Category")
-                        .WithMany("ProductCategories")
+                        .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("eCommerce.Backend.Models.Product", "Product")
-                        .WithMany("ProductCategories")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Brand");
 
                     b.Navigation("Category");
-
-                    b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("eCommerce.Backend.Models.ProductImage", b =>
-                {
-                    b.HasOne("eCommerce.Backend.Models.Product", "Product")
-                        .WithMany("ProductImages")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("eCommerce.Backend.Models.Rating", b =>
@@ -1589,24 +1083,11 @@ namespace eCommerce.Backend.Data.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("eCommerce.Backend.Models.Transaction", b =>
-                {
-                    b.HasOne("eCommerce.Backend.Models.AppUser", "AppUser")
-                        .WithMany("Transactions")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AppUser");
-                });
-
             modelBuilder.Entity("eCommerce.Backend.Models.AppUser", b =>
                 {
                     b.Navigation("Carts");
 
                     b.Navigation("Orders");
-
-                    b.Navigation("Transactions");
                 });
 
             modelBuilder.Entity("eCommerce.Backend.Models.Brand", b =>
@@ -1616,7 +1097,7 @@ namespace eCommerce.Backend.Data.Migrations
 
             modelBuilder.Entity("eCommerce.Backend.Models.Category", b =>
                 {
-                    b.Navigation("ProductCategories");
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("eCommerce.Backend.Models.Order", b =>
@@ -1629,10 +1110,6 @@ namespace eCommerce.Backend.Data.Migrations
                     b.Navigation("Carts");
 
                     b.Navigation("OrderDetails");
-
-                    b.Navigation("ProductCategories");
-
-                    b.Navigation("ProductImages");
 
                     b.Navigation("ProductRatings");
                 });

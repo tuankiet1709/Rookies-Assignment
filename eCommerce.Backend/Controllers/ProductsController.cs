@@ -35,9 +35,7 @@ public class ProductsController : ControllerBase
     public async Task<ActionResult<PagedResponseDto<ProductDto>>> GetProducts([FromQuery] ProductCriteriaDto productCriteriaDto)
     {
         //query
-        var query =_context.Products 
-                            .Include(p=>p.ProductCategories)
-                            .Distinct();
+        var query =_context.Products.AsQueryable();
         //Filter
         if (!string.IsNullOrEmpty(productCriteriaDto.Search))
         {
@@ -46,7 +44,7 @@ public class ProductsController : ControllerBase
 
         if (productCriteriaDto.CategoryId != null && productCriteriaDto.CategoryId != 0)
         {
-            query=query.Where(x => x.ProductCategories.Any(pc => pc.ProductId == productCriteriaDto.CategoryId));
+            query=query.Where(x => x.CategoryId==productCriteriaDto.CategoryId);
         }
 
         var pagedProducts = await query
@@ -82,16 +80,6 @@ public class ProductsController : ControllerBase
 
         return productDto;
     }
-    [HttpGet("Home")]
-    [AllowAnonymous]
-    public async Task<ActionResult<List<ProductDto>>> GetProductsHome([FromQuery] ProductVm ProductVm)
-    {
-        //query
-        var query= await _context.Products.ToListAsync();
-
-        var productDto = _mapper.Map<List<ProductDto>>(query);
-        return productDto;
-    }
     [HttpGet("FeaturedProduct")]
     [AllowAnonymous]
     public async Task<List<ProductDto>> GetFeaturedProducts([FromQuery] ProductVm ProductVm)
@@ -107,32 +95,32 @@ public class ProductsController : ControllerBase
     public async Task<List<ProductDto>> GetLastestProduct([FromQuery] ProductVm ProductVm)
     {
         //query
-        var query= await _context.Products.OrderByDescending(x=>x.DateCreated).Take(10).ToListAsync();
+        var query= await _context.Products.OrderByDescending(x=>x.CreatedDate).Take(10).ToListAsync();
 
         var productDto = _mapper.Map<List<ProductDto>>(query);
         return productDto;
     }
-    [HttpPost("ProductImage")]
-    [AllowAnonymous]
-    public async Task<int> AddImage(int productId, ProductImageCreateRequest request)
-    {
-        var productImage = new ProductImage()
-        {
-            Caption = request.Caption,
-            DateCreated = DateTime.Now,
-            IsDefault = request.IsDefault,
-            ProductId = productId,
-            SortOrder = request.SortOrder
-        };
+    // [HttpPost("ProductImage")]
+    // [AllowAnonymous]
+    // public async Task<int> AddImage(int productId, ProductImageCreateRequest request)
+    // {
+    //     var productImage = new ProductImage()
+    //     {
+    //         Caption = request.Caption,
+    //         DateCreated = DateTime.Now,
+    //         IsDefault = request.IsDefault,
+    //         ProductId = productId,
+    //         SortOrder = request.SortOrder
+    //     };
 
-        if (request.ImageFile != null)
-        {
-            productImage.ImagePath = await _fileStorageService.SaveFileAsync(request.ImageFile);
-            productImage.FileSize = request.ImageFile.Length;
-        }
-        _context.ProductImages.Add(productImage);
-        await _context.SaveChangesAsync();
-        return productImage.Id;
-    }
+    //     if (request.ImageFile != null)
+    //     {
+    //         productImage.ImagePath = await _fileStorageService.SaveFileAsync(request.ImageFile);
+    //         productImage.FileSize = request.ImageFile.Length;
+    //     }
+    //     _context.ProductImages.Add(productImage);
+    //     await _context.SaveChangesAsync();
+    //     return productImage.Id;
+    // }
 }
 

@@ -1,8 +1,8 @@
 import axios, {AxiosInstance, AxiosRequestConfig} from "axios";
-import { UrlBackend } from "../Constants/oidc-config";
+import { UrlBackEnd } from "../Constants/oidc-config";
 
 const config = {
-    baseUrl: UrlBackend
+    baseURL: UrlBackEnd
 }
 
 class RequestService{
@@ -12,9 +12,9 @@ class RequestService{
         this.axios=axios.create(config);
     }
 
-    setAuthentication(accessToken){
-        this.axios.defaults.headers.common['Authorization']=`Bearer ${accessToken};`
-    }
+    // setAuthentication(accessToken){
+    //     this.axios.defaults.headers.common['Authorization']=`Bearer ${accessToken};`
+    // }
 }
 
 export default new RequestService();

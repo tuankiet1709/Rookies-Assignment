@@ -6,15 +6,13 @@ namespace eCommerce.Backend.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public DateTime DateCreated { get; set; }
-        public DateTime? DateModified { get; set; }
-        public string SeoTitle { get; set; }
-        public string SeoDescription { get; set; }
-        public string SeoAlias { get; set; }
-        public int SortOrder { get; set; }
+        public string Description {get;set;}
+        public DateTime CreatedDate { get; set; }
+        public DateTime? UpdatedDate { get; set; }
         public bool IsShowOnHome { get; set; }
         public int? ParentId { get; set; }
         public Status Status { get; set; }
-        public List<ProductCategory> ProductCategories { get; set; }
+        public List<Product> Products {get;set;}
+
     }
 }
