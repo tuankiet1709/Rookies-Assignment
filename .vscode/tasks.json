@@ -7,11 +7,15 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}",
+                "${workspaceFolder}/build.proj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
-            "problemMatcher": "$msCompile"
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         },
         {
             "label": "publish",
@@ -19,7 +23,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}",
+                "${workspaceFolder}/eCommerce.Backend/eCommerce.Backend.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +37,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}"
+                "${workspaceFolder}/eCommerce.Backend/eCommerce.Backend.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
