@@ -25,7 +25,7 @@ public class ProductsController : ControllerBase
     //https://localhost:44341/api/products
     [HttpGet()]
     [AllowAnonymous]
-    public async Task<ActionResult<PagedResponseDto<ProductDto>>> GetProductAsync([FromQuery] ProductCriteriaDto productCriteriaDto)
+    public async Task<IActionResult> GetProductAsync([FromQuery] ProductCriteriaDto productCriteriaDto)
     {
         var data = await _productService.GetProductAsync(productCriteriaDto);
         return Ok(data);
@@ -65,7 +65,7 @@ public class ProductsController : ControllerBase
     //https://localhost:44341/api/products/
     [HttpPost]
     //[Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
-    public async Task<ActionResult<ProductDto>> PostProduct([FromForm]ProductCreateRequest productCreateRequest)
+    public async Task<ActionResult> PostProduct([FromForm]ProductCreateRequest productCreateRequest)
     {
         if (productCreateRequest == null)
         {
@@ -73,7 +73,10 @@ public class ProductsController : ControllerBase
         }
         else{
             var createProduct = await _productService.PostProduct(productCreateRequest);
-            return CreatedAtAction("GetProductByIdAsync", new { id = createProduct }, new ProductDto { Id = createProduct, Name = productCreateRequest.Name });
+            if(createProduct==null){
+                return BadRequest();
+            }
+            return Ok();
         }
     }
     //https://localhost:44341/api/products/{id}
@@ -82,13 +85,19 @@ public class ProductsController : ControllerBase
     //[Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
     public async Task<ActionResult> PutProduct([FromRoute] int id, [FromForm] ProductUpdateRequest productUpdateRequest)
     {
-        var productCriteriaDto=new ProductCriteriaDto();
         var checkProduct= await _productService.GetProductByIdAsync(id);
         if(checkProduct==null){
             return NotFound($"Product with id={id} is not found");
         }
         else{
-            return NoContent();
+            var updateProduct = await _productService.PutProduct(id, productUpdateRequest);
+            if(updateProduct==0)
+            {
+                return BadRequest();
+            }
+            else{
+                return Ok();
+            }
         }
     }
     //https://localhost:44341/api/products/{id}
@@ -102,7 +111,14 @@ public class ProductsController : ControllerBase
             return NotFound($"Product with id={id} is not found");
         }
         else{
-            return NoContent();
+            var deleteProduct = await _productService.DeleteProduct(id);
+            if(deleteProduct==0)
+            {
+                return BadRequest();
+            }
+            else{
+                return Ok();
+            }
         }
     }
 }

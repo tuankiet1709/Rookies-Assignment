@@ -78,7 +78,7 @@ namespace eCommerce.Backend.Services
             return productDto;
         }
         //Create new product
-        public async Task<int> PostProduct(ProductCreateRequest productCreateRequest)
+        public async Task<ProductDto> PostProduct(ProductCreateRequest productCreateRequest)
         {
             //Create new product
             var product = new Product
@@ -100,7 +100,10 @@ namespace eCommerce.Backend.Services
             }
             //add product to db
             _context.Products.Add(product);
-            return await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
+
+            var productDto = _mapper.Map<ProductDto>(product);
+            return productDto;
             
         }
         //Update 1 product

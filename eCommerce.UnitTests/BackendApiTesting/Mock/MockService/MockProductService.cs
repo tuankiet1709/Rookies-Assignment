@@ -30,5 +30,23 @@ namespace eCommerce.UnitTests.BackendApiTesting.Mock.MockService
 
             return this;
         }
+        public MockProductService CreateProduct(ProductDto result)
+        {
+            Setup(x => x.PostProduct(It.IsAny<ProductCreateRequest>())).ReturnsAsync(result);
+
+            return this;
+        }
+        public MockProductService UpdateProduct()
+        {
+            Setup(x => x.PutProduct(41, It.IsAny<ProductUpdateRequest>())).ReturnsAsync(1);
+
+            return this;
+        }
+        public MockProductService DeleteProduct()
+        {
+            Setup(x => x.DeleteProduct(41)).ReturnsAsync(1);
+
+            return this;
+        }
     }
 }

@@ -11,7 +11,7 @@ public interface IProductService
     Task<ProductDto> GetProductByIdAsync(int id);
     Task<List<ProductDto>> GetLastestProduct();
     Task<List<ProductDto>> GetFeaturedProducts();
-    Task<int> PostProduct(ProductCreateRequest productCreateRequest);
+    Task<ProductDto> PostProduct(ProductCreateRequest productCreateRequest);
     Task<int> PutProduct(int id, ProductUpdateRequest productUpdateRequest);
     Task<int> DeleteProduct(int id);
 }
