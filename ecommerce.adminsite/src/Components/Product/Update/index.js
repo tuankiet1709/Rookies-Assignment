@@ -27,16 +27,16 @@ const UpdateProductContainer = () => {
   }, [existProduct]);
 
   return (
-    <div className='ml-5'>
-      <div className='primaryColor text-title intro-x'>
+    <div className='ml-5 container'>
+      <br/>
+      <h2 className='text-center'>
         Update Product {existProduct?.name}
-      </div>
-
+      </h2>
+      <br/>
       <div className='row'>
         {
           product && (<ProductForm
             initialProductForm={product}
-  
           />)
         }
       </div>

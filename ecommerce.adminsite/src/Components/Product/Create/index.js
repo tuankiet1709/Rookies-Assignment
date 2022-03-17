@@ -5,16 +5,15 @@ import ProductFormContainer from "../ProductForm";
 const CreateProductContainer = () => {
 
   return (
-    <div className='ml-5'>
-      <div className='primaryColor text-title intro-x'>
+    <div className='ml-5 container'>
+      <br/>
+      <h2 className="text-center">
         Create New Product
-      </div>
-
+      </h2>
+      <br/>
       <div className='row'>
         <ProductFormContainer />
-
       </div>
-
     </div>
   );
 };

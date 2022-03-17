@@ -5,12 +5,12 @@ import {
   CheckIsShowOnHome,
   CheckIsShowOnHomeLabel,
   CheckIsNotShowOnHomeLabel,
-} from "../../../Constants/Category/CategoryConstants";
+} from "../../../Constants/Category-Brand/CategoryBrandConstants";
 import {
   CheckActive,
   CheckActiveLabel,
   CheckInActiveLabel,
-} from "../../../Constants/Category/CategoryConstants";
+} from "../../../Constants/Category-Brand/CategoryBrandConstants";
 
 const Info = ({ category, handleClose }) => {
   const getIsShowOnHomeCategory = (id) => {
@@ -19,10 +19,10 @@ const Info = ({ category, handleClose }) => {
   const getIsActive = (id) => {
     return id == CheckActive ? CheckActiveLabel : CheckInActiveLabel;
   }
-const getFormatDateTime=(date)=>{
-  const DATE_OPTIONS = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
-  return new Date(date).toLocaleDateString('en-US', DATE_OPTIONS);
-}
+  const getFormatDateTime=(date)=>{
+    const DATE_OPTIONS = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+    return new Date(date).toLocaleDateString('en-US', DATE_OPTIONS);
+  }
   
 
   return (
@@ -30,53 +30,54 @@ const getFormatDateTime=(date)=>{
       <Modal
         show={true}
         onHide={handleClose}
-        dialogClassName="modal-90w"
+        dialogClassName=""
+        size="xl"
       >
         <Modal.Header closeButton>
           <Modal.Title id="login-modal">
-            Detailed Category Infomation
+            Detailed Category Information
           </Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-          <div>
-            <div className='row -intro-y'>
-              <div className='col-4'>Id:</div>
-              <div>{category.id}</div>
-            </div>
-
-            <div className='row -intro-y'>
-              <div className='col-4'>Name:</div>
-              <div>{category.name}</div>
-            </div>
-
-            <div className='row -intro-y'>
-              <div className='col-4'>Description:</div>
-              <div>{category.description}</div>
-            </div>
-
-            <div className='row -intro-y'>
-              <div className='col-4'>Created Date:</div>
-              <div>{getFormatDateTime(category.createdDate)}</div>
-            </div>
-
-            <div className='row -intro-y'>
-              <div className='col-4'>Updated Date:</div>
-              <div>{getFormatDateTime(category.updatedDate)}</div>
-            </div>
-
-            <div className='row -intro-y'>
-              <div className='col-4'>Is Show On Home:</div>
-              <div>{getIsShowOnHomeCategory(category.isShowOnHome)}</div>
-            </div>
-
-            <div className='row -intro-y'>
-              <div className='col-4'>Is Show On Home:</div>
-              <div>{getIsActive(category.status)}</div>
-            </div>
-
-
-          </div>
+        <table className="table table-borderless container-fluid">
+            <thead>
+              <tr className="d-flex">
+                <th scope="col" className="col-md-2"></th>
+                <th scope="col" className="col-md-10"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" className="col-md-2">Id: </th>
+                <td className="col-md-10">{category.id}</td>
+              </tr>
+              <tr>
+                <th scope="row">Name:</th>
+                <td>{category.name}</td>
+              </tr>
+              <tr>
+                <th scope="row">Description:</th>
+                <td>{category.description}</td>
+              </tr>
+              <tr>
+                <th scope="row">Created Date:</th>
+                <td>{getFormatDateTime(category.createdDate)}</td>
+              </tr>
+              <tr>
+                <th scope="row">Updated Date:</th>
+                <td>{category.updatedDate==null?category.updatedDate:getFormatDateTime(category.updatedDate)}</td>
+              </tr>
+              <tr>
+                <th scope="row">Is show on home:</th>
+                <td>{getIsShowOnHomeCategory(category.isShowOnHome)}</td>
+              </tr>
+              <tr>
+                <th scope="row">Status:</th>
+                <td>{getIsActive(category.status)}</td>
+              </tr>
+            </tbody>
+          </table>
         </Modal.Body>
       </Modal>
     </>

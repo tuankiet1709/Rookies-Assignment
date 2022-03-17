@@ -21,11 +21,10 @@ const UpdateBrandContainer = () => {
   }, [existBrand]);
 
   return (
-    <div className='ml-5'>
-      <div className='primaryColor text-title intro-x'>
-        Update Brand {existBrand?.name}
-      </div>
-
+    <div className='ml-5 container'>
+      <br/>
+      <h2 className='text-center'>Update Brand {existBrand?.brandName}</h2>
+      <br/>
       <div className='row'>
         {
           brand && (<BrandForm

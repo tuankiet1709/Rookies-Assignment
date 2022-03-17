@@ -5,16 +5,13 @@ import CategoryFormContainer from "../CategoryForm";
 const CreateCategoryContainer = () => {
 
   return (
-    <div className='ml-5'>
-      <div className='primaryColor text-title intro-x'>
-        Create New Category
-      </div>
-
+    <div className='ml-5 container'>
+      <br/>
+      <h2 className="text-center">Create New Category</h2>
+      <br/>
       <div className='row'>
         <CategoryFormContainer />
-
       </div>
-
     </div>
   );
 };

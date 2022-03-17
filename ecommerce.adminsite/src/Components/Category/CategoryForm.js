@@ -5,8 +5,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { NotificationManager } from 'react-notifications';
 
 import TextField from '../../shared-components/FormInputs/TextField';
+import TextAreaField from '../../shared-components/FormInputs/TextAreaField';
 import SelectField from '../../shared-components/FormInputs/SelectField';
-import { CATEGORY } from '../../Constants/pages';
+import { LIST_CATEGORY } from '../../Constants/pages';
 import { isShowOnHomeOptions } from '../../Constants/selectOptions';
 import { createCategoryRequest, UpdateCategoryRequest } from "./services/request";
 import { getCategoriesOptionRequest } from "../Category/services/request"
@@ -52,7 +53,7 @@ const CategoryFormContainer = ({ initialCategoryForm = {
             );
 
             setTimeout(() => {
-                navigate(CATEGORY);
+                navigate(LIST_CATEGORY);
             }, 1000);
 
         } else {
@@ -99,18 +100,19 @@ const CategoryFormContainer = ({ initialCategoryForm = {
             }}
         >
             {(actions) => (
-                <Form className='intro-y col-lg-6 col-12'>
+                <Form className='container intro-y col-lg-6 col-12'>
                     <TextField 
                         name="name" 
                         label="Name" 
                         placeholder="input category name" 
                         isrequired  />
-                    <TextField 
+                    <TextAreaField
                         name="description" 
                         label="Description" 
                         placeholder="input category description" 
                         isrequired />
                      <SelectField 
+                        className="form-select"
                         name="isShowOnHome" 
                         label="IsShowOnHome" 
                         options={isShowOnHomeOptions}
@@ -122,19 +124,17 @@ const CategoryFormContainer = ({ initialCategoryForm = {
                             selectOptions.map((item) => {
                             return ({id:item.id, label: item.name, value: item.id })
                           })}/>
-                    
-                    <div className="d-flex">
-                        <div className="ml-auto">
-                            <button className="btn btn-danger"
-                                type="submit" disabled={loading}
-                            >
-                                Save {(loading) && <img src="/oval.svg" className='w-4 h-4 ml-2 inline-block' />}
-                            </button>
-
-                            <Link to={CATEGORY} className="btn btn-outline-secondary ml-2">
-                                Cancel
-                            </Link>
-                        </div>
+                    <br/>
+                    <div className="row">
+                        <button className="btn btn-danger col-lg-5 col-12"
+                            type="submit" disabled={loading}
+                        >
+                            Save {(loading) && <img src="/oval.svg" className='w-4 h-4 ml-2 inline-block' />}
+                        </button>                            
+                        <div className="col-lg-2"><br/></div>
+                        <Link to={LIST_CATEGORY} className="btn btn-outline-secondary col-lg-5 col-12">
+                            Cancel
+                        </Link>
                     </div>
                 </Form>
             )}

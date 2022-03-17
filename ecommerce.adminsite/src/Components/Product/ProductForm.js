@@ -5,9 +5,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { NotificationManager } from 'react-notifications';
 
 import TextField from '../../shared-components/FormInputs/TextField';
+import TextAreaField from '../../shared-components/FormInputs/TextAreaField';
 import SelectField from '../../shared-components/FormInputs/SelectField';
 import FileUpload from '../../shared-components/FormInputs/FileUpload';
-import { PRODUCT } from '../../Constants/pages';
+import { LIST_PRODUCT } from '../../Constants/pages';
 import { isFeaturedProductOptions } from '../../Constants/selectOptions';
 import { createProductRequest, UpdateProductRequest } from "./services/request";
 import { getCategoriesOptionRequest } from '../Category/services/request';
@@ -23,7 +24,6 @@ const initialFormValues = {
     categoryId: '',
     brandId:'',
     images:'',
-
 };
 
 const validationSchema = Yup.object().shape({
@@ -69,7 +69,7 @@ const ProductFormContainer = ({ initialProductForm = {
             );
 
             setTimeout(() => {
-                navigate(PRODUCT);
+                navigate(LIST_PRODUCT);
             }, 1000);
 
         } else {
@@ -116,18 +116,18 @@ const ProductFormContainer = ({ initialProductForm = {
             }}
         >
             {(actions) => (
-                <Form className='intro-y col-lg-6 col-12'>
+                <Form className='container intro-y col-lg-6 col-12'>
                     <TextField 
                         name="name" 
                         label="Name" 
                         placeholder="input product name" 
                         isrequired  />
-                    <TextField 
+                    <TextAreaField 
                         name="description" 
                         label="Description" 
                         placeholder="input product description" 
                         isrequired  />
-                    <TextField 
+                    <TextAreaField 
                         name="details" 
                         label="Details" 
                         placeholder="input product details" 
@@ -165,20 +165,18 @@ const ProductFormContainer = ({ initialProductForm = {
                         name="imageFile" 
                         label="Image" 
                         image={actions.values.imagePath} />
-                    
+                    <br/>
 
-                    <div className="d-flex">
-                        <div className="ml-auto">
-                            <button className="btn btn-danger"
+                    <div className="row">
+                            <button className="btn btn-danger col-lg-5 col-12"
                                 type="submit" disabled={loading}
                             >
                                 Save {(loading) && <img src="/oval.svg" className='w-4 h-4 ml-2 inline-block' />}
-                            </button>
-
-                            <Link to={ PRODUCT } className="btn btn-outline-secondary ml-2">
+                            </button>                            
+                            <div className="col-lg-2"><br/></div>
+                            <Link to={LIST_PRODUCT} className="btn btn-outline-secondary col-lg-5 col-12">
                                 Cancel
                             </Link>
-                        </div>
                     </div>
                 </Form>
             )}

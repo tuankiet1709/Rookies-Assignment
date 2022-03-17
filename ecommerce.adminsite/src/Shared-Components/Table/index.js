@@ -22,23 +22,26 @@ const Table = ({ columns, children, page, sortState, handleSort }) => {
   return (
     <>
       <div className="table-container">
-        <table className="table">
+        <table className="table table-bordered table-striped custom-class">
           <thead>
             <tr>
               {
                 columns.map((col, i) => (
-                  <th key={i}>
+                  <th className="sortable text-left align-middle text-center" key={i}>
                     <a className="btn" onClick={() => handleSort(col.columnValue)}>
-                      {col.columnName}
+                      {col.columnName} &#160;
                       <ColumnIcon colValue={col.columnValue} sortState={sortState} />
                     </a>
                   </th>
                 ))
               }
+              <th className="text-center align-middle">
+                Action
+              </th>
             </tr>
           </thead>
 
-          <tbody>{children}</tbody>
+          <tbody className="text-center align-middle">{children}</tbody>
         </table>
       </div>
       {

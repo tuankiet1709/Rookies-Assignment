@@ -1,20 +1,3 @@
-
-import { useEffect, useState } from "react";
-
-import {
-    Yes,
-    No 
-} from "../Constants/Product/ProductConstants";
-
-import { 
-    NormalBrandType, 
-    LuxuryBrandType,
-    AllBrandType,
-    NormalBrandTypeLabel,
-    LuxyryBrandTypeLabel,
-    AllBrandTypeLabel
-} from "../Constants/Brand/BrandConstants";
-
 import { 
     CheckIsShowOnHome,
     CheckIsNotShowOnHome,
@@ -24,7 +7,7 @@ import {
     CheckInActive,
     CheckActiveLabel,
     CheckInActiveLabel
-} from "../Constants/Category/CategoryConstants";
+} from "./Category-Brand/CategoryBrandConstants";
 
 import { 
     CheckIsFeatured,
@@ -46,15 +29,4 @@ export const isShowOnHomeOptions = [
 export const checkActive = [
     { id: 1, label: CheckActive, value: CheckActiveLabel },
     { id: 0, label: CheckInActive, value: CheckInActiveLabel },
-];
-
-export const BrandTypeOptions = [
-    { id: 1, label: NormalBrandTypeLabel, value: NormalBrandType },
-    { id: 2, label: LuxyryBrandTypeLabel, value: LuxuryBrandType },
-];
-
-export const FilterBrandTypeOptions = [
-    { id: 1, label: AllBrandTypeLabel, value: AllBrandType },
-    { id: 2, label: NormalBrandTypeLabel, value: NormalBrandType },
-    { id: 3, label: LuxyryBrandTypeLabel, value: LuxuryBrandType },
 ];

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { PencilFill, XCircle } from "react-bootstrap-icons";
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 import { useNavigate } from "react-router";
 import ButtonIcon from "../../../shared-components/ButtonIcon";
 import { NotificationManager } from 'react-notifications';
+import '../Category.css';
 
 import Table, { SortType } from "../../../shared-components/Table";
 import Info from "../Info";
@@ -15,17 +17,17 @@ import {
   CheckActive,
   CheckActiveLabel,
   CheckInActiveLabel,
-} from "../../../Constants/Category/CategoryConstants";
+} from "../../../Constants/Category-Brand/CategoryBrandConstants";
 import { DisableCategoryRequest } from "../services/request"
 
 const columns= [
-  { columnName: "id", columnValue: "Id" },
-  { columnName: "name", columnValue: "Name" },
-  { columnName: "description", columnValue: "Description" },
-  { columnName: "createdDate", columnValue: "CreatedDate" },
-  { columnName: "updatedDate", columnValue: "UpdatedDate" }, 
-  { columnName: "isShowOnHome", columnValue: "IsShowOnHome" }, 
-  { columnName: "isActive", columnValue: "IsActive" }, 
+  { columnName: "id ", columnValue: "Id" },
+  { columnName: "name ", columnValue: "Name" },
+  { columnName: "description ", columnValue: "Description" },
+  { columnName: "created Date ", columnValue: "CreatedDate" },
+  { columnName: "updated Date ", columnValue: "UpdatedDate" }, 
+  { columnName: "isShowOnHome ", columnValue: "IsShowOnHome" }, 
+  { columnName: "is Active ", columnValue: "IsActive" }, 
 
 ];
 
@@ -151,13 +153,16 @@ const CategoryTable = ({
             <td>{getIsShowOnHome(data.isShowOnHome)}</td>
             <td>{getIsActive(data.status)}</td>
 
-            <td className="d-flex">
-              <ButtonIcon onClick={() => handleEdit(data.id)}>
-                <PencilFill className="text-black" />
-              </ButtonIcon>
-              <ButtonIcon onClick={() => handleShowDisable(data.id)}>
-                <XCircle className="text-danger mx-2" />
-              </ButtonIcon>
+            <td>
+              <div className="d-flex justify-content-center">
+                <ButtonIcon onClick={() => handleEdit(data.id)} className="btn btn-primary p-2">
+                  <EditIcon fontSize="small" />
+                </ButtonIcon>
+                &#160;
+                <ButtonIcon onClick={() => handleShowDisable(data.id)} className="btn btn-danger p-2">
+                  <DeleteIcon fontSize="small"/>
+                </ButtonIcon>
+              </div>
             </td>
           </tr>
         ))}
@@ -184,15 +189,15 @@ const CategoryTable = ({
                   type="button"
                 >
                   Disable
-            </button>
-
-                <button
-                  className="btn btn-outline-secondary"
-                  onClick={handleCloseDisable}
-                  type="button"
-                >
-                  Cancel
-            </button>
+              </button>
+              &ensp;
+              <button
+                className="btn btn-outline-secondary"
+                onClick={handleCloseDisable}
+                type="button"
+              >
+                Cancel
+              </button>
               </div>
             )
           }

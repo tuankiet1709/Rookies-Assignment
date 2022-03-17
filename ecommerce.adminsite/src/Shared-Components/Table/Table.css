@@ -2,11 +2,6 @@
     overflow-x: auto;
 }
 
-.table-container > table {
-    border-collapse: separate;
-    border-spacing: 1rem 0;
-}
-
 .table-container > .table {
     width: 100%;
     text-align: left;

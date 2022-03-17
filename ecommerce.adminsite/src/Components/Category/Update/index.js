@@ -20,11 +20,10 @@ const UpdateCategoryContainer = () => {
   }, [existCategory]);
 
   return (
-    <div className='ml-5'>
-      <div className='primaryColor text-title intro-x'>
-        Update Category {existCategory?.name}
-      </div>
-
+    <div className='ml-5 container'>
+      <br/>
+      <h2 className='text-center'>Update Category {existCategory?.name}</h2>
+      <br/>
       <div className='row'>
         {
           category && (<CategoryForm

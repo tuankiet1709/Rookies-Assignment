@@ -5,16 +5,13 @@ import BrandFormContainer from "../BrandForm";
 const CreateBrandContainer = () => {
 
   return (
-    <div className='ml-5'>
-      <div className='primaryColor text-title intro-x'>
-        Create New Brand
-      </div>
-
+    <div className='ml-5 container'>
+      <br/>
+      <h2 className="text-center">Create New Brand</h2>
+      <br/>
       <div className='row'>
         <BrandFormContainer />
-
       </div>
-
     </div>
   );
 };

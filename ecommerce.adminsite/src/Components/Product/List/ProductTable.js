@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { PencilFill, XCircle } from "react-bootstrap-icons";
-import { useNavigate } from "react-router";
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';import { useNavigate } from "react-router";
 import ButtonIcon from "../../../shared-components/ButtonIcon";
 import { NotificationManager } from 'react-notifications';
 
@@ -147,6 +147,7 @@ const ProductTable = ({
       >
         {products && products?.items?.map((data, index) => (
           <tr key={index} className="" onClick={() => handleShowInfo(data.id)}>
+            <td>{data.id}</td>
             <td>{data.name}</td>
             <td>{data.description}</td>
             <td>{data.details}</td>
@@ -159,13 +160,16 @@ const ProductTable = ({
             <td>{getIsFeatured(data.isFeatured)}</td>
             <td>{getIsDeleted(data.isDeleted)}</td>
 
-            <td className="d-flex">
-              <ButtonIcon onClick={() => handleEdit(data.id)}>
-                <PencilFill className="text-black" />
-              </ButtonIcon>
-              <ButtonIcon onClick={() => handleShowDisable(data.id)}>
-                <XCircle className="text-danger mx-2" />
-              </ButtonIcon>
+            <td>
+              <div className="d-flex justify-content-center">
+                <ButtonIcon onClick={() => handleEdit(data.id)} className="btn btn-primary p-2">
+                  <EditIcon fontSize="small" />
+                </ButtonIcon>
+                &#160;
+                <ButtonIcon onClick={() => handleShowDisable(data.id)} className="btn btn-danger p-2">
+                  <DeleteIcon fontSize="small"/>
+                </ButtonIcon>
+              </div>
             </td>
           </tr>
         ))}
@@ -192,15 +196,15 @@ const ProductTable = ({
                   type="button"
                 >
                   Disable
-            </button>
-
+                </button>
+                &ensp;
                 <button
                   className="btn btn-outline-secondary"
                   onClick={handleCloseDisable}
                   type="button"
                 >
                   Cancel
-            </button>
+                </button>
               </div>
             )
           }
