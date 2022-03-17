@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { FunnelFill } from "react-bootstrap-icons";
-import { Search } from "react-feather";
-import ReactMultiSelectCheckboxes from "react-multiselect-checkboxes";
+import SearchIcon from '@material-ui/icons/Search';
+import '../Category.css';
 
 import { Link } from "react-router-dom";
 import CategoryTable from "./CategoryTable";
@@ -115,42 +114,35 @@ const ListCategory = () => {
 
   return (
     <>
-      <div className="primaryColor text-title intro-x">Category List</div>
+      <div className="container-fluid"> 
+        <div className="d-flex flex-row-reverse create-margin">
+          <Link to="/category/create" type="button" className="btn btn-success">
+            Create new Category
+          </Link>
+        </div>
+        <div className="d-flex intro-x">
+          <div class="me-auto p-2 bd-highlight w-50 fs-2">Category List</div>
 
-      <div>
-        <div className="d-flex mb-5 intro-x">
-          <div className="d-flex align-items-center w-md mr-5">
-          <ReactMultiSelectCheckboxes
-              options={isShowOnHomeOptions}
-              hideSearch={true}
-              placeholderButtonLabel="Type"
-              value={selectedType}
-              onChange={handleType}
-            />
-
-            <div className="border p-2">
-              <FunnelFill />
+          <div className="d-flex align-items-center">
+            <div className="input-group search-margin">
+            <div >
+              <div >
+                  <div className="input-group">
+                      <input className="form-control border" 
+                            id="example-search-input"
+                            onChange={handleChangeSearch}
+                            value={search}
+                            type="text"/>
+                      <span onClick={handleSearch} className="input-group-append">
+                          <button className="btn btn-outline-secondary bg-white border-start-0 border w-20" type="button">
+                              <SearchIcon/>
+                          </button>
+                      </span>
+                  </div>
+              </div>
             </div>
-          </div>
-
-          <div className="d-flex align-items-center w-ld ml-auto">
-            <div className="input-group">
-              <input
-                onChange={handleChangeSearch}
-                value={search}
-                type="text"
-                className="form-control"
-              />
-              <span onClick={handleSearch} className="border p-2 pointer">
-                <Search />
-              </span>
+              
             </div>
-          </div>
-
-          <div className="d-flex align-items-center ml-3">
-            <Link to="/category/create" type="button" className="btn btn-danger">
-              Create new Category
-            </Link>
           </div>
         </div>
 

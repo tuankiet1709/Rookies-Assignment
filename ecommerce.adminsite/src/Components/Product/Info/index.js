@@ -30,58 +30,70 @@ const Info = ({ product, handleClose }) => {
       <Modal
         show={true}
         onHide={handleClose}
-        dialogClassName="modal-90w"
+        size="xl"
       >
         <Modal.Header closeButton>
           <Modal.Title id="login-modal">
-            Detailed Product Infomation
+            Detailed Product Information
           </Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-          <div>
-            <div className='row -intro-y'>
-              <div>Id: <span>{product.id}</span></div>
-            </div>
-
-            <div className='row -intro-y'>
-              <div>Name: <span>{product.name}</span></div>
-            </div>
-
-            <div className='row -intro-y'>
-              <div>Description:<span>{product.description}</span></div>
-            </div>
-
-            <div className='row -intro-y'>
-              <div>Details: <span>{product.details}</span></div>
-            </div>
-
-            <div className='row -intro-y'>
-              <div>Images: <span>{product.images}</span></div>
-            </div>
-
-            <div className='row -intro-y'>
-              <div>Price: <span>{product.price}</span></div>
-            </div>
-
-            <div className='row -intro-y'>
-              <div>Created Date: <span>{getFormatDateTime(product.createdDate)}</span></div>
-            </div>
-
-            <div className='row -intro-y'>
-              <div>Updated Date: <span>{product.updatedDate==null?product.updatedDate:getFormatDateTime(product.updatedDate)}</span></div>
-            </div>
-
-            <div className='row -intro-y'>
-              <div>Is Featured: <span>{getIsFeaturedProduct(product.isFeatured)}</span></div>
-            </div>
-
-            <div className='row -intro-y'>
-              <div>Is Deleted: <span>{getIsDeleted(product.isDeleted)}</span></div>
-            </div>
-
-
-          </div>
+          
+          <table className="table table-borderless container-fluid">
+            <thead>
+              <tr className="d-flex">
+                <th scope="col" className="col-md-2"></th>
+                <th scope="col" className="col-md-10"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" className="col-md-2">Id: </th>
+                <td className="col-md-10">{product.id}</td>
+              </tr>
+              
+              <tr>
+                <th scope="row">Name:</th>
+                <td>{product.name}</td>
+              </tr>
+              
+              <tr>
+                <th scope="row">Description:</th>
+                <td>{product.description}</td>
+              </tr>
+              
+              <tr>
+                <th scope="row">Details:</th>
+                <td>{product.details}</td>
+              </tr>
+              
+              <tr>
+                <th scope="row">Created Date:</th>
+                <td>{getFormatDateTime(product.createdDate)}</td>
+              </tr>
+              
+              <tr>
+                <th scope="row">Updated Date:</th>
+                <td>{product.updatedDate==null?product.updatedDate:getFormatDateTime(product.updatedDate)}</td>
+              </tr>
+              
+              <tr>
+                <th scope="row">Price:</th>
+                <td>{product.price}</td>
+              </tr>
+              
+              <tr>
+                <th scope="row">Is Featured:</th>
+                <td>{getIsFeaturedProduct(product.isFeatured)}</td>
+              </tr>
+              
+              <tr>
+                <th scope="row">Is Deleted:</th>
+                <td>{getIsDeleted(product.isDeleted)}</td>
+              </tr>
+            </tbody>
+          </table>
         </Modal.Body>
       </Modal>
     </>
