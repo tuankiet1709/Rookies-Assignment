@@ -86,24 +86,24 @@ public class BrandsController : ControllerBase
     [AllowAnonymous]
     public async Task<ActionResult<BrandVm>> GetBrand(int id)
     {
-        var Brand = await _context
+        var brand = await _context
                             .Brands
                             .Where(x=>x.Id == id)
                             .FirstOrDefaultAsync();
 
-        if (Brand == null)
+        if (brand == null)
         {
             return NotFound();
         }
 
-        var BrandVm = new BrandVm
+        var brandVm = new BrandVm
         {
-            Id = Brand.Id,
-            Name = Brand.Name,
-            // ImagePath = _fileStorageService.GetFileUrl(brand.ImageName)
+            Id = brand.Id,
+            Name = brand.Name,
+            ImagePath = _fileStorageService.GetFileUrl(brand.Image)
         };
 
-        return BrandVm;
+        return brandVm;
     }
 }
 

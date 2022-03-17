@@ -4,13 +4,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using eCommerce.Shared.Dto;
 using eCommerce.Shared.Dto.Category;
-using eCommerce.Backend.Data;
 using eCommerce.Backend.Extension;
 using Microsoft.AspNetCore.Authorization;
 using eCommerce.Shared.ViewModel.Category;
-using eCommerce.Backend.Services;
 using eCommerce.Backend.Models;
 using eCommerce.Shared.Enum;
+
 
 namespace eCommerce.Backend.Controllers;
 
@@ -18,171 +17,103 @@ namespace eCommerce.Backend.Controllers;
 [Route("api/[controller]")]
 public class CategoriesController : ControllerBase
 {
-    private readonly ApplicationDbContext _context;
-    private readonly IMapper _mapper;        
-    private readonly IFileStorageService _fileStorageService;
-
-    public CategoriesController(ApplicationDbContext context,
-            IFileStorageService fileStorageService,
-            IMapper mapper)
+    private readonly ICategoryService _categoryService;
+    public CategoriesController(ICategoryService categoryService)
     {
-        _context = context;
-        _fileStorageService=fileStorageService;
-        _mapper = mapper;
+        _categoryService = categoryService;
     }
+    //https://localhost:44341/api/Categories
     [HttpGet()]
     [AllowAnonymous]
-    public async Task<ActionResult<PagedResponseDto<CategoryDto>>> GetCategories([FromQuery] CategoryCriteriaDto categoryCriteriaDto)
+    public async Task<ActionResult<PagedResponseDto<CategoryDto>>> GetCategoryAsync([FromQuery] CategoryCriteriaDto categoryCriteriaDto)
     {
-        //query
-        var query=_context.Categories.AsQueryable();
-        //Filter
-        if (!string.IsNullOrEmpty(categoryCriteriaDto.Search))
-        {
-            query = query.Where(x => x.Name.Contains(categoryCriteriaDto.Search));
-        }
+        var data= await _categoryService.GetCategoryAsync(categoryCriteriaDto);
 
-        var pagedCategories = await query
-                            .AsNoTracking()
-                            .PaginateAsync(categoryCriteriaDto);
-
-        var CategoryDto = _mapper.Map<IEnumerable<CategoryDto>>(pagedCategories.Items);
-        return new PagedResponseDto<CategoryDto>
-        {
-            CurrentPage = pagedCategories.CurrentPage,
-            TotalPages = pagedCategories.TotalPages,
-            TotalItems = pagedCategories.TotalItems,
-            Search = categoryCriteriaDto.Search,
-            SortColumn = categoryCriteriaDto.SortColumn,
-            SortOrder = categoryCriteriaDto.SortOrder,
-            Limit = categoryCriteriaDto.Limit,
-            Items = CategoryDto
-        };
+        return Ok(data);
+        
     }
+    //https://localhost:44341/api/Categories/Home
     [HttpGet("Home")]
     [AllowAnonymous]
-    public async Task<IEnumerable<CategoryDto>> GetCategoriesHome()
+    public async Task<ActionResult<IEnumerable<CategoryDto>>> GetCategoriesHome()
     {
-        //query
-        var query= await _context.Categories.Where(x=>x.Status==Status.Active).Take(100).ToListAsync();
-
-        var CategoryDto = _mapper.Map<IEnumerable<CategoryDto>>(query);
-        return CategoryDto;
+        var data= await _categoryService.GetCategoriesHome();
+        if(data==null){
+            return NotFound();
+        }
+        else{
+            return Ok(data);
+        }
     }
+    //https://localhost:44341/api/Categories/Option
     [HttpGet("Option")]
     [AllowAnonymous]
-    public async Task<IEnumerable<CategoryOptionDto>> GetCategoriesOption(string getParam)
+    public async Task<ActionResult<IEnumerable<CategoryOptionDto>>> GetCategoriesOption(string getParam)
     {
-        //query
-        var query= await _context.Categories.Where(x=>x.Status==Status.Active).Take(100).ToListAsync();
-        
-        //filter
-        if(getParam=="child"){
-            query= query.Where(x=>x.ParentId!=null).ToList();
+        var data= await _categoryService.GetCategoriesOption(getParam);
+        if(data==null){
+            return NotFound();
         }
-        else if(getParam=="parent"){
-            query= query.Where(x=>x.ParentId==null).ToList();
+        else{
+            return Ok(data);
         }
-
-        var CategoryOptionDto = _mapper.Map<IEnumerable<CategoryOptionDto>>(query);
-        return CategoryOptionDto;
     }
-    [HttpGet("HomeOption")]
-    [AllowAnonymous]
-    public async Task<IEnumerable<CategoryOptionDto>> GetCategoriesProductOption()
-    {
-        //query
-        var query= await _context.Categories.Where(x=>x.Status==Status.Active&&x.ParentId!=null).Take(100).ToListAsync();
-
-        var CategoryOptionDto = _mapper.Map<IEnumerable<CategoryOptionDto>>(query);
-        return CategoryOptionDto;
-    }
+    //https://localhost:44341/api/Categories/{id}
     [HttpGet("{id}")]
         // [Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
     [AllowAnonymous]
-    public async Task<ActionResult<CategoryVm>> GetCategory(int id)
+    public async Task<ActionResult<CategoryDto>> GetCategoryByIdAsync(int id)
     {
-        var Category = await _context
-                            .Categories
-                            .Where(x=>x.Id == id)
-                            .FirstOrDefaultAsync();
-
-        if (Category == null)
-        {
+        var category= await _categoryService.GetCategoryByIdAsync(id);
+        if(category==null){
             return NotFound();
         }
-
-        var CategoryVm = new CategoryVm
-        {
-            Id = Category.Id,
-            Name = Category.Name,
-            // ImagePath = _fileStorageService.GetFileUrl(category.ImageName)
-        };
-
-        return CategoryVm;
+        else{
+            return Ok(category);
+        }
     }
+    //https://localhost:44341/api/Categories/{id}
     [HttpPut("{id}")]
     [AllowAnonymous]
     //[Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
-    public async Task<ActionResult> PutCategory([FromRoute] int id, [FromForm] CategoryUpdateRequest categoryUpdateRequest)
+    public async Task<ActionResult<Category>> PutCategory(int id, [FromForm]CategoryUpdateRequest categoryUpdateRequest)
     {
-        var category = await _context.Categories.FindAsync(id);
-
-        if (category == null)
-        {
-            return NotFound();
+        var checkCategory= await _categoryService.GetCategoryByIdAsync(id);
+        if(checkCategory==null){
+            return NotFound($"Category with id={id} is not found");
         }
-        else {
-            category.Name = categoryUpdateRequest.Name;
-            category.Description = categoryUpdateRequest.Description;
-            category.UpdatedDate=categoryUpdateRequest.UpdatedDate;
-            category.IsShowOnHome = categoryUpdateRequest.IsShowOnHome;
-            category.ParentId = categoryUpdateRequest.ParentId;
-            category.Status = categoryUpdateRequest.Status;
-            category.UpdatedDate=DateTime.Now;
+        else{
+            return await _categoryService.PutCategory(id, categoryUpdateRequest);
         }
-        
-        _context.Categories.Update(category);
-        await _context.SaveChangesAsync();
-
-        return Ok(category);
-    }
-
+    }   
+    //https://localhost:44341/api/Categories
     [HttpPost]
     //[Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
-    public async Task<ActionResult<CategoryVm>> PostCategory([FromForm] CategoryCreateRequest categoryCreateRequest)
+    public async Task<ActionResult<int>> PostCategory([FromForm] CategoryCreateRequest categoryCreateRequest)
     {
-        var category = new Category
+        if (categoryCreateRequest == null)
         {
-            Name = categoryCreateRequest.Name,
-            Description = categoryCreateRequest.Description,
-            IsShowOnHome = categoryCreateRequest.IsShowOnHome,
-            ParentId = categoryCreateRequest.ParentId,
-        };
-
-        _context.Categories.Add(category);
-        await _context.SaveChangesAsync();
-
-        return CreatedAtAction("GetCategory", new { id = category.Id }, new CategoryVm { Id = category.Id, Name = category.Name });
+            return BadRequest();
+        }
+        else{
+            var createCategory = await _categoryService.PostCategory(categoryCreateRequest);
+            return Ok(createCategory);
+        }
     }
-
+    //https://localhost:44341/api/Categories/{id}
     [HttpDelete("{id}")]
     [AllowAnonymous]
     //[Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
-    public async Task<IActionResult> DeleteCategory(int id)
+    public async Task<ActionResult<int>> DeleteCategory(int id)
     {
-        var category = await _context.Categories.FindAsync(id);
-
-        if (category == null)
-        {
-            return NotFound();
+        var checkCategory= await _categoryService.GetCategoryByIdAsync(id);
+        if(checkCategory==null){
+            return NotFound($"Category with id={id} is not found");
+        }
+        else{
+            return await _categoryService.DeleteCategory(id);
         }
 
-        category.Status = Status.InActive;
-        _context.Categories.Update(category);
-        await _context.SaveChangesAsync();
-
-        return Ok(true);
     }
 }
 

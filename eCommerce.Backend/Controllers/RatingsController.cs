@@ -17,48 +17,34 @@ namespace eCommerce.Backend.Controllers;
 [Route("api/[controller]")]
 public class RatingsController : ControllerBase
 {
-    private readonly ApplicationDbContext _context;
-    private readonly IMapper _mapper;
-    private readonly IFileStorageService _fileStorageService;
-    public RatingsController(
-            ApplicationDbContext context,
-            IFileStorageService fileStorageService,
-            IMapper mapper)
+    private readonly IRatingService _ratingService;
+    public RatingsController(IRatingService ratingService)
     {
-        _context = context;
-        _mapper = mapper;
-        _fileStorageService=fileStorageService;
+        _ratingService=ratingService;
     }
+    //https://localhost:44341/api/rating/{productId}
     [HttpGet("{productId}")]
         // [Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
     [AllowAnonymous]
-    public async Task<IEnumerable<RatingDto>> GetProductRating(int productId)
+    public async Task<ActionResult<IEnumerable<RatingDto>>> GetProductRating(int productId)
     {
-        var productRating = await _context.Ratings.Where(x=>x.ProductId == productId).ToListAsync();
+        var ratings= await _ratingService.GetProductRating(productId);
 
-        var ratingDto = _mapper.Map<IEnumerable<RatingDto>>(productRating);
-
-        return ratingDto;
+        if(ratings==null){
+            return NotFound($"There are not any rating for product id: {productId}");
+        }
+        else{
+            return Ok(ratings);
+        }
     }
+    //https://localhost:44341/api/rating
     [HttpPost]
     // [Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
     [AllowAnonymous]
     public async Task<ActionResult> PostRating([FromForm] RatingCreateRequest ratingCreateRequest)
     {
-        // var productRating = _mapper.Map<Rating>(ratingCreateRequest);
-        var productRating=new Rating{
-            RatePoint=ratingCreateRequest.RatePoint,
-            Comment=ratingCreateRequest.Comment,
-            ProductId=ratingCreateRequest.ProductId,
-            ReviewerName=ratingCreateRequest.ReviewerName,
-            IsApproved=true,
-            RateDate=DateTime.Now
-        };
-
-        _context.Ratings.Add(productRating);
-        await _context.SaveChangesAsync();
-
-        return Ok(productRating);
+        var result= await _ratingService.PostRating(ratingCreateRequest);
+        return Ok(result);
     }
 }
 

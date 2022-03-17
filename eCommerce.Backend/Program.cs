@@ -12,6 +12,9 @@ IWebHostEnvironment environment = builder.Environment;
 builder.Services.AddDbContext<ApplicationDbContext>(option=>
     option.UseSqlServer(builder.Configuration.GetConnectionString(SystemConstants.MainConnectionString)));
 builder.Services.AddTransient<IFileStorageService,FileStorageService>();
+builder.Services.AddTransient<ICategoryService,CategoryService>();
+builder.Services.AddTransient<IProductService,ProductService>();
+builder.Services.AddTransient<IRatingService,RatingService>();
 
 // Add services to the container.
 builder.Services.AddHttpClient();
