@@ -6,6 +6,7 @@ import "./Navbar.css";
 import { SidebarData } from "./SidebarData";
 import './Navbar.css'; 
 import { IconContext } from "react-icons/lib";
+import { AUTH } from '../../Constants/pages';
 
 export default function Navbar() {
   const [sidebar, setSidebar]=useState(false);
@@ -17,6 +18,9 @@ export default function Navbar() {
       <div className="navbar">
         <Link to="#" className="menu-bars">
           <FaIcons.FaBars onClick={showSidebar}/>
+        </Link>
+        <Link to={AUTH} className="menu-login">
+          Login
         </Link>
       </div>
       <nav className={sidebar ? 'nav-menu active':'nav-menu'}>

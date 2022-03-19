@@ -6,12 +6,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 namespace eCommerce.Backend.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<AppUser,AppRole,Guid>
+    public class ApplicationDbContext : IdentityDbContext<User>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
-        public DbSet<AppConfig> AppConfigs { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Cart> Carts { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -22,16 +21,6 @@ namespace eCommerce.Backend.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new AppUserConfiguration());
-            modelBuilder.ApplyConfiguration(new AppRoleConfiguration());
-
-            modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims");
-            modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRole").HasKey(x=>new {x.UserId,x.RoleId});
-            modelBuilder.Entity<IdentityUserLogin<Guid>>().ToTable("AppUserLogins").HasKey(x=>x.UserId);
-            modelBuilder.Entity<IdentityRoleClaim<Guid>>().ToTable("AppRoleClaims");
-            modelBuilder.Entity<IdentityUserToken<Guid>>().ToTable("AppUserToken").HasKey(x=>x.UserId);
-
-            modelBuilder.ApplyConfiguration(new AppConfigConfiguration());
             modelBuilder.ApplyConfiguration(new BrandConfiguration());
             modelBuilder.ApplyConfiguration(new CartConfiguration());
             modelBuilder.ApplyConfiguration(new CartConfiguration());
@@ -42,11 +31,10 @@ namespace eCommerce.Backend.Data
             modelBuilder.ApplyConfiguration(new RatingConfiguration());
 
             //Seed Data
-            modelBuilder.SeedAppConfigData();
             modelBuilder.SeedBrandData();
             modelBuilder.SeedCategoryData();
             modelBuilder.SeedProductData();
-            modelBuilder.SeedIdentityData();
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

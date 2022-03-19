@@ -22,7 +22,7 @@ public class RatingsController : ControllerBase
     {
         _ratingService=ratingService;
     }
-    //https://localhost:44341/api/rating/{productId}
+    //https://localhost:44342/api/rating/{productId}
     [HttpGet("{productId}")]
         // [Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
     [AllowAnonymous]
@@ -37,7 +37,7 @@ public class RatingsController : ControllerBase
             return Ok(ratings);
         }
     }
-    //https://localhost:44341/api/rating
+    //https://localhost:44342/api/rating
     [HttpPost]
     // [Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
     [AllowAnonymous]

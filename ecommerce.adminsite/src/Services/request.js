@@ -12,9 +12,9 @@ class RequestService{
         this.axios=axios.create(config);
     }
 
-    // setAuthentication(accessToken){
-    //     this.axios.defaults.headers.common['Authorization']=`Bearer ${accessToken};`
-    // }
+    setAuthentication(accessToken){
+        this.axios.defaults.headers.common['Authorization']=`Bearer ${accessToken};`
+    }
 }
 
 export default new RequestService();

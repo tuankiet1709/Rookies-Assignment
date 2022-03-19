@@ -22,7 +22,7 @@ public class ProductsController : ControllerBase
     {
         _productService= productService;
     }
-    //https://localhost:44341/api/products
+    //https://localhost:44342/api/products
     [HttpGet()]
     [AllowAnonymous]
     public async Task<IActionResult> GetProductAsync([FromQuery] ProductCriteriaDto productCriteriaDto)
@@ -30,7 +30,7 @@ public class ProductsController : ControllerBase
         var data = await _productService.GetProductAsync(productCriteriaDto);
         return Ok(data);
     }
-    //https://localhost:44341/api/products/featuredproduct
+    //https://localhost:44342/api/products/featuredproduct
     [HttpGet("FeaturedProduct")]
     [AllowAnonymous]
     public async Task<ActionResult<List<ProductDto>>> GetFeaturedProducts()
@@ -38,7 +38,7 @@ public class ProductsController : ControllerBase
         var data= await _productService.GetFeaturedProducts();
         return Ok(data);
     }
-    //https://localhost:44341/api/products/latestproduct
+    //https://localhost:44342/api/products/latestproduct
     [HttpGet("LastestProduct")]
     [AllowAnonymous]
     public async Task<ActionResult<List<ProductDto>>> GetLastestProduct()
@@ -46,7 +46,7 @@ public class ProductsController : ControllerBase
         var data = await _productService.GetLastestProduct();
         return Ok(data);
     }
-    //https://localhost:44341/api/products/{id}
+    //https://localhost:44342/api/products/{id}
     [HttpGet("{id}")]
         // [Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
     [AllowAnonymous]
@@ -62,7 +62,7 @@ public class ProductsController : ControllerBase
             return product;
         }
     }
-    //https://localhost:44341/api/products/
+    //https://localhost:44342/api/products/
     [HttpPost]
     //[Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
     public async Task<ActionResult> PostProduct([FromForm]ProductCreateRequest productCreateRequest)
@@ -79,7 +79,7 @@ public class ProductsController : ControllerBase
             return Ok();
         }
     }
-    //https://localhost:44341/api/products/{id}
+    //https://localhost:44342/api/products/{id}
     [HttpPut("{id}")]
     [AllowAnonymous]
     //[Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
@@ -100,7 +100,7 @@ public class ProductsController : ControllerBase
             }
         }
     }
-    //https://localhost:44341/api/products/{id}
+    //https://localhost:44342/api/products/{id}
     [HttpDelete("{id}")]
     [AllowAnonymous]
     //[Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
