@@ -22,7 +22,7 @@ public class CategoriesController : ControllerBase
     {
         _categoryService = categoryService;
     }
-    //https://localhost:44341/api/Categories
+    //https://localhost:44342/api/Categories
     [HttpGet()]
     [AllowAnonymous]
     public async Task<ActionResult<PagedResponseDto<CategoryDto>>> GetCategoryAsync([FromQuery] CategoryCriteriaDto categoryCriteriaDto)
@@ -32,7 +32,7 @@ public class CategoriesController : ControllerBase
         return Ok(data);
         
     }
-    //https://localhost:44341/api/Categories/Home
+    //https://localhost:44342/api/Categories/Home
     [HttpGet("Home")]
     [AllowAnonymous]
     public async Task<ActionResult<IEnumerable<CategoryDto>>> GetCategoriesHome()
@@ -45,7 +45,7 @@ public class CategoriesController : ControllerBase
             return Ok(data);
         }
     }
-    //https://localhost:44341/api/Categories/Option
+    //https://localhost:44342/api/Categories/Option
     [HttpGet("Option")]
     [AllowAnonymous]
     public async Task<ActionResult<IEnumerable<CategoryOptionDto>>> GetCategoriesOption(string getParam)
@@ -58,7 +58,7 @@ public class CategoriesController : ControllerBase
             return Ok(data);
         }
     }
-    //https://localhost:44341/api/Categories/{id}
+    //https://localhost:44342/api/Categories/{id}
     [HttpGet("{id}")]
         // [Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
     [AllowAnonymous]
@@ -72,7 +72,7 @@ public class CategoriesController : ControllerBase
             return Ok(category);
         }
     }
-    //https://localhost:44341/api/Categories/{id}
+    //https://localhost:44342/api/Categories/{id}
     [HttpPut("{id}")]
     [AllowAnonymous]
     //[Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
@@ -86,7 +86,7 @@ public class CategoriesController : ControllerBase
             return await _categoryService.PutCategory(id, categoryUpdateRequest);
         }
     }   
-    //https://localhost:44341/api/Categories
+    //https://localhost:44342/api/Categories
     [HttpPost]
     //[Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]
     public async Task<ActionResult<int>> PostCategory([FromForm] CategoryCreateRequest categoryCreateRequest)
@@ -100,7 +100,7 @@ public class CategoriesController : ControllerBase
             return Ok(createCategory);
         }
     }
-    //https://localhost:44341/api/Categories/{id}
+    //https://localhost:44342/api/Categories/{id}
     [HttpDelete("{id}")]
     [AllowAnonymous]
     //[Authorize(Policy = SecurityConstants.ADMIN_ROLE_POLICY)]

@@ -1314,7 +1314,6 @@ textarea:focus {
 /*Header Top*/
 .header-top {
 	background: #f8f9f9;
-	padding: 12px 0;
 	border-bottom: 1px solid #e1e1e1;
 }
 /*Phone Wrap*/
@@ -1346,10 +1345,10 @@ textarea:focus {
 	content: "";
 	position: absolute;
 	background: #2424;
-	height: 15px;
+	height: 50%;
 	width: 1px;
 	right: 0;
-	top: 5px;
+	top: 10px;
 }
 .ht-menu > li:last-child::after {
 	content: unset;
@@ -1358,7 +1357,7 @@ textarea:focus {
 	padding-right: 0;
 }
 .ht-menu > li span {
-	font-size: 12px;
+	font-size: 16px;
 }
 /*Header Top Currency*/
 .currency-selector-wrapper, .language-selector-wrapper {
@@ -1370,69 +1369,6 @@ textarea:focus {
 	color: #a4a4a4;
 	display: inline-block;
 	position: relative;
-}
-.ht-setting-trigger, .ht-currency-trigger, .ht-language-trigger {
-	cursor: pointer;
-	transition: all 0.3s ease-in-out;
-}
-.ht-currency-trigger:hover, .ht-language-trigger:hover {
-	color: #fed700;
-}
-.ht-currency-trigger:hover i, .ht-language-trigger:hover i{
-	color: #fed700;
-}
-.ht-setting, .ht-currency, .ht-language {
-	position: absolute;
-	right: 0;
-	top: 100%;
-	z-index: 9;
-	display: none;
-}
-.setting, .currency, .language {
-		border-top: 2px solid #fed700;
-		padding: 20px 20px 10px;
-		background: #ffffff;
-		text-align: left;
-		-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-		box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-		transition: all 0.3s ease-in-out;
-}
-.setting {
-		min-width: 150px;
-}
-.currency, .language {
-		min-width: 120px;
-}
-.currency li {
-		padding: 0 10px;
-		color: #636363;
-		line-height: 22px;
-		font-size: 12px;
-}
-.ht-setting-list > li {
-		transition: all 0.3s ease-in-out;
-}
-.ht-setting-list > li.active {
-	background: #fed700;
-}
-.ht-setting-list > li:hover {
-		background: #fed700;
-}
-.ht-setting-list > li > a {
-	padding: 0 10px;
-	display: block;
-	font-size: 12px;
-	line-height: 22px;
-	margin-bottom: 10px;
-}
-.ht-setting-list > li:hover > a {
-	color: #ffffff;
-}
-.ht-setting-list > li.active > a {
-	color: #fff;
-}
-.ht-setting-list > li > a > img {
-	padding-right: 5px;
 }
 /*Header Middle*/
 .header-middle {

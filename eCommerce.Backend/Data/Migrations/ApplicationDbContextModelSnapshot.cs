@@ -22,159 +22,6 @@ namespace eCommerce.Backend.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("eCommerce.Backend.Models.AppConfig", b =>
-                {
-                    b.Property<string>("Key")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Value")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Key");
-
-                    b.ToTable("Appconfigs", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Key = "HomeTitle",
-                            Value = "This is home page of eCommerceWebsite"
-                        },
-                        new
-                        {
-                            Key = "HomeKeyword",
-                            Value = "This is keyword of eCommerceWebsite"
-                        },
-                        new
-                        {
-                            Key = "HomeDescription",
-                            Value = "This is description of eCommerceWebsite"
-                        });
-                });
-
-            modelBuilder.Entity("eCommerce.Backend.Models.AppRole", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NormalizedName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AppRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("725efe2e-a534-40c4-ab0d-20c947e6c0eb"),
-                            ConcurrencyStamp = "7db8366a-3b48-4080-b1fb-fd18fd4c1601",
-                            Description = "Administrator role",
-                            Name = "admin",
-                            NormalizedName = "admin"
-                        });
-                });
-
-            modelBuilder.Entity("eCommerce.Backend.Models.AppUser", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Dob")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AppUsers", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("cf517a65-75d0-480c-9566-601b1e607d25"),
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "2bbb265e-a5df-42ed-b314-d69628a77939",
-                            Dob = new DateTime(2022, 3, 13, 16, 15, 54, 120, DateTimeKind.Local).AddTicks(2030),
-                            Email = "tranhatuankiet1709@gmail.com",
-                            EmailConfirmed = true,
-                            FirstName = "Tu",
-                            LastName = "Ki",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "tranhatuankiet1709@gmail.com",
-                            NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEATEUIP6Oyd/XvoQoSO6ENHarrmTAl7GVOIMwyktYkRxuXasl9RrvuDYgt1tIe7hYg==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "",
-                            TwoFactorEnabled = false,
-                            UserName = "admin"
-                        });
-                });
-
             modelBuilder.Entity("eCommerce.Backend.Models.Brand", b =>
                 {
                     b.Property<int>("Id")
@@ -187,7 +34,6 @@ namespace eCommerce.Backend.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsShowOnHome")
@@ -217,7 +63,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(890),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5490),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Andora",
@@ -227,7 +73,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(910),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5520),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Apple",
@@ -237,7 +83,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(910),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5520),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Anker",
@@ -247,7 +93,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(910),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5520),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Baseus",
@@ -257,7 +103,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(910),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5520),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Hyper",
@@ -267,7 +113,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(920),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5520),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Filco",
@@ -277,7 +123,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(920),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5520),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "JCPAL",
@@ -287,7 +133,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(920),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5530),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Keychrone",
@@ -297,7 +143,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(920),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5530),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Lofree",
@@ -307,7 +153,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(920),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5630),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Logitech",
@@ -317,7 +163,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(920),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5630),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Mocoll",
@@ -327,7 +173,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(920),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5630),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Philips",
@@ -337,7 +183,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(920),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5640),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "Tucano",
@@ -347,7 +193,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 15,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(930),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5640),
                             Image = "",
                             IsShowOnHome = true,
                             Name = "WIWU",
@@ -375,8 +221,8 @@ namespace eCommerce.Backend.Data.Migrations
                         .HasColumnType("int")
                         .HasDefaultValue(1);
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -434,7 +280,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(940),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5750),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Macbook's Accessories",
@@ -443,7 +289,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(950),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5750),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Iphone's Accessories",
@@ -452,7 +298,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(950),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5750),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Ipad's Accessories",
@@ -461,7 +307,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(950),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5760),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Mechanical",
@@ -470,7 +316,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(950),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5760),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Macbook sticker",
@@ -480,7 +326,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(950),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5760),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Usb-c Hub",
@@ -490,7 +336,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(960),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5760),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Iphone Charging Cable",
@@ -500,7 +346,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(960),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5760),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Iphone Stand",
@@ -510,7 +356,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(960),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5760),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Ipad Case",
@@ -520,7 +366,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(960),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5760),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Ipad Tempered Glass",
@@ -530,7 +376,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(960),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5770),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Ipad Stand",
@@ -540,7 +386,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(960),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5770),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Mechanical Keyboard",
@@ -550,7 +396,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(960),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5770),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Mechanical Mouse",
@@ -560,7 +406,7 @@ namespace eCommerce.Backend.Data.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(970),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5770),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsShowOnHome = true,
                             Name = "Macbook Cleaning Kit",
@@ -606,8 +452,8 @@ namespace eCommerce.Backend.Data.Migrations
                         .HasColumnType("int")
                         .HasDefaultValue(0);
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -718,7 +564,7 @@ namespace eCommerce.Backend.Data.Migrations
                             Id = 1,
                             BrandId = 7,
                             CategoryId = 14,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(980),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5790),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsFeatured = true,
@@ -734,7 +580,7 @@ namespace eCommerce.Backend.Data.Migrations
                             Id = 2,
                             BrandId = 6,
                             CategoryId = 6,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(990),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5790),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsFeatured = true,
@@ -750,7 +596,7 @@ namespace eCommerce.Backend.Data.Migrations
                             Id = 3,
                             BrandId = 1,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(990),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5790),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsFeatured = true,
@@ -766,7 +612,7 @@ namespace eCommerce.Backend.Data.Migrations
                             Id = 4,
                             BrandId = 2,
                             CategoryId = 7,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(990),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5800),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsFeatured = true,
@@ -782,7 +628,7 @@ namespace eCommerce.Backend.Data.Migrations
                             Id = 5,
                             BrandId = 15,
                             CategoryId = 8,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(990),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5800),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsFeatured = true,
@@ -798,7 +644,7 @@ namespace eCommerce.Backend.Data.Migrations
                             Id = 6,
                             BrandId = 15,
                             CategoryId = 9,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(990),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5800),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsFeatured = true,
@@ -814,7 +660,7 @@ namespace eCommerce.Backend.Data.Migrations
                             Id = 7,
                             BrandId = 7,
                             CategoryId = 10,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(1000),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5800),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsFeatured = true,
@@ -830,7 +676,7 @@ namespace eCommerce.Backend.Data.Migrations
                             Id = 8,
                             BrandId = 8,
                             CategoryId = 12,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(1000),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5810),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsFeatured = true,
@@ -846,7 +692,7 @@ namespace eCommerce.Backend.Data.Migrations
                             Id = 9,
                             BrandId = 9,
                             CategoryId = 13,
-                            CreatedDate = new DateTime(2022, 3, 13, 16, 15, 54, 116, DateTimeKind.Local).AddTicks(1000),
+                            CreatedDate = new DateTime(2022, 3, 19, 22, 15, 7, 25, DateTimeKind.Local).AddTicks(5810),
                             Description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                             IsFeatured = true,
@@ -868,7 +714,6 @@ namespace eCommerce.Backend.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RateId"), 1L, 1);
 
                     b.Property<string>("Comment")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
@@ -904,7 +749,105 @@ namespace eCommerce.Backend.Data.Migrations
                     b.ToTable("Ratings", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
+            modelBuilder.Entity("eCommerce.Backend.Models.User", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -918,15 +861,18 @@ namespace eCommerce.Backend.Data.Migrations
                     b.Property<string>("ClaimValue")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("RoleId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("AppRoleClaims", (string)null);
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -940,72 +886,71 @@ namespace eCommerce.Backend.Data.Migrations
                     b.Property<string>("ClaimValue")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("AppUserClaims", (string)null);
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.Property<Guid>("UserId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("UserId");
+                    b.HasKey("LoginProvider", "ProviderKey");
 
-                    b.ToTable("AppUserLogins", (string)null);
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid>("RoleId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("UserId", "RoleId");
 
-                    b.ToTable("AppUserRole", (string)null);
+                    b.HasIndex("RoleId");
 
-                    b.HasData(
-                        new
-                        {
-                            UserId = new Guid("cf517a65-75d0-480c-9566-601b1e607d25"),
-                            RoleId = new Guid("725efe2e-a534-40c4-ab0d-20c947e6c0eb")
-                        });
+                    b.ToTable("AspNetUserRoles", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.Property<Guid>("UserId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UserId");
+                    b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("AppUserToken", (string)null);
+                    b.ToTable("AspNetUserTokens", (string)null);
                 });
 
             modelBuilder.Entity("eCommerce.Backend.Models.Cart", b =>
@@ -1016,26 +961,22 @@ namespace eCommerce.Backend.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("eCommerce.Backend.Models.AppUser", "AppUser")
+                    b.HasOne("eCommerce.Backend.Models.User", "User")
                         .WithMany("Carts")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AppUser");
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Product");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("eCommerce.Backend.Models.Order", b =>
                 {
-                    b.HasOne("eCommerce.Backend.Models.AppUser", "AppUser")
+                    b.HasOne("eCommerce.Backend.Models.User", "User")
                         .WithMany("Orders")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
-                    b.Navigation("AppUser");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("eCommerce.Backend.Models.OrderDetail", b =>
@@ -1087,11 +1028,55 @@ namespace eCommerce.Backend.Data.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("eCommerce.Backend.Models.AppUser", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.Navigation("Carts");
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
 
-                    b.Navigation("Orders");
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("eCommerce.Backend.Models.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("eCommerce.Backend.Models.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("eCommerce.Backend.Models.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("eCommerce.Backend.Models.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("eCommerce.Backend.Models.Brand", b =>
@@ -1116,6 +1101,13 @@ namespace eCommerce.Backend.Data.Migrations
                     b.Navigation("OrderDetails");
 
                     b.Navigation("ProductRatings");
+                });
+
+            modelBuilder.Entity("eCommerce.Backend.Models.User", b =>
+                {
+                    b.Navigation("Carts");
+
+                    b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618
         }

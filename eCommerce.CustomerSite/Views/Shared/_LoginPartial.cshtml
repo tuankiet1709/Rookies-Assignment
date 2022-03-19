@@ -1,0 +1,31 @@
+﻿<div class="header-top">
+    <div class="container">
+        <div class="row">
+            <!-- Begin Header Top Right Area -->
+            <div class="col-lg-12 col-md-10">
+                <div class="header-top-right">
+                    <ul class="ht-menu">
+                        <!-- Begin Currency Area -->
+                        @if (User.Identity.IsAuthenticated){
+                            <li>
+                                <span class="navbar-text text-dark">Hello <a class="text-dark" asp-controller="Account" asp-action="MyProfile">@User.Identity.Name</a>!</span>
+                            </li>
+                            <!-- Currency Area End Here -->
+                            <!-- Begin Language Area -->
+                            <li>
+                                <span class="navbar-text text-dark"><a class="nav-link text-dark" asp-controller="Account" asp-action="SignOut">Logout</a></span>
+                            </li>
+                        <!-- Language Area End Here -->
+                        }
+                        else{
+                            <li>
+                                <span class="navbar-text text-dark"><a class="nav-link text-dark" asp-controller="Account" asp-action="SignIn">Login</a></span>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <!-- Header Top Right Area End Here -->
+        </div>
+    </div>
+</div>

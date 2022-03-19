@@ -7,7 +7,7 @@ using eCommerce.Shared.Dto.Category;
 using eCommerce.Shared.Dto.Rating;
 using eCommerce.Shared.ViewModel.Rating;
 
-namespace RookieShop.Backend.Data.Mapping
+namespace eCommerce.Backend.Data.Mapping
 {
     public class AutoMapperProfile : Profile  
     {
