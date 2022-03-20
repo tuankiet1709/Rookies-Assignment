@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 
 import {
   CheckIsFeatured,
@@ -13,25 +13,28 @@ import { get } from "../../../httpHelper";
 
 const Info = ({ product, handleClose }) => {
   const getIsFeaturedProduct = (id) => {
-    return id == CheckIsFeatured ? CheckIsFeaturedLabel : CheckIsNotFeaturedLabel;
-  }
+    return id == CheckIsFeatured
+      ? CheckIsFeaturedLabel
+      : CheckIsNotFeaturedLabel;
+  };
 
   const getIsDeleted = (id) => {
     return id == CheckIsDeleted ? CheckIsDeletedLabel : CheckIsNotDeletedLabel;
-  }
+  };
 
-  const getFormatDateTime=(date)=>{
-    const DATE_OPTIONS = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
-    return new Date(date).toLocaleDateString('en-US', DATE_OPTIONS);
-  }
+  const getFormatDateTime = (date) => {
+    const DATE_OPTIONS = {
+      weekday: "short",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    };
+    return new Date(date).toLocaleDateString("en-US", DATE_OPTIONS);
+  };
 
   return (
     <>
-      <Modal
-        show={true}
-        onHide={handleClose}
-        size="xl"
-      >
+      <Modal show={true} onHide={handleClose} size="xl">
         <Modal.Header closeButton>
           <Modal.Title id="login-modal">
             Detailed Product Information
@@ -39,7 +42,6 @@ const Info = ({ product, handleClose }) => {
         </Modal.Header>
 
         <Modal.Body>
-          
           <table className="table table-borderless container-fluid">
             <thead>
               <tr className="d-flex">
@@ -49,45 +51,41 @@ const Info = ({ product, handleClose }) => {
             </thead>
             <tbody>
               <tr>
-                <th scope="row" className="col-md-2">Id: </th>
+                <th scope="row" className="col-md-2">Id:</th>
                 <td className="col-md-10">{product.id}</td>
               </tr>
-              
               <tr>
                 <th scope="row">Name:</th>
                 <td>{product.name}</td>
               </tr>
-              
               <tr>
                 <th scope="row">Description:</th>
                 <td>{product.description}</td>
               </tr>
-              
               <tr>
                 <th scope="row">Details:</th>
                 <td>{product.details}</td>
               </tr>
-              
               <tr>
                 <th scope="row">Created Date:</th>
                 <td>{getFormatDateTime(product.createdDate)}</td>
               </tr>
-              
               <tr>
                 <th scope="row">Updated Date:</th>
-                <td>{product.updatedDate==null?product.updatedDate:getFormatDateTime(product.updatedDate)}</td>
+                <td>
+                  {product.updatedDate == null
+                    ? product.updatedDate
+                    : getFormatDateTime(product.updatedDate)}
+                </td>
               </tr>
-              
               <tr>
                 <th scope="row">Price:</th>
                 <td>{product.price}</td>
               </tr>
-              
               <tr>
                 <th scope="row">Is Featured:</th>
                 <td>{getIsFeaturedProduct(product.isFeatured)}</td>
               </tr>
-              
               <tr>
                 <th scope="row">Is Deleted:</th>
                 <td>{getIsDeleted(product.isDeleted)}</td>
@@ -98,6 +96,6 @@ const Info = ({ product, handleClose }) => {
       </Modal>
     </>
   );
-}
+};
 
 export default Info;

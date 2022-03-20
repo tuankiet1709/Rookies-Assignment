@@ -5,6 +5,7 @@ using eCommerce.Shared.Dto.Brand;
 using eCommerce.Shared.Dto.Product;
 using eCommerce.Shared.Dto.Category;
 using eCommerce.Shared.Dto.Rating;
+using eCommerce.Shared.Dto.Customer;
 using eCommerce.Shared.ViewModel.Rating;
 
 namespace eCommerce.Backend.Data.Mapping
@@ -30,6 +31,7 @@ namespace eCommerce.Backend.Data.Mapping
             CreateMap<Category, CategoryOptionDto>();  
             CreateMap<Rating, RatingDto>();  
             CreateMap<RatingCreateRequest,Rating>();
+            CreateMap<User,CustomerDto>();
         }  
     }
 }

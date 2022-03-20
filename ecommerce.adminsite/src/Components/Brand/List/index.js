@@ -118,7 +118,7 @@ const ListBrand = () => {
           </Link>
         </div>
         <div className="d-flex intro-x">
-          <div class="me-auto p-2 bd-highlight w-50 fs-2">Brand List</div>
+          <div className="me-auto p-2 bd-highlight w-50 fs-2">Brand List</div>
 
           <div className="d-flex align-items-center">
             <div className="input-group search-margin">
