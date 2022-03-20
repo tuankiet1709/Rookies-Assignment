@@ -9,6 +9,9 @@ const Endpoints = {
     product: 'api/products',
     productId: (id)=>`api/products/${id}`,
 
+    customer: 'api/customers',
+    customerId: (id)=>`api/customers/${id}`,
+
     category: 'api/categories',
     categoryOption: (getParam)=>`api/categories/option?getParam=${getParam}`,
     categoryId: (id)=>`api/categories/${id}`,

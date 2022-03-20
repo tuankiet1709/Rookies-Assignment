@@ -2,67 +2,27 @@ import React, { useEffect, useState } from "react";
 import SearchIcon from '@material-ui/icons/Search';
 
 import { Link } from "react-router-dom";
-import ProductTable from "./ProductTable";
+import CustomerTable from "./CustomerTable";
 
-import { isFeaturedProductOptions } from "../../../Constants/selectOptions";
-import { getProductsRequest } from "../services/request"
+import { getCustomersRequest } from "../services/request"
 import { 
   ACCSENDING, 
   DECSENDING, 
-  DEFAULT_PRODUCT_SORT_COLUMN_NAME,
+  DEFAULT_CUSTOMER_SORT_COLUMN_NAME,
   DEFAULT_PAGE_LIMIT
 } from "../../../Constants/paging"
 
-const ListProduct = () => {
+const ListCustomer = () => {
 
   const [query, setQuery] = useState({
     page: 1,
     limit: DEFAULT_PAGE_LIMIT,
     sortOrder: ACCSENDING,
-    sortColumn: DEFAULT_PRODUCT_SORT_COLUMN_NAME
+    sortColumn: DEFAULT_CUSTOMER_SORT_COLUMN_NAME
   });
 
   const [search, setSearch] = useState("");
-  const [products, setProducts] = useState("");
-
-  const [selectedType, setSelectedType] = useState([
-    { id: 1, label: "All", value: 0 },
-  ]);
-
-  const handleType = (selected) => {
-    if (selected.length === 0) {
-      setQuery({
-        ...query,
-        types: [],
-      });
-
-      setSelectedType([isFeaturedProductOptions[0]]);
-      return;
-    }
-
-    const selectedAll = selected.find((item) => item.id === 1);
-
-    setSelectedType((prevSelected) => {
-      if (!prevSelected.some((item) => item.id === 1) && selectedAll) {
-        setQuery({
-          ...query,
-          types: [],
-        });
-
-        return [selectedAll];
-      }
-
-      const newSelected = selected.filter((item) => item.id !== 1);
-      const types = newSelected.map((item) => item.value);
-
-      setQuery({
-        ...query,
-        types,
-      });
-
-      return newSelected;
-    });
-  };
+  const [customers, setCustomers] = useState("");
 
   const handleChangeSearch = (e) => {
     e.preventDefault();
@@ -96,32 +56,27 @@ const ListProduct = () => {
   };
 
   const fetchDataCallbackAsync = async () =>  {
-    let data = await getProductsRequest(query);
+    let data = await getCustomersRequest(query);
     console.log('fetchDataCallbackAsync');
     console.log(data);
-    setProducts(data);
+    setCustomers(data);
   }
 
   useEffect(() => {
     async function fetchDataAsync() {
-      let result = await getProductsRequest(query);
-      setProducts(result.data);
+      let result = await getCustomersRequest(query);
+      setCustomers(result.data);
     }
 
     fetchDataAsync();
-  }, [query, products]);
+  }, [query, customers]);
 
   return (
     <>
       <div className="container-fluid"> 
-      <br/>
-        <div className="d-flex flex-row-reverse create-margin">
-          <Link to="/product/create" type="button" className="btn btn-success">
-            Create new Product
-          </Link>
-        </div>
+      
         <div className="d-flex intro-x">
-          <div className="me-auto p-2 bd-highlight w-50 fs-2">Product List</div>
+          <div className="me-auto p-2 bd-highlight w-50 fs-2">Customer List</div>
 
           <div className="d-flex align-items-center">
             <div className="input-group search-margin">
@@ -146,8 +101,8 @@ const ListProduct = () => {
           </div>
         </div>
 
-        <ProductTable
-          products={products}
+        <CustomerTable
+          customers={customers}
           handlePage={handlePage}
           handleSort={handleSort}
           sortState={{
@@ -161,4 +116,4 @@ const ListProduct = () => {
   );
 };
 
-export default ListProduct;
+export default ListCustomer;

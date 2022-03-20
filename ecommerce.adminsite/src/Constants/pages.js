@@ -14,6 +14,9 @@ export const CREATE_PRODUCT = '/create';
 export const EDIT_PRODUCT = '/edit/:id';
 export const EDIT_PRODUCT_ID = (id) => `/product/edit/${id}`;
 
+export const CUSTOMER = '/customer/*';
+export const LIST_CUSTOMER = '/customer';
+
 export const CATEGORY = '/category/*';
 export const LIST_CATEGORY = '/category';
 export const CREATE_CATEGORY = '/create';

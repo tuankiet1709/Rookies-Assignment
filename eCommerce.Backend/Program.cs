@@ -64,9 +64,11 @@ builder.Services.AddAuthorization(options =>
 
 builder.Services.AddSingleton<IAuthorizationHandler, AdminRoleHandler>();
 builder.Services.AddTransient<IFileStorageService,FileStorageService>();
+builder.Services.AddTransient<ICustomerService,CustomerService>();
 builder.Services.AddTransient<ICategoryService,CategoryService>();
 builder.Services.AddTransient<IProductService,ProductService>();
 builder.Services.AddTransient<IRatingService,RatingService>();
+
 
 // Add services to the container.
 builder.Services.AddHttpClient();

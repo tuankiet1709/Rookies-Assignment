@@ -6,11 +6,13 @@ import { Route, Routes } from "react-router-dom";
 import { PRODUCT } from "./Constants/pages";
 import { BRAND } from "./Constants/pages";
 import { CATEGORY } from "./Constants/pages";
+import { CUSTOMER } from "./Constants/pages";
 
 
 const Product = lazy(() => import('./components/Product'));
 const Brand = lazy(() => import('./components/Brand'));
 const Category = lazy(() => import('./components/Category'));
+const Customer = lazy(() => import('./components/Customer'));
 
 
 export default function App() {
@@ -40,6 +42,14 @@ export default function App() {
             element={
               <React.Suspense fallback={<>...</>}>
                 <Category />
+              </React.Suspense>
+            }
+            />
+          <Route
+            path={CUSTOMER}
+            element={
+              <React.Suspense fallback={<>...</>}>
+                <Customer />
               </React.Suspense>
             }
             />
