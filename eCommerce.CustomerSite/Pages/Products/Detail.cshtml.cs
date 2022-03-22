@@ -1,4 +1,3 @@
-
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Mvc;
@@ -13,16 +12,19 @@ namespace eCommerce.CustomerSite.Pages.Products
     {
         private readonly IProductService _productService;
         private readonly IRatingService _ratingService;
+        private readonly IBrandService _brandService;
         private readonly IConfiguration _config;
         private readonly IMapper _mapper;
         public DetailModel(
             IProductService productService,
             IRatingService ratingService,
+            IBrandService brandService,
             IConfiguration config,
             IMapper mapper)
         {
             _productService = productService;
             _ratingService=ratingService;
+            _brandService=brandService;
             _config = config;
             _mapper = mapper;
         }
@@ -54,17 +56,15 @@ namespace eCommerce.CustomerSite.Pages.Products
             if(countRate==0) countRate=1;
             point=sumPoint/countRate;
             Product = _mapper.Map<ProductVm>(productDto);
+            Brands= await _brandService.GetBrandHome();
             return Page();
         }
         public async Task<IActionResult> OnPostAsync() 
         {
             ModelState.Clear();
-            // returnUrl = returnUrl ?? Url.Content("~/");
             if (!TryValidateModel(ProductRating))
             {
-                // return LocalRedirect(returnUrl);
                 return Page();
-                // return Partial("ProductRatingModal",ProductRating);
             }
 
             ProductRating.RateDate=DateTime.Now;
@@ -88,7 +88,8 @@ namespace eCommerce.CustomerSite.Pages.Products
         public async Task<PartialViewResult> OnPostProductRatingModal(RatingVm ratingVm)
         {
             ViewData["IsValid"]="False";
-            if (!TryValidateModel(ProductRating))
+            ModelState.Clear();
+            if (TryValidateModel(ProductRating))
             {
                 ProductRating=ratingVm;
                 ProductRating.RateDate=DateTime.Now;

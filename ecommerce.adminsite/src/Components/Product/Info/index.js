@@ -83,12 +83,17 @@ const Info = ({ product, handleClose }) => {
                 <td>{product.price}</td>
               </tr>
               <tr>
-                <th scope="row">Is Featured:</th>
-                <td>{getIsFeaturedProduct(product.isFeatured)}</td>
-              </tr>
-              <tr>
                 <th scope="row">Is Deleted:</th>
                 <td>{getIsDeleted(product.isDeleted)}</td>
+              </tr>
+              <tr>
+                <th scope="row">Images:</th>
+                <td>
+                  <img src={product.images} alt="Product Image"
+                    className="object-center w-full rounded-md"
+                  />
+                </td>
+                  
               </tr>
             </tbody>
           </table>

@@ -1,5 +1,8 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using eCommerce.Shared.Dto.Rating;
+using System.Collections.Generic;
+using eCommerce.Shared.Dto.Category;
 
 namespace eCommerce.Shared.Dto.Product
 {
@@ -20,5 +23,8 @@ namespace eCommerce.Shared.Dto.Product
         public bool isDeleted{get;set;}
         public int BrandId {get;set;}
         public int CategoryId{get;set;}
+        public int AverageRating {get;set;}
+        public List<RatingDto> ProductRatings{get;set;}
+        public CategoryDto Category{get;set;}
     }
 }

@@ -26,12 +26,26 @@ namespace eCommerce.Backend.Services
             _fileStorageService=fileStorageService;
             _mapper = mapper;
         }
-        //get product and paging
+        //get product and paging for admin site
         public async Task<PagedResponseDto<ProductDto>> GetProductAsync(ProductCriteriaDto productCriteriaDto)
         {
             //query
-            var query =_context.Products.AsQueryable();
-            //Filter (search product by name)
+            IQueryable<Product> query=null;
+            if(productCriteriaDto.Type!=null){
+                query = _context.Products
+                                .Include(s=>s.Category)
+                                .Include(s=>s.ProductRatings)
+                                .Where(s=>s.isDeleted==false)
+                                .AsQueryable();
+            }
+            else
+            {
+                query = _context.Products
+                                .Include(s=>s.Category)
+                                .Include(s=>s.ProductRatings)
+                                .AsQueryable();
+                                }
+            //paging and filter product
             if (!string.IsNullOrEmpty(productCriteriaDto.Search))
             {
                 query = query.Where(x => x.Name.Contains(productCriteriaDto.Search));
@@ -59,11 +73,15 @@ namespace eCommerce.Backend.Services
                 Items = ProductDto
             };
         }
-        //Get top 10 product is featured
         public async Task<List<ProductDto>> GetFeaturedProducts()
         {
             //query
-            var query= await _context.Products.Where(x=>x.IsFeatured==true).Take(10).ToListAsync();
+            var query= await _context.Products
+                            .Include(s=>s.ProductRatings)
+                            .Include(s=>s.Category)
+                            .Where(x=>x.IsFeatured==true&&x.isDeleted==false)
+                            .Take(10)
+                            .ToListAsync();
             //mapping List<Product> to List<ProductDto>
             var productDto = _mapper.Map<List<ProductDto>>(query);
             return productDto;
@@ -72,7 +90,13 @@ namespace eCommerce.Backend.Services
         public async Task<List<ProductDto>> GetLastestProduct()
         {
             //query
-            var query= await _context.Products.OrderByDescending(x=>x.CreatedDate).Take(10).ToListAsync();
+            var query= await _context.Products
+                            .Where(x=>x.isDeleted==false)
+                            .Include(s=>s.ProductRatings)
+                            .Include(s=>s.Category)
+                            .OrderByDescending(x=>x.CreatedDate)
+                            .Take(10)
+                            .ToListAsync();
             //mapping List<Product> to List<ProductDto>
             var productDto = _mapper.Map<List<ProductDto>>(query);
             return productDto;
@@ -144,7 +168,10 @@ namespace eCommerce.Backend.Services
         public async Task<ProductDto> GetProductByIdAsync(int id)
         {
             //get product by Id
-            var product = await _context.Products.Where(x=>x.Id == id).FirstOrDefaultAsync();
+            var product = await _context.Products
+                                        .Include(s=>s.Category)
+                                        .Where(x=>x.Id == id)
+                                        .FirstOrDefaultAsync();
             //mapping Product to ProductDto
             var productDto = _mapper.Map<ProductDto>(product);
 

@@ -1,0 +1,126 @@
+@model eCommerce.CustomerSite.Models.HomeVm;
+
+<div class="slider-with-banner">
+		<div class="container">
+			<div class="row">
+				<!-- Begin Category Menu Area -->
+				<div class="col-lg-3">
+					<!--Category Menu Start-->
+					<div class="category-menu">
+						<div class="category-heading">
+							<h2 class="categories-toggle"><span>categories</span></h2>
+						</div>
+						<div id="cate-toggle" class="category-menu-list">
+							<ul>
+								@foreach (var item in Model.Categories)
+								{
+									if(item.ParentId==null)
+									{
+										<li class="right-menu"><a asp-area="" asp-page="/Products/Index" asp-route-CategoryId="@item.Id">@item.Name</a>
+											<ul class="cat-mega-menu">
+												<li class="right-menu cat-mega-title">
+													<ul>
+														@foreach (var item2 in Model.Categories)
+														{
+															if(item.Id==item2.ParentId)
+															{
+																<li><a asp-area="" asp-page="/Products/Index" asp-route-CategoryId="@item2.Id">@item2.Name</a></li>
+															}
+														}
+													</ul>
+												</li>
+											</ul>
+										</li>
+									}
+								}
+							</ul>
+						</div>
+					</div>
+					<!--Category Menu End-->
+				</div>
+				<!-- Category Menu Area End Here -->
+				<!-- Begin Slider Area -->
+				<div class="col-lg-9">
+					<div class="slider-area pt-sm-30 pt-xs-30">
+						<div class="slider-active owl-carousel">
+							<!-- Begin Single Slide Area -->
+							<div class="single-slide align-center-left animation-style-02 bg-4">
+								<div class="slider-progress"></div>
+								<div class="slider-content">
+									<h5>Sale Offer <span>-20% Off</span> This Week</h5>
+									<h2>Accessories | S9+</h2>
+									<h3>Starting at <span>$589.00</span></h3>
+									<div class="default-btn slide-btn">
+										<a class="links" href="shop-left-sidebar.html">Shopping Now</a>
+									</div>
+								</div>
+							</div>
+							<!-- Single Slide Area End Here -->
+							<!-- Begin Single Slide Area -->
+							<div class="single-slide align-center-left animation-style-01 bg-5">
+								<div class="slider-progress"></div>
+								<div class="slider-content">
+									<h5>Sale Offer <span>-20% Off</span> This Week</h5>
+									<h2>Accessories | S9+</h2>
+									<h3>Starting at <span>$589.00</span></h3>
+									<div class="default-btn slide-btn">
+										<a class="links" href="shop-left-sidebar.html">Shopping Now</a>
+									</div>
+								</div>
+							</div>
+							<!-- Single Slide Area End Here -->
+							<!-- Begin Single Slide Area -->
+							<div class="single-slide align-center-left animation-style-02 bg-6">
+								<div class="slider-progress"></div>
+								<div class="slider-content">
+									<h5>Sale Offer <span>-20% Off</span> This Week</h5>
+									<h2>Accessories | S9+</h2>
+									<h3>Starting at <span>$589.00</span></h3>
+									<div class="default-btn slide-btn">
+										<a class="links" href="shop-left-sidebar.html">Shopping Now</a>
+									</div>
+								</div>
+							</div>
+							<!-- Single Slide Area End Here -->
+						</div>
+					</div>
+				</div>
+				<!-- Slider Area End Here -->
+			</div>
+		</div>
+	</div>
+    <!-- Slider With Category Menu Area End Here -->
+	<!-- Begin Li's Static Banner Area -->
+	<div class="li-static-banner pt-20 pt-sm-30 pt-xs-30">
+		<div class="container">
+			<div class="row">
+				<!-- Begin Single Banner Area -->
+				<div class="col-lg-4 col-md-4">
+					<div class="single-banner pb-xs-30">
+						<a href="#">
+							<img src="images/banner/1_3.jpg" alt="Li's Static Banner">
+						</a>
+					</div>
+				</div>
+				<!-- Single Banner Area End Here -->
+				<!-- Begin Single Banner Area -->
+				<div class="col-lg-4 col-md-4">
+					<div class="single-banner pb-xs-30">
+						<a href="#">
+							<img src="images/banner/1_4.jpg" alt="Li's Static Banner">
+						</a>
+					</div>
+				</div>
+				<!-- Single Banner Area End Here -->
+				<!-- Begin Single Banner Area -->
+				<div class="col-lg-4 col-md-4">
+					<div class="single-banner">
+						<a href="#">
+							<img src="images/banner/1_5.jpg" alt="Li's Static Banner">
+						</a>
+					</div>
+				</div>
+				<!-- Single Banner Area End Here -->
+			</div>
+		</div>
+	</div>

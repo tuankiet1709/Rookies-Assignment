@@ -19,24 +19,24 @@ public class ProductService : IProductService
         _clientFactory = clientFactory;
     }
 
-    public async Task<PagedResponseDto<ProductDto>> GetProductAsync(ProductCriteriaDto ProductCriteriaDto)
+    public async Task<PagedResponseDto<ProductDto>> GetProductAsync(ProductCriteriaDto productCriteriaDto)
     {
         var client = _clientFactory.CreateClient(ServiceConstants.BACK_END_NAMED_CLIENT);
         var getProductsEndpoint = "";
                                     
-        if(!string.IsNullOrEmpty(ProductCriteriaDto.Search)){
-            getProductsEndpoint=$"{EndpointConstants.GET_PRODUCTS}?Search={ProductCriteriaDto.Search}";
+        if(!string.IsNullOrEmpty(productCriteriaDto.Search)){
+            getProductsEndpoint=$"{EndpointConstants.GET_PRODUCTS}?Type={productCriteriaDto.Type}&Search={productCriteriaDto.Search}&Page={productCriteriaDto.Page}";
         }
-        else if(ProductCriteriaDto.CategoryId!=null){
-            getProductsEndpoint=$"{EndpointConstants.GET_PRODUCTS}?CategoryId={ProductCriteriaDto.CategoryId}";
+        else if(productCriteriaDto.CategoryId!=null){
+            getProductsEndpoint=$"{EndpointConstants.GET_PRODUCTS}?Type={productCriteriaDto.Type}&CategoryId={productCriteriaDto.CategoryId}&Page={productCriteriaDto.Page}";
         }
-        else if(!string.IsNullOrEmpty(ProductCriteriaDto.Search)&&ProductCriteriaDto.CategoryId!=null){
-            getProductsEndpoint=$"{EndpointConstants.GET_PRODUCTS}?Search={ProductCriteriaDto.Search}&CategoryId={ProductCriteriaDto.CategoryId}";
+        else if(!string.IsNullOrEmpty(productCriteriaDto.Search)&&productCriteriaDto.CategoryId!=null){
+            getProductsEndpoint=$"{EndpointConstants.GET_PRODUCTS}?Type={productCriteriaDto.Type}&Search={productCriteriaDto.Search}&CategoryId={productCriteriaDto.CategoryId}&Page={productCriteriaDto.Page}";
         }
         else{
-            getProductsEndpoint=EndpointConstants.GET_PRODUCTS;
+            getProductsEndpoint=$"{EndpointConstants.GET_PRODUCTS}?Type={productCriteriaDto.Type}&Page={productCriteriaDto.Page}";
         }
-        
+
         var response = await client.GetAsync(getProductsEndpoint);
         response.EnsureSuccessStatusCode();
         var pagedProducts = await response.Content.ReadAsAsync<PagedResponseDto<ProductDto>>();

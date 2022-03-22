@@ -8,12 +8,14 @@ $(function () {
     var productId = 0;
     var productName = "";
     var productDes = "";
+    var productImg="";
 
     $('button[data-toggle="ajax-modal"]').click(function (event) {
         var url = $(this).data('url');
         productId = $(this).data('id');
         productName = $(this).data('name');
         productDes = $(this).data('des');
+        productImg=$(this).data('img');
         
         $.get(url).done(function (data) {
             placeholderElement.html(data);
@@ -21,6 +23,7 @@ $(function () {
             $(".li-product-name").text(productName);
             $(".product-des").text(productDes);
             $("#productIdHidden").val(productId);
+            $("#productImg-modal").attr("src",productImg);
         });
         
     });
@@ -40,6 +43,7 @@ $(function () {
             $(".li-product-name").text(productName);
             $(".product-des").text(productDes);
             $("#productIdHidden").val(productId);
+            $("#productImg-modal").attr("src",productImg);
 
             var isValid = newBody.find('[name="IsValid"]').val() == 'True';
             if (isValid) {
