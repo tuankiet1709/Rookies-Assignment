@@ -11,8 +11,6 @@ public class HomeController : Controller
     private readonly IProductService _productService;
     private readonly ICategoryService _categoryService;
     private readonly IBrandService _brandService;
-    public MainLayoutViewModel Layout { get; set; }
-
     public HomeController(ILogger<HomeController> logger,
     IMapper mapper,
     IProductService productService,

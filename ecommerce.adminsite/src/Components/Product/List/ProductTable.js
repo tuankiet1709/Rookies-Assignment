@@ -23,13 +23,10 @@ const columns= [
   { columnName: "name ", columnValue: "Name" },
   { columnName: "description ", columnValue: "Description" },
   { columnName: "details ", columnValue: "Details" },
-  { columnName: "images ", columnValue: "Images" },
-  { columnName: "originalPrice ", columnValue: "OriginalPrice" },
-  { columnName: "price ", columnValue: "Price" },
+   { columnName: "price ", columnValue: "Price" },
   { columnName: "created Date ", columnValue: "CreatedDate" },
   { columnName: "updated Date ", columnValue: "UpdatedDate" }, 
   { columnName: "category Id ", columnValue: "CategoryId" }, 
-  { columnName: "isFeatured ", columnValue: "IsFeatured" }, 
   { columnName: "isDeleted ", columnValue: "IsDeleted" }, 
 ];
 
@@ -151,13 +148,10 @@ const ProductTable = ({
             <td>{data.name}</td>
             <td>{data.description}</td>
             <td>{data.details}</td>
-            <td>{data.images}</td>
-            <td>{data.originalPrice}</td>
             <td>{data.price}</td>
             <td>{getFormatDateTime(data.createdDate)}</td>
             <td>{data.updatedDate==null?data.updatedDate:getFormatDateTime(data.updatedDate)}</td>
             <td>{data.categoryId}</td>
-            <td>{getIsFeatured(data.isFeatured)}</td>
             <td>{getIsDeleted(data.isDeleted)}</td>
 
             <td>

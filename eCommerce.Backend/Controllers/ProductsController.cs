@@ -25,7 +25,7 @@ public class ProductsController : ControllerBase
     //https://localhost:44342/api/products
     [HttpGet()]
     [AllowAnonymous]
-    public async Task<IActionResult> GetProductAsync([FromQuery] ProductCriteriaDto productCriteriaDto)
+    public async Task<IActionResult> GetProductAsync([FromQuery]ProductCriteriaDto productCriteriaDto)
     {
         var data = await _productService.GetProductAsync(productCriteriaDto);
         return Ok(data);

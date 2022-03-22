@@ -8,13 +8,6 @@ namespace eCommerce.Backend.Models
         public string LastName { get; set; }
         public List<Cart> Carts{get;set;}
         public List<Order> Orders{get;set;}
-        // public User() : base()
-        // {
-        // }
-
-        // public User(string userName) : base(userName)
-        // {
-        // }
         
     }
 }

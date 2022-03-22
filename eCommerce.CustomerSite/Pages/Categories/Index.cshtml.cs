@@ -6,10 +6,10 @@ using eCommerce.CustomerSite.ViewModel.Category;
 using eCommerce.Shared.Constants;
 using eCommerce.Shared.Dto.Category;
 using eCommerce.Shared.Enum;
-
+using eCommerce.CustomerSite.Models;
 namespace eCommerce.CustomerSite.Pages.Categories
 {
-    public class IndexModel : PageModel
+    public class IndexModel : MainLayoutViewModel
     {
         private readonly ICategoryService _categoryservice;
         private readonly IConfiguration _config;

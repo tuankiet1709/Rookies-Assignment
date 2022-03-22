@@ -7,6 +7,7 @@ using eCommerce.Shared.Dto.Category;
 using eCommerce.Shared.Dto.Rating;
 using eCommerce.Shared.Dto.Customer;
 using eCommerce.Shared.ViewModel.Rating;
+using eCommerce.Backend.Extension;
 
 namespace eCommerce.Backend.Data.Mapping
 {
@@ -26,8 +27,10 @@ namespace eCommerce.Backend.Data.Mapping
                            opts => opts
                                     .MapFrom(src => ImageHelper
                                                         .GetFileUrl(src.Images)
-                                                    ));  
-            CreateMap<Category, CategoryDto>();  
+                                                    ))
+                .ForMember(src=>src.AverageRating,
+                            opts=>opts.MapFrom(src=>src.ProductRatings.CalculateAverageRating()));
+            CreateMap<Category, CategoryDto>(); 
             CreateMap<Category, CategoryOptionDto>();  
             CreateMap<Rating, RatingDto>();  
             CreateMap<RatingCreateRequest,Rating>();

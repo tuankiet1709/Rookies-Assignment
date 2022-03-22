@@ -27,7 +27,7 @@ namespace eCommerce.Backend.Services
         public async Task<IEnumerable<RatingDto>> GetProductRating(int productId)
         {
             //Get rating by product id
-            var productRating = await _context.Ratings.Where(x=>x.ProductId == productId).Take(20).ToListAsync();
+            var productRating = await _context.Ratings.Where(x=>x.ProductId == productId).OrderByDescending(s=>s.RateDate).Take(20).ToListAsync();
             //Mapping IEnumberable<RatingDto> to IEnumberable<RatingDto>
             var ratingDto = _mapper.Map<IEnumerable<RatingDto>>(productRating);
 

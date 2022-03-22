@@ -54,7 +54,7 @@ namespace eCommerce.Backend.Services
         public async Task<IEnumerable<CategoryDto>> GetCategoriesHome()
         {
             //query
-            var query= await _context.Categories.Where(x=>x.Status==Status.Active).Take(100).ToListAsync();
+            var query= await _context.Categories.Where(x=>x.Status==Status.Active).Take(50).ToListAsync();
             //mapping IEnumerable<Category> to IEnumerable<CategoryDto>
             var CategoryDto = _mapper.Map<IEnumerable<CategoryDto>>(query);
             return CategoryDto;
@@ -62,7 +62,7 @@ namespace eCommerce.Backend.Services
         public async Task<IEnumerable<CategoryOptionDto>> GetCategoriesOption(string getParam)
         {
             //query
-            var query= await _context.Categories.Where(x=>x.Status==Status.Active).Take(100).ToListAsync();
+            var query= await _context.Categories.Where(x=>x.Status==Status.Active).Take(50).ToListAsync();
             
             //filter(get category child or parent)
             if(getParam=="child"){

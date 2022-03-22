@@ -23,5 +23,10 @@ namespace eCommerce.Backend.Models
         public Brand Brand {get;set;}
         public Category Category {get;set;}
 
+        public Product() 
+        {
+            ProductRatings = new List<Rating>();
+        }
+
     }
 }
